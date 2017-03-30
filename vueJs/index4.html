@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>vue.js</title>
+		<script src="js/vue.1.0.11.min.js"></script>
+	</head>
+	<body>
+		<div id="demo">
+		  <h1>{{title | uppercase}}</h1>
+		  <ul>
+		    <li
+		      v-for="todo in todos"
+		      v-on:click="mytest"
+		      class="{{done ? 'done' : 'cls'}}" style="border:1px solid lawngreen;cursor:pointer;">
+		      {{todo.content}}
+		    </li>
+		  </ul>
+		</div>
+		<script>
+			var demo = new Vue({
+			  el: '#demo',
+			  data: {
+			    title: 'todos',
+			    todos: [
+			      {
+			        done: true,
+			        content: 'Learn JavaScript'
+			      },
+			      {
+			        done: false,
+			        content: 'Learn Vue.js'
+			      }
+			    ]
+			  },
+			  methods:{
+			  	mytest:function(e){
+			  		alert(e.target);
+			  	}
+			  }
+			});
+			
+			
+		</script>
+	</body>
+</html>

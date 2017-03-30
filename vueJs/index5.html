@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>vue.js</title>
+		<script src="js/vue.1.0.11.min.js"></script>
+	</head>
+	<body>
+		<div id="demo">
+		  <h1>{{title | uppercase}}</h1>
+		  <ul>
+		    <li
+		      v-for="todo in todos"
+		      v-on:click="mytest"
+		      style="border:1px solid lawngreen;cursor:pointer;">
+		      {{todo}}
+		    </li>
+		  </ul>
+		</div>
+		<script>
+			var demo = new Vue({
+			  el: '#demo',
+			  data: {
+			    title: 'todos',
+			    todos: [
+			       "Learn JavaScript", "Learn Vue.js", "Learn knockout.js", "Learn require.js"
+			    ]
+			  },
+			  methods:{
+			  	mytest:function(e){
+			  		alert(e.target);
+			  	}
+			  }
+			});
+			
+			
+		</script>
+	</body>
+</html>

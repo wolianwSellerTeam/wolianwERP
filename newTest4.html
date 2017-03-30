@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>菜单栏</title>
+<style type="text/css">
+	*{margin:0px;padding:0px;}
+	#oDiv{background:red;width:967px;height:40px;margin:50px auto 0;}
+	#oDiv ul{list-style:none;background:lightblue;position:relative;height:100%;}
+	#oDiv ul li{width:100px;height:40px;border-left:1px solid #ccc;margin:0px;float:left;text-align:center;line-height:40px;cursor:pointer;}
+	#oDiv ul li.liLast{height:3px;background:red;position:absolute;border:none;top: 37px;left: 50px;}
+</style>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var oDiv = document.getElementById("oDiv");
+		var oLis = oDiv.getElementsByTagName("li");
+		var oLiLast = oLis[oLis.length-1];
+		var i;
+		for(i=0; i < oLis.length-1; i++){
+			oLis[i].style.left = oLis[i].offsetLeft+"px";
+			oLis[i].style.top = oLis[i].offsetTop+"px";
+			oLis[i].onmouseover = function(){
+				var Left=parseInt(getStyle(this,"left"));
+				_startMove(oLiLast, "left", Left, 3);
+			}
+			oLis[i].onmouseout = function(){
+				_startMove(oLiLast, "left", 50, 3);
+			}
+		}
+		for(i=0; i < oLis.length-1; i++){
+			oLis[i].style.position = "absolute";
+			oLis[i].style.margin = "0px";
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="oDiv">
+		<ul>
+			<li style="margin-left:50px;">首&emsp;页</li>
+			<li>主菜单一</li>
+			<li>主菜单二</li>
+			<li>主菜单三</li>
+			<li>主菜单四</li>
+			<li style="border-right:1px solid #ccc">主菜单五</li>
+			<li class="liLast">&emsp;</li>
+		</ul>
+	</div>
+</body>
+</html>

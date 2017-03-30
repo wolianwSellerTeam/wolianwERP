@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>键盘控制移动</title>
+<style type="text/css">
+ 	*{margin:0px,padding:0px;}
+ 	#oDiv1,#oDiv2{width:50px;height:50px;background:red;position:absolute;top:42%;}
+	#oDiv1{left:5%;font-size:15px;text-align:center;line-height:50px;}
+	#oDiv2{left:88%;font-size:15px;text-align:center;line-height:50px;}
+</style>
+<script>
+	window.onload = function(){
+		var oDiv2 = document.getElementById("oDiv2");
+		var left=Top=right=down=false;  //上下左右箭头控制右边的div方向   上：37      下：38        左：39        右：40
+		var aLeft=wTop=dRight=sDown=false;//a、w、d、s分别控制左边div的上下左右   a:65  w:87  d:68  s:83
+		setInterval(function(){
+			if(left){
+				oDiv2.style.left = oDiv2.offsetLeft-10+'px';
+			}
+			else if(Top){
+				oDiv2.style.top = oDiv2.offsetTop-10+'px';
+			}
+			else if(right){
+				oDiv2.style.left = oDiv2.offsetLeft+10+'px';
+			}
+			else if(down){
+				oDiv2.style.top = oDiv2.offsetTop+10+'px';
+			}
+			else if(aLeft){
+				oDiv1.style.left = oDiv1.offsetLeft-10+'px';
+			}
+			else if(wTop){
+				oDiv1.style.top = oDiv1.offsetTop-10+'px';
+			}
+			else if(dRight){
+				oDiv1.style.left = oDiv1.offsetLeft+10+'px';
+			}
+			else if(sDown){
+				oDiv1.style.top = oDiv1.offsetTop+10+'px';
+			}
+				
+		},50);
+		
+		document.onkeydown = function(e){
+			e = e || window.event;
+			switch(e.keyCode){
+				case 37: left=true; break;
+				case 38: Top=true; break;
+				case 39: right=true; break;
+				case 40: down=true; break;
+				
+				case 65: aLeft=true; break;
+				case 87: wTop=true; break;
+				case 68: dRight=true; break;
+				case 83: sDown=true; break;
+			}
+		}
+		
+		document.onkeyup = function(e){
+			e = e || window.event;
+			switch(e.keyCode){
+				case 37: left=false; break;
+				case 38: Top=false; break;
+				case 39: right=false; break;
+				case 40: down=false; break;
+				
+				case 65: aLeft=false; break;
+				case 87: wTop=false; break;
+				case 68: dRight=false; break;
+				case 83: sDown=false; break;
+			}
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<div id="oDiv1">坦克1</div>
+	<div id="oDiv2">坦克2</div>
+	
+</body>
+</html>

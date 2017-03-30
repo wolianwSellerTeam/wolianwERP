@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>vue.js</title>
+		<script src="js/vue.1.0.11.min.js"></script>
+		
+	</head>
+	<body>
+		<div id="test" class="{{cls}}" name={{name}}>
+			{{ms}}                           [显示数据]<br />
+			{{ms+name}}                      [字符串拼接1]<br />
+			{{"我是一个class，名叫："+cls}}        [字符串拼接2]<br />
+			{{*name}}                        [不准输入框修改数据改变影响当前]<br />
+			{{cls}}   <br />
+			<input type="text" v-model="name" />
+			<h1 v-if="Math.random() > 0.5">(随机数：{{suiji}})随机数大于 0.5{{suiji}}</h1>
+			<h1 v-else>(随机数：Math.random()) 随机数不大于 0.5</h1>
+		</div>
+		<script>
+			new Vue({
+				el:"#test",
+				suiji:"Math.random()",
+				data:{
+					ms:"hello,world!",
+					cls:"my_class",
+					name:"my_name"
+				}
+			})
+		</script>
+	</body>
+</html>

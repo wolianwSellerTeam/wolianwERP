@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8" />
+	<title>跟随鼠标移动练习</title>
+<style type="text/css">
+ 	*{margin:0px,padding:0px;}
+	/*#oDiv{width:100px;height:100px;background:red;position:absolute;}*/
+	div{width:10px;height:10px;background:red;position:absolute;}
+</style>
+<script>
+	window.onload = function(){
+		//var oDiv = document.getElementById("oDiv");
+		var divs = document.getElementsByTagName("div");
+		
+		document.onmousemove = function(e){
+			e = e || window.event;
+			
+			var scrolLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+			var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			var i;
+			 for(i=divs.length-1;i>0;i--){
+				divs[i].style.left = divs[i-1].style.left;
+				divs[i].style.top = divs[i-1].style.top;
+			}
+			
+			divs[0].style.left = e.clientX+scrolLeft+'px';
+			divs[0].style.top = e.clientY+scrolLeft+'px';
+			
+		}
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+	<!-- <div id="oDiv"></div> -->
+	<div></div><div></div><div></div><div></div><div></div><div></div>
+	<div></div><div></div><div></div><div></div><div></div><div></div>
+	<div></div><div></div><div></div><div></div><div></div><div></div>
+	<div></div><div></div><div></div><div></div><div></div><div></div>
+	<div></div><div></div><div></div><div></div><div></div><div></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>vue.js</title>
+		<script src="js/vue.1.0.11.min.js"></script>
+	</head>
+	<body>
+		<div id="test">
+			<ul id="ulDemo">
+				<li v-for="list in lists">
+					{{myTitle}} - {{$index}} - {{list.txt}}
+				</li>
+			</ul>
+		</div>
+		<script>
+			var ulTest=new Vue({
+				el:"#ulDemo",
+				data:{
+					myTitle:"vue.js学习",
+					lists:[
+						{txt:"网站首页"},
+						{txt:"前端资源"},
+						{txt:"网站咨询"},
+						{txt:"网站资源"},
+						{txt:"网闻趣事"},
+						{txt:"兴之所至"}
+					]
+					
+				}
+			})
+		</script>
+	</body>
+</html>
