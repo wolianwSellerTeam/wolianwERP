@@ -22,12 +22,11 @@
 	display: block;
 	height: 35px;
 	line-height: 35px;
-	margin-right: 40px;
 }
 
 .icon-i{
 	display: inline-block;
-	margin-right: 50px;
+	margin-right: 40px;
 	font-size: 24px;
 }
 .icon-i>input{
@@ -99,7 +98,7 @@
 }
 .amount{
 	text-align: left;
-	padding-left: 30px;
+	margin-left: 20px;
 	color: #000;
 	font-weight: bold;
 	font-size: 16px;
@@ -261,4 +260,14 @@
     height: 26px;
     background-color: #39cb88;
     line-height: 26px;
+}
+
+@media (min-width: 768px) { 
+	.listLine { width: 45px; }
+}
+@media (min-width: 992px) { 
+	.listLine { width: 65px; }
+} 
+@media (min-width: 1300px) { 
+		.listLine { width: 85px; }
 }
