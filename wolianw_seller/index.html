@@ -274,6 +274,7 @@
 			});
 		</script>
 		<script>
+			//iframe 自适应
 			function setIframeHeight(iframe) {
 				if (iframe) {
 					var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
@@ -284,7 +285,7 @@
 			};
 
 			window.onload = function () {
-			setIframeHeight(document.getElementById('external-frame'));
+				setIframeHeight(document.getElementById('external-frame'));
 			};
 		</script>
 	</body>
