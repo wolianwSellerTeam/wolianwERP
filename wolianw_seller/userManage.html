@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<title>用户管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="我连网卖家中心-用户管理" />
+		<link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="build/css/contentPages.css">
+    <link rel="stylesheet" href="build/css/index.css" />
+	</head>
+	<body -bgcolor="#eee">
+		<div class="layui-fluid">
+			<div class="header">
+				<span class="layui-breadcrumb">
+				  <a><cite>您当前所在位置</cite></a>
+				  <a><cite>用户管理</cite></a>
+				  <a><cite>地址列表</cite></a>
+				</span>
+			</div>
+			
+			<!--  start -->
+			<section class="ibox">
+				<header class="ibox-title">
+					<div class="layui-row">
+						<div class="layui-col-sm12 layui-col-md12 layui-col-md12">
+							<button class="layui-btn layui-btn-small" style="margin-right: 10px;"><i class="fa fa-plus"></i>&nbsp;&nbsp;新增地址</button>
+							<span class="color6">最多支持5个发货地址</span>
+						</div>
+					</div>
+				</header>
+				<article class="ibox-content">
+					<div class="layui-row">
+						<div class="layui-col-lg12">
+							<table lay-filter="parse_table" class="layui-table layui-table-line">
+								<tr>
+									<th>联系人</th>
+									<th>联系电话</th>
+									<th>地址</th>
+									<th>是否默认</th>
+									<th>操作</th>
+								</tr>
+								<tr>
+									<td>佳佳服饰厂</td>
+									<td>18648794416</td>
+									<td>广东深广州市白云区石井镇姚鑫村太平里南街10号四楼271公交总站对面（千惠服装厂收）</td>
+									<td>否</td>
+									<td>
+										<button class="layui-btn layui-btn-normal layui-btn-small"><i class="fa fa-check"></i>&nbsp;&nbsp;设为默认</button>
+										<button class="layui-btn layui-btn-normal layui-btn-small"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+										<button class="layui-btn layui-btn-small bg-red"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;删除</button>
+									</td>
+								</tr>
+								<tr>
+									<td>陈翔</td>
+									<td>18648794416</td>
+									<td>广东深广州市白云区石井镇姚鑫村太平里南街10号四楼271公交总站对面（千惠服装厂收）</td>
+									<td>是</td>
+									<td>
+										<button class="layui-btn layui-btn-normal layui-btn-small"><i class="fa fa-check"></i>&nbsp;&nbsp;设为默认</button>
+										<button class="layui-btn layui-btn-normal layui-btn-small"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+										<button class="layui-btn layui-btn-small bg-red"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;删除</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!--  end -->
+			
+		</div> 
+		
+		
+		
+		
+		
+		
+		
+		<script src="./plugins/layui/layui.js"></script>
+		<script>
+			//JavaScript代码区域
+			layui.use(['element', 'laydate', 'table', 'form'], function(){
+			  var form = layui.form,
+			  		$ = layui.jquery,	
+			  	  layer = layui.layer,
+			  	  laydate = layui.laydate,
+			  	  table = layui.table;
+			  	  
+			  	  //自定义格式
+					  laydate.render({
+					    elem: '#date-ymd-start',
+					    format: 'yyyy年MM月dd日'
+					  });
+					  laydate.render({
+					    elem: '#date-ymd-end',
+					    format: 'yyyy年MM月dd日'
+					  });
+					  
+			});
+		</script>
+	</body>
+</html>

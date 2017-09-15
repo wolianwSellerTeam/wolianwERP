@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<title>我的工作台</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="我连网卖家中心-我的工作台" />
+		<link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="build/css/contentPages.css">
+    <link rel="stylesheet" href="build/css/index.css" />
+    <link rel="stylesheet" href="build/css/main.css" />
+	</head>
+	<body -bgcolor="#eee">
+		<div class="layui-fluid">
+			<div class="header">
+				<span class="layui-breadcrumb">
+				  <a><cite>您当前所在位置</cite></a>
+				  <a><cite>我的工作台</cite></a>
+				</span>
+			</div>
+			
+			<!--  start -->
+			<section class="ibox" style="padding: 5px 20px;">
+				<header class="ibox-title">
+					<div class="layui-row">
+						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12" style="border-right: 1px dashed #e2e2e2;height:170px;">
+							<div class="user-box">
+								<a href="index.html" target="_top">
+									<img src="build/images/user.png" class="user-img" />
+								</a>
+							</div>
+							<div class="ibox-text">
+								<label class="line-text layui-elip" title="我连服装工厂联盟">
+									<span class="ibox-attribute">战略联盟工厂：</span>
+									<cite class="ibox-value">我连服装工厂联盟</cite>
+								</label>
+								<label class="line-text layui-elip" title="食品(含乳冷食品)、粮油制品、熟食制品、面食品等等">
+									<span class="ibox-attribute">主营范围：</span>
+									<cite class="ibox-value">食品(含乳冷食品)、粮油制品、熟食制品、面食品等等</cite>
+								</label>
+								<label class="line-text" style="margin-left: 75px;">
+									<a href="javascripa:;" class="icon-i" id="marker">
+										<i class="fa fa-map-marker marker"></i>
+										<input type="button" value="定位" />
+									</a>
+									<a href="javascripa:;" class="icon-i" id="mobile">
+										<i class="fa fa-mobile mobile"></i>
+										<input type="button" value="手机" />
+									</a>
+									<a href="javascripa:;" class="icon-i" id="weixin">
+										<!--<span class="fa-stack fa-lg">
+											<i class="fa fa-comment-o weixin fa-stack-2x"></i>
+											<i class="fa fa-ellipsis-h fa-stack-1x"></i>
+										</span>-->
+										<i class="fa fa-comment-o weixin"></i>
+										<input type="button" value="微信" />
+									</a>
+									<a href="javascripa:;" class="icon-i" id="home" style="margin-right: 0px;">
+										<i class="fa fa-home home"></i>
+										<input type="button" value="主页" />
+									</a>
+								</label>
+							</div>
+						</div>
+						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12" style="border-right: 1px dashed #e2e2e2;">
+							<div class="lineBox">
+								<label class="listLine">
+									<span class="listIcon color-blue"><i class="fa fa-list-alt"></i></span>
+									<span class="listText">订单</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon color-red"><b>5</b></span>
+									<span class="listText">待接单</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon color-red"><b>10</b></span>
+									<span class="listText">代发货</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon"><b>35</b></span>
+									<span class="listText">全部订单</span>
+								</label>
+							</div>
+							<div class="lineBox">
+								<label class="listLine">
+									<span class="listIcon color-red"><i class="fa fa-support"></i></span>
+									<span class="listText">售后单</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon color-red"><b>5</b></span>
+									<span class="listText">待退货</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon color-red"><b>10</b></span>
+									<span class="listText">代收货</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon color-red"><b>35</b></span>
+									<span class="listText">待退款</span>
+								</label>
+							</div>
+							<div class="lineBox">
+								<label class="listLine">
+									<span class="listIcon color-green"><i class="fa fa-gift"></i></span>
+									<span class="listText">商品</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon"><b>5</b></span>
+									<span class="listText">待审核</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon"><b>10</b></span>
+									<span class="listText">已上架</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon"><b>35</b></span>
+									<span class="listText">已下架</span>
+								</label>
+								<label class="listLine">
+									<span class="listIcon"><b>35</b></span>
+									<span class="listText">已退回</span>
+								</label>
+							</div>
+						</div>
+						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
+							<div class="lineBox">
+								<label class="listLine text-right">
+									<span class="listIcon">账户余额</span>
+								</label>
+								<label class="listLine" style="width: 150px">
+									<span class="listIcon amount color-blue">12000.00</span>
+								</label>
+								<label class="listLine" style="width: 175px;">
+									<button class="layui-btn layui-btn-small layui-btn-normal">充值</button>
+									<button class="layui-btn layui-btn-small">转账</button>
+								</label>
+							</div>
+							<div class="lineBox">
+								<label class="listLine text-right">
+									<span class="listIcon">可提现金额</span>
+								</label>
+								<label class="listLine" style="width: 150px">
+									<span class="listIcon amount">12000.00</span>
+								</label>
+								<label class="listLine" style="width: 175px;">
+									<button class="layui-btn layui-btn-small layui-btn-normal">充值</button>
+									<button class="layui-btn layui-btn-small">银行卡</button>
+								</label>
+							</div>
+							<div class="lineBox">
+								<label class="listLine text-right">
+									<span class="listIcon">冻结金额</span>
+								</label>
+								<label class="listLine" style="width: 150px;margin-top: 20px;">
+									<span class="listIcon amount color-red">12000.00</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</header>
+			</section>
+			<!--  end -->
+			
+			<!-- 本月 上月 本年 全年 start -->
+			<section class="ibox" style="padding: 20px;">
+				<header class="ibox-title">
+					<div class="layui-row">
+						<div class="layui-col-md3 layui-col-sm6 layui-col-xs12 countBox">
+							<span class="gradient">本月</span>
+							<ul class="ulBox">
+								<li>
+									<span class="listNum">9651.00</span>
+									<span class="listTitle">销售金额</span>
+								</li>
+								<li>
+									<span class="listNum">1024</span>
+									<span class="listTitle">订单数量</span>
+								</li>
+							</ul>
+						</div>
+						<div class="layui-col-md3 layui-col-sm6 layui-col-xs12 countBox">
+							<span class="gradient">上月</span>
+							<ul class="ulBox">
+								<li>
+									<span class="listNum">9651.00</span>
+									<span class="listTitle">销售金额</span>
+								</li>
+								<li>
+									<span class="listNum">1024</span>
+									<span class="listTitle">订单数量</span>
+								</li>
+							</ul>
+						</div>
+						<div class="layui-col-md3 layui-col-sm6 layui-col-xs12 countBox">
+							<span class="gradient">本年</span>
+							<ul class="ulBox">
+								<li>
+									<span class="listNum">9651.00</span>
+									<span class="listTitle">销售金额</span>
+								</li>
+								<li>
+									<span class="listNum">1024</span>
+									<span class="listTitle">订单数量</span>
+								</li>
+							</ul>
+						</div>
+						<div class="layui-col-md3 layui-col-sm6 layui-col-xs12 countBox">
+							<span class="gradient">全年</span>
+							<ul class="ulBox">
+								<li>
+									<span class="listNum">9651.00</span>
+									<span class="listTitle">销售金额</span>
+								</li>
+								<li>
+									<span class="listNum">1024</span>
+									<span class="listTitle">订单数量</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</header>
+			</section>
+			<!-- 本月 上月 本年 全年 end -->
+			
+			<!-- 订单金额 、商品一级分类 start-->
+			<section class="ibox" style="padding: 0;">
+				<header class="ibox-title">
+					<div class="layui-row">
+						<div class="layui-col-md6 layui-col-sm6 layui-col-xs12 echartsBox" style="border-right: 10px solid #eff3f9;">
+							<div class="echartsTools">
+								<ul class="ulBox">
+									<li class="liChecked">天</li>
+									<li>月</li>
+									<li>年</li>
+								</ul>
+							</div>
+							<div class="echartsContent" id="orderAmount" style="height:260px;">
+								
+							</div>
+						</div>
+						
+						<div class="layui-col-md6 layui-col-sm6 layui-col-xs12 echartsBox" style="border-left: 10px solid #eff3f9;">
+							<div class="echartsContent" id="ringgoods" style="height:260px;">
+								
+							</div>
+						</div>
+					</div>
+				</header>
+			</section>
+			<!-- 订单金额 、商品一级分类 end-->
+			
+			<!-- 区域销售统计 start-->
+			<section class="ibox" style="padding: 0;">
+				<header class="ibox-title">
+					<div class="layui-row">
+						<div class="layui-col-md12 layui-col-sm12 layui-col-xs12 echartsBox">
+							<div class="echartsContent" id="chinaChart" style="height: 750px;">
+								
+							</div>
+						</div>
+					</div>
+				</header>
+			</section>
+			<!-- 区域销售统计 end-->
+			
+		</div> 
+		
+		
+		<script src="./plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="build/js/echarts/echarts-all.js" ></script>
+		<script type="text/javascript" src="build/js/echarts/china.js" ></script>
+		<script src="build/js/main.js"></script>
+		<script>
+			//JavaScript代码区域
+			layui.use(['element', 'laydate', 'table', 'form'], function(){
+			  var form = layui.form,
+			  		$ = layui.jquery,	
+			  	  layer = layui.layer,
+			  	  laydate = layui.laydate,
+			  	  table = layui.table;
+			  	  
+			  	  //自定义格式
+					  laydate.render({
+					    elem: '#date-ymd-start',
+					    format: 'yyyy年MM月dd日'
+					  });
+					  laydate.render({
+					    elem: '#date-ymd-end',
+					    format: 'yyyy年MM月dd日'
+					  });
+					  //var topen=null;
+					 
+					 $("a.icon-i").hover(function(){
+					 		var theHtml=$(this).find("input").prop("outerHTML");
+					  	var tTop=$(this).offset().top+35+"px";
+					  	var tLeft=$(this).offset().left+"px";
+					  	this.topen=layer.open({
+					  		title: false,  //去掉标题
+							  type: 1, // 类型 1,2,3,4
+							  offset: [tTop, tLeft],  //定义坐标
+							  content: theHtml, //这里content是一个普通的String 或者html代码
+							  shade: 0,  //去掉遮罩
+							  closeBtn:0  //去掉关闭按钮
+							});
+							//var layeropen=$("body>div.layui-layer").clone(true);
+							//$(this).appendTo(layeropen);
+							//$("body>div.layui-layer").remove();
+							
+					 },function(){
+					 		layer.close(this.topen);
+					 });
+					 
+						
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+.general-order-search-term{
+    padding-bottom: 20px;
+}
+.general-order-search-term ul{
+    padding: 0 50px;
+    text-align: right;
+}
+.general-order-search-term ul li{
+    padding-top: 20px;
+}
+.general-order-search-term ul li .dateInput{
+
+}
+.general-order-search-term ul li.bill-type .layui-form-select{
+    width: 130px;
+    display: inline-block;
+    height: 24px;
+}
+.general-order-search-term ul li.bill-type .layui-form-select .layui-select-title,
+.general-order-search-term ul li.bill-type .layui-form-select .layui-select-title input{
+    height: 24px;
+}
+.general-order-search-term ul li>input.manual-input{
+    width: 130px;
+    height: 24px;
+}
+.general-order-search-term .button-list{
+    text-align: right;
+    padding-right: 50px;
+}
+.general-order-search-term ul li input,
+.general-order-search-term ul li select{
+
+
+}
+.general-order-search-term ul li label{
+    width: 40%;
+    text-align: right;
+    margin-right: 5%;
+}
+.general-order-search-term ul li dl dd{
+    text-align: left;
+}
+.general-order-search-term ul li
+.general-order-search-term ul li
+.general-order-search-term ul li
+.general-order-search-term ul li
+.general-order-search-term ul li

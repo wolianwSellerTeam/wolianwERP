@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>待接受订单</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css">
+    <link rel="stylesheet" href="./plugins/font-awesome/font_399839_u0h8dbd9lu4pwrk9/iconfont.css">
+    <link rel="stylesheet" href="./build/css/main.css">
+    <link rel="stylesheet" href="./build/css/seller-header.css">
+    <link rel="stylesheet" href="./build/css/order-tobe-accept.css">
+    <link rel="stylesheet" href="./build/css/popup.css">
+
+</head>
+<body>
+<div class="seller-header">
+            <span class="layui-breadcrumb">
+              <a href="javascript:;">你当前所在的位置</a>
+              <a href="javascript:;">订单管理</a>
+              <a><cite>待接受订单</cite></a>
+            </span>
+</div>
+<div class="main ">
+    <div class="back-order-operate layui-row layui-form">
+        <div class="buyer-input  layui-col-lg2 layui-col-md6 layui-col-sm6 layui-col-xs12">
+            <label for="buyer">订单编号</label>
+            <input type="text" class=" layui-input-inline" id="buyer">
+        </div>
+        <div class="seller-input layui-col-lg2 layui-col-md6 layui-col-sm6 layui-col-xs12">
+            <label for="seller">商品名称</label>
+            <input type="text" class="layui-input-inline" id="seller">
+        </div>
+        <div class="release-date layui-col-lg4 layui-col-md6 layui-col-sm7 layui-col-xs12">
+            <span>发布日期</span>
+            <input type="text" id="releaseStartDate" class="dateInput">
+            <span>-</span>
+            <input type="text" id="releaseEndDate" class="dateInput">
+        </div>
+        <div class="button-list layui-col-lg4 layui-col-md6 layui-col-sm5 layui-col-xs12">
+            <button class="layui-btn search-btn">
+                <i class="layui-icon iconfont">&#xe620;</i>查询
+            </button>
+            <button class="layui-btn delete-btn">
+                <i class="layui-icon iconfont">&#xe626;</i>删除
+            </button>
+            <button class="layui-btn export-btn">
+                <i class="layui-icon iconfont">&#xe638;</i>导出
+            </button>
+        </div>
+    </div>
+    <div class="back-order-list">
+        <table>
+            <thead>
+            <tr>
+                <th class="buyer-order-date">买家订单日期</th>
+                <th class="buyer-order-number">买家订单编号</th>
+                <th class="customer-name">客户名称</th>
+                <th class="receive-address">收货地址</th>
+                <th class="receive-remarks">买家备注</th>
+                <th class="product-number">数量</th>
+                <th class="product-money">金额</th>
+                <th class="product-shipping">运费</th>
+                <th class="product-total-money">结算金额</th>
+                <th class="product-operate">操作</th>
+            </tr>
+            </thead>
+            <tbody id="productToBeAccepted">
+            <tr style="height: 20px;"></tr>
+            <tr class="buyer-list-item">
+                <td class="buyer-order-date"> <span>2017-03-20</span> <span>12:00</span> </td>
+                <td class="buyer-order-number">D1707310637612364568</td>
+                <td class="customer-name"><p>广东深圳运营中心</p></td>
+                <td class="receive-address">广东省深圳市政府对面</td>
+                <td class="receive-remarks"><p>请尽快发货</p></td>
+                <td class="product-number">100</td>
+                <td class="product-money">10000</td>
+                <td class="product-shipping">120</td>
+                <td class="product-total-money">20000</td>
+                <td class="product-operate"> <span class="call-buyer-btn">联系买家</span> <input type="checkbox"> </td>
+            </tr>
+            <tr class="buyer-list-item">
+                <td class="buyer-order-date"> <span>2017-03-20</span> <span>12:00</span> </td>
+                <td class="buyer-order-number">D1707310637612364568</td>
+                <td class="customer-name"><p>广东深圳运营中心</p></td>
+                <td class="receive-address">广东省深圳市政府对面</td>
+                <td class="receive-remarks"><p>请尽快发货</p></td>
+                <td class="product-number">100</td>
+                <td class="product-money">10000</td>
+                <td class="product-shipping">120</td>
+                <td class="product-total-money">20000</td>
+                <td class="product-operate"> <span class="call-buyer-btn">联系买家</span> <input type="checkbox"> </td>
+            </tr>
+            <tr class="order-all-info">
+                <td><span>订单日期</span><span>2017-02-13</span><span>12:00</span></td>
+                <td><span>订单编号:</span><span>S170130183869</span></td>
+                <td><span>货号:</span><span>SZ001.10</span></td>
+                <td><span>单位:</span><span>件</span></td>
+                <td><span>规格型号:</span><span>颜色:红|尺寸:S</span></td>
+                <td colspan="5" class="tal"><span>单价:</span><span>1500</span></td>
+            </tr>
+            <tr class="product-info">
+                <td>
+                    <img src="./build/images/p1.png" alt="">
+                </td>
+                <td class="product-all-info" colspan="8">
+                    <p class="product-dec">新款格纹头层牛皮女包韩版双铆钉双肩包女真皮背包一件代发学院风</p>
+                    <p class="product-able-sale"><span>可售数量:</span><span>1000</span></p>
+                    <p class="product-shipping-type"><span>配送方式:</span>买家承担运费，运费到付，运费模板(顺丰10|满10件包邮)</span></p>
+                </td>
+                <td class="product-operate">
+                    <div class="chose-all">全选 <input type="checkbox"></div>
+                    <div> <span class="accept-order">接单</span></div>
+                    <div> <span class="refuse-order">拒单</span></div>
+                </td>
+            </tr>
+            <tr class="product-settlement">
+                <td colspan="4"></td>
+                <td>合计:</td>
+                <td class="product-number">200</td>
+                <td class="product-money">2000</td>
+                <td class="product-shipping">250.00</td>
+                <td class="product-total-money">250000.00</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+<script src="./plugins/layui/layui.js"></script>
+<script src="js/main.js"></script>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script type="text/html" id="generalData">
+    {{# layui.each(d,function(index,item){ }}
+    <div class="order-area layui-col-xs4 layui-col-sm4 layui-col-md4">
+        <div class="order-bgf">
+            <span class="order-type">{{ item.orderType }}</span>
+            <span class="order-number">{{ item.orderNumber }}</span>
+            <span class="order-unit">{{ item.orderUnit }}</span>
+        </div>
+    </div>
+    {{# }) }}
+</script>
+<script type="text/html" id="orderList">
+    {{# layui.each(d,function(index, item){ }}
+    <tr>
+        <td class="products-bill-date">{{ item.billDate }}</td>
+        <td class="produts-bill-number">{{ item.billNumber }}</td>
+        <td class="products-name">{{ item.name }}</td>
+        <td class="products-buyer-name">{{ item.buyerName }}</td>
+        <td class="products-seller-name">{{ item.sellerName }}</td>
+        <td class="products-specifications">{{ item.specifications }}</td>
+        <td class="products-unit">{{ item.unit }}</td>
+        <td class="products-number">{{ item.number }}</td>
+        <td class="products-sale-money">{{ item.saleMoney }}</td>
+        <td class="products-receive-date">{{ item.receiveDate }}</td>
+    </tr>
+    {{# }) }}
+</script>
+
+<script type="text/html" id="productDetailInfo">
+    <div class="popup-content">
+
+        <table>
+            <thead>
+            <tr>
+                <th>订单详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>买家订单日期</td>
+                <td>20170-07-08 <span>12:00</span></td>
+                <td>买家订单编号</td>
+                <td><span>D1349675266974526</span></td>
+            </tr>
+            <tr>
+                <td>订单日期</td>
+                <td>20170-07-08 <span>12:00</span></td>
+                <td>订单编号</td>
+                <td><span>S441689856655746</span></td>
+            </tr>
+            <tr>
+                <td>交易状态</td>
+                <td>已完成</td>
+                <td>订单状态</td>
+                <td>已关闭</td>
+            </tr>
+            <tr>
+                <td>预计发货日期</td>
+                <td>20170-07-08</td>
+                <td>买家备注</td>
+                <td><p class="buyer-remark">速度发货，快递使用顺丰</p></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="popup-tab">
+        <div class="layui-tab layui-tab-brief">
+            <ul class="layui-tab-title">
+                <li class="layui-this">商品信息</li>
+                <li>客户信息</li>
+                <li>订单操作信息</li>
+                <li>评价信息</li>
+            </ul>
+            <div class="layui-tab-content" style="height: 230px;">
+                <div class="layui-tab-item product-message layui-show">
+                    <div class="product-image">
+                        <img src="./build/images/p1.png" alt="">
+                    </div>
+                    <div class="product-data">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>货号: <span>D64297856</span></td>
+                                <td>商品名称: 牛乳饼干</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">规格型号:  <span>包装规格(一个饼干)</span></td>
+                            </tr>
+                            <tr>
+                                <td>数量:  <span>1</span></td>
+                                <td>单位: <span>个</span></td>
+                            </tr>
+                            <tr>
+                                <td>运费:  <span class="product-data-shipping">120.00</span></td>
+                                <td>单价:  <span class="product-data-unitprice">80.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>金额: <span class="product-data-money">650</span></td>
+                                <td>结算金额:  <span class="product-data-total-money">96540</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="layui-tab-item customer-info">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>买家姓名</td>
+                            <td>我连网公司</td>
+                            <td>省</td>
+                            <td>广东</td>
+                        </tr>
+                        <tr>
+                            <td>市</td>
+                            <td>深圳</td>
+                            <td>区/县</td>
+                            <td>南山区</td>
+                        </tr>
+                        <tr>
+                            <td>收货人</td>
+                            <td>XXX</td>
+                            <td>电话</td>
+                            <td>12345678910</td>
+                        </tr>
+                        <tr>
+                            <td>收货地址</td>
+                            <td><p class="receive-address">广东省深圳市南山区高新园泰邦科技大厦14楼</p></td>
+                            <td>快递公司</td>
+                            <td>顺丰快递</td>
+                        </tr>
+                        <tr>
+                            <td>快递单号</td>
+                            <td>D45643486734211</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="layui-tab-item order-operate-info">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>接单人</td>
+                            <td>XXX</td>
+                            <td>接单日期</td>
+                            <td>2017-03-05</td>
+                        </tr>
+                        <tr>
+                            <td>发货人</td>
+                            <td>XXX</td>
+                            <td>发货日期</td>
+                            <td>2017-06-07</td>
+                        </tr>
+                        <tr>
+                            <td>收货人</td>
+                            <td>XXX</td>
+                            <td>收货日期</td>
+                            <td>2017-09-05</td>
+                        </tr>
+                        <tr>
+                            <td>拒单人</td>
+                            <td>XXX</td>
+                            <td>拒单日期</td>
+                            <td>2017-03-06</td>
+                        </tr>
+                        <tr>
+                            <td>拒单原因</td>
+                            <td colspan="3">拒单人很任性不想做这一单生意就拒单了</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="layui-tab-item evaluate-info">
+                    <div class="evaluate-info-left">
+                        <div><span>评分</span><input type="text"></div>
+                        <div><span>评价人</span><input type="text"></div>
+                        <div><span>评价时间</span><input type="text"></div>
+                    </div>
+                    <div class="evaluate-info-right">
+                        <span>评价内容</span>
+                        <textarea name="" id="" cols="26" rows="8"></textarea>
+                    </div>
+                    <input type="button" value="评价回复" class="reply-evaluate">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-footer">
+        <input type="button" class="popup-return-btn" value="返回列表">
+    </div>
+</script>
+
+
+<script>
+    layui.use(['element','form','laydate','laytpl','jquery','layer'],function () {
+        var element=layui.element
+        var form=layui.form
+        var laydate=layui.laydate
+        var laytpl=layui.laytpl
+        var $=layui.$
+        var layer=layui.layer
+
+        laydate.render({
+            elem:"#releaseStartDate"
+        })
+        laydate.render({
+            elem:"#releaseEndDate"
+        })
+
+        $(".back-order-list").on("click",".refuse-order",function(){
+            layer.prompt({title: '填写拒单原因', formType: 2}, function(pass, index){
+                layer.close(index);
+                layer.msg('演示完毕！您的口令：'+ pass +'<br>您最后写下了：'+text);
+            });
+        })
+
+        /*var getGeneralOrder=function () {
+            $.getJSON('./datas/order/general-order.json',function (generalOrderData) {
+                var getTpl=generalData.innerHTML
+                var generalOrderHtml=document.getElementById("generalOrder")
+                laytpl(getTpl).render(generalOrderData,function (html) {
+                    generalOrderHtml.innerHTML=html
+                })
+            })
+        }
+        getGeneralOrder()*/
+        $(".back-order-list").on("click",".buyer-list-item",function (event) {
+            var getTpl=productDetailInfo.innerHTML
+            laytpl(getTpl).render([],function (html) {
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['715px', '710px'], //宽高
+                    content: html,
+                    title:"订单详情"
+                });
+            })
+
+        })
+        $(".back-order-list").on("click",".call-buyer-btn",function(event){
+            event.stopPropagation()
+            console.log(222)
+
+        })
+
+
+
+
+    })
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+</html>
+
