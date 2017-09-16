@@ -39,7 +39,7 @@
 									<span class="ibox-attribute">主营范围：</span>
 									<cite class="ibox-value">食品(含乳冷食品)、粮油制品、熟食制品、面食品等等</cite>
 								</label>
-								<label class="line-text">
+								<label class="line-text line-flex">
 									<a href="javascripa:;" class="icon-i" id="marker">
 										<i class="fa fa-map-marker marker"></i>
 										<input type="button" value="定位" />
@@ -49,10 +49,6 @@
 										<input type="button" value="手机" />
 									</a>
 									<a href="javascripa:;" class="icon-i" id="weixin">
-										<!--<span class="fa-stack fa-lg">
-											<i class="fa fa-comment-o weixin fa-stack-2x"></i>
-											<i class="fa fa-ellipsis-h fa-stack-1x"></i>
-										</span>-->
 										<i class="fa fa-comment-o weixin"></i>
 										<input type="button" value="微信" />
 									</a>
@@ -64,7 +60,7 @@
 							</div>
 						</div>
 						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12" style="border-right: 1px dashed #e2e2e2;">
-							<div class="lineBox">
+							<div class="lineBox line-flex">
 								<label class="listLine">
 									<span class="listIcon color-blue"><i class="fa fa-list-alt"></i></span>
 									<span class="listText">订单</span>
@@ -81,8 +77,9 @@
 									<span class="listIcon"><b>35</b></span>
 									<span class="listText">全部订单</span>
 								</label>
+								<label class="listLine"></label>
 							</div>
-							<div class="lineBox">
+							<div class="lineBox line-flex">
 								<label class="listLine">
 									<span class="listIcon color-red"><i class="fa fa-support"></i></span>
 									<span class="listText">售后单</span>
@@ -99,8 +96,9 @@
 									<span class="listIcon color-red"><b>35</b></span>
 									<span class="listText">待退款</span>
 								</label>
+								<label class="listLine"></label>
 							</div>
-							<div class="lineBox">
+							<div class="lineBox line-flex">
 								<label class="listLine">
 									<span class="listIcon color-green"><i class="fa fa-gift"></i></span>
 									<span class="listText">商品</span>
@@ -124,18 +122,25 @@
 							</div>
 						</div>
 						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
-							<div class="lineBox">
-								<label class="listLine text-right" style="min-width: 75px;">
-									<span class="listIcon">账户余额</span>
-								</label>
-								<label class="listLine" style="min-width: 86px;width: auto; max-width: 165px;">
-									<span class="listIcon amount color-blue">12000.00</span>
-								</label>
-								<label class="listLine" style="width: 155px;">
-									<button class="layui-btn layui-btn-small layui-btn-normal">充值</button>
-									<button class="layui-btn layui-btn-small">转账</button>
-								</label>
+							<div class="layui-row">
+								<div class="layui-col-md3">
+									<label class="labelText text-right">
+										<span class="listIcon">账户余额</span>
+									</label>
+								</div>
+								<div class="layui-col-md5">
+									<label class="">
+										<span class="listIcon amount color-blue">12000.00</span>
+									</label>
+								</div>
+								<div class="layui-col-md4">
+									<label>
+										<button class="layui-btn layui-btn-small layui-btn-normal">充值</button>
+										<button class="layui-btn layui-btn-small">转账</button>
+									</label>
+								</div>
 							</div>
+							
 							<div class="lineBox">
 								<label class="listLine text-right" style="min-width: 75px;">
 									<span class="listIcon">可提现金额</span>
@@ -268,8 +273,7 @@
 		
 		
 		<script src="./plugins/layui/layui.js"></script>
-		<script type="text/javascript" src="build/js/echarts/echarts-all.js" ></script>
-		<script type="text/javascript" src="build/js/echarts/china.js" ></script>
+		<script type="text/javascript" src="build/js/echarts/echarts-all.js"></script>
 		<script src="build/js/main.js"></script>
 		<script>
 			//JavaScript代码区域
@@ -289,7 +293,6 @@
 					    elem: '#date-ymd-end',
 					    format: 'yyyy年MM月dd日'
 					  });
-					  //var topen=null;
 					 
 					 $("a.icon-i").hover(function(){
 					 		var theHtml=$(this).find("input").prop("outerHTML");

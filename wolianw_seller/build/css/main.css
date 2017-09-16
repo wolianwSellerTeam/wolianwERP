@@ -23,10 +23,14 @@
 	height: 35px;
 	line-height: 35px;
 }
-
+.line-flex{
+	display: flex;
+}
+.line-flex > *{
+	flex: 1;
+}
 .icon-i{
 	display: inline-block;
-	margin-right: 30px;
 	font-size: 24px;
 }
 .icon-i>input{
@@ -56,6 +60,9 @@
 }
 .lineBox:last-child{
 	border-bottom: none;
+}
+.labelText{
+	display: inline-block;
 }
 .listLine{
 	display: inline-block;
