@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4a08aeb-eba0-4662-94ef-376dfca3de5c" name="Default" comment="测试">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wolianw_seller/build/css/main.css" afterPath="$PROJECT_DIR$/wolianw_seller/build/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wolianw_seller/index.html" afterPath="$PROJECT_DIR$/wolianw_seller/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wolianw_seller/order-tobe-accepted.html" afterPath="$PROJECT_DIR$/wolianw_seller/order-tobe-accepted.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wolianw_seller/products-ranking.html" afterPath="$PROJECT_DIR$/wolianw_seller/products-ranking.html" />
-    </list>
+    <list default="true" id="a4a08aeb-eba0-4662-94ef-376dfca3de5c" name="Default" comment="测试" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -166,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505526313131</updated>
-      <workItem from="1505526314438" duration="3590000" />
+      <workItem from="1505526314438" duration="3836000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1505526383958</created>
@@ -179,7 +173,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3590000" />
+    <option name="totallyTimeSpent" value="3836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
