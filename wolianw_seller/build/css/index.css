@@ -112,6 +112,7 @@
 	left: 90px;
 	min-height: 100px;
 	background-color: transparent!important;
+	min-width: 0;
 }
 
 .layui-nav-tree .layui-nav-item .layui-nav-child dd{
