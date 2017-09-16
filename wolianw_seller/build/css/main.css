@@ -208,7 +208,7 @@ body{
 
 
 /*搜索按钮 start*/
-.search-btn{
+.layui-btn.search-btn{
     width: 70px;
     height: 26px;
     padding: 0;
@@ -229,7 +229,7 @@ body{
 
 /*删除按钮 end*/
 /*导出按钮 start*/
-.export-btn{
+.layui-btn.export-btn{
     width: 70px;
     height: 26px;
     padding: 0;

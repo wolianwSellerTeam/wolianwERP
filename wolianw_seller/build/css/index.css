@@ -358,7 +358,7 @@ div.layui-fluid > section + section{
 	background: -ms-linear-gradient(left, #fff,  #438bfd);        												/* IE 10 */
 	background:-moz-linear-gradient(left,#fff,#438bfd);																	/* 火狐 */ 
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#438bfd));      /* Safari 4-5, Chrome 1-9 */
-	background: linear-gradient(to right, #fff, #438bfd); /* 标准的语法 
+	background: linear-gradient(to right, #fff, #438bfd); /* 标准的语法 */
 }
 
 	/*默认滚动条样式 start*/
