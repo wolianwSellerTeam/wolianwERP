@@ -60,7 +60,7 @@
 }
 
 .layui-side .layui-form-item .layui-form{
- 	width: 100%;
+ 	width: 90px;
  	height: 100%;
  	text-align: center;
 }
@@ -70,11 +70,12 @@
 	line-height: 30px;
 	background-color: rgba(253, 253, 253, 0.4);
 	margin-top: 20px;
+	border-radius: 5px;
 	border: 1px solid transparent;
 }
 
 .layui-side .layui-form-switch.layui-form-onswitch i{
-	left: 30px;
+	left: 33px;
 	color: #1573fe;
 }
 .layui-side .layui-form-switch.layui-form-onswitch em{
@@ -87,13 +88,14 @@
   right: 2px;
 }
 .layui-side .layui-form-switch i{
-	width: 48px;
+	width: 45px;
 	height: 30px;
 	top: 0;
 	left: -1px;
 	background: #fff;
   color: #1573fe;
   font-style: inherit;
+  border-radius: 5px;
 }
 
 .layui-nav-tree .layui-nav-item:hover, .layui-nav-tree .layui-nav-item a:hover{

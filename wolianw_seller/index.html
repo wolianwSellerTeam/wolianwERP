@@ -232,11 +232,21 @@
 			  	  	
 			  	  	$(".layui-nav-tree span.layui-nav-bar").hide();/*干掉 左侧菜单树 鼠标悬停会在屏幕左边自动出现的淡蓝线条*/
 			  	  	
+			  	  	/*没有滚动的时候 给二级菜单定位 获取父级top 然后传给它*/
 			  	  	$(".layui-nav-tree .layui-nav-item").each(function(){
 			  	  			var liTop=$(this).offset().top;
 						    	var $dl=$(this).find("dl.layui-nav-child");
 						    	$dl.css("top",liTop+'px');
-			  	  	})
+			  	  		});
+			  	  	/*在滚动的时候 给二级菜单定位 获取父级top 然后传给它*/
+			  	  	$(".layui-side-scroll").scroll(function(){
+			  	  		$(this).find(".layui-nav-tree .layui-nav-item").each(function(){
+			  	  			var liTop=$(this).offset().top;
+						    	var $dl=$(this).find("dl.layui-nav-child");
+						    	$dl.css("top", liTop+'px');
+			  	  		});
+			  	  	});
+			  	  	
 			  	  	
 			  	  	$(".layui-nav-tree .layui-nav-item").on({
 			  	  		mouseenter: function(){
@@ -248,18 +258,15 @@
 			  	  			$(this).find("dd").each(function(){
 			  	  				if($(this).hasClass("layui-this")){
 			  	  					ischecked=true;
-			  	  					console.log("if："+ischecked);
-			  	  				}
+ 			  	  				}
 			  	  			});
 			  	  			if(ischecked){
 			  	  				$(this).addClass("itemedBg");
 			  	  			}else{
 			  	  				$(this).removeClass("itemedBg");
 			  	  			}
-					  			
 			  	  		}
 			  	  	});
-			  	  	
 			  	  
 			  	  })
 			  		
