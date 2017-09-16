@@ -243,7 +243,7 @@
 			  	  		$(this).find(".layui-nav-tree .layui-nav-item").each(function(){
 			  	  			var liTop=$(this).offset().top;
 						    	var $dl=$(this).find("dl.layui-nav-child");
-						    	$dl.css("top",liTop+'px');
+						    	$dl.css("top", liTop+'px');
 			  	  		});
 			  	  	});
 			  	  	
@@ -258,8 +258,7 @@
 			  	  			$(this).find("dd").each(function(){
 			  	  				if($(this).hasClass("layui-this")){
 			  	  					ischecked=true;
-			  	  					console.log("if："+ischecked);
-			  	  				}
+ 			  	  				}
 			  	  			});
 			  	  			if(ischecked){
 			  	  				$(this).addClass("itemedBg");
