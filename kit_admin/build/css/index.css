@@ -1,0 +1,28 @@
+/** 我连网wolianw.com index.css 20170905 */
+.indexLogo{
+	height: 90px;
+	line-height: 90px;
+	background:#2F4056;
+}
+.indexLogo > a{
+	background:#2F4056;
+}
+.indexLogo > a.aLogo{
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
+#bigLogo{
+	width: 120px;
+	height: 48px;
+}
+#smallLogo{
+	display: none;
+	width: 30px;
+	height: 33px;
+	position: absolute;
+  left: 10px;
+  top: 25px;
+}

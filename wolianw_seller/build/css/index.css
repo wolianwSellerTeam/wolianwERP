@@ -46,7 +46,7 @@
 	background: #3986EE url(../images/navbar-bg.png) no-repeat left top;
 }
 .layui-side-scroll{
-	width: 100%;
+	width: 110px;
 }
 .layui-nav-tree{
 	width: 90px;
