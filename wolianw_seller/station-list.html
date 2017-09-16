@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./plugins/font-awesome/font_399839_u0h8dbd9lu4pwrk9/iconfont.css">
     <link rel="stylesheet" href="build/css/contentPages.css">
     <link rel="stylesheet" href="build/css/index.css" />
+    <link rel="stylesheet" href="./build/css/user-manage/station-list.css">
 
 </head>
 <body -bgcolor="#eee">
@@ -25,14 +26,21 @@
 
     <!--  start -->
     <section class="ibox">
-        <header class="ibox-title">
-            <div class="release-date layui-col-lg4 layui-col-md6 layui-col-sm7 layui-col-xs12">
+        <header class="ibox-title layui-row layui-form" >
+            <div class="layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs12">
                 <label for="">岗位名称</label>
                 <input type="text" id="" class="layui-input-inline">
-                <label for="">激活状态</label>
-                <input type="text" id="" class="layui-select">
+
             </div>
-            <div class="button-list layui-col-lg4 layui-col-md6 layui-col-sm5 layui-col-xs12">
+            <div class="layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <label for="">激活状态</label>
+                <select name="" id="statusList">
+                    <option value="010">北京</option>
+                    <option value="021" disabled>上海（禁用效果）</option>
+                    <option value="0571" selected>杭州</option>
+                </select>
+            </div>
+            <div class="button-list layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs12">
                 <button class="layui-btn search-btn">
                     <i class="layui-icon iconfont">&#xe620;</i>查询
                 </button>

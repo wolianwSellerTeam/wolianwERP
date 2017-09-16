@@ -179,9 +179,11 @@
 body{
 	padding: 0px 30px;
 	background-color: #f1f5fa;
+	font:14px microsoftYaHei,Helvetica,PingFang SC,\5FAE\8F6F\96C5\9ED1,Tahoma,Arial,sans-serif;
 }
 
-*{
+
+* {
 	box-sizing: border-box;
 }
 .main{
