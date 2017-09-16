@@ -234,7 +234,7 @@ div.layui-fluid > section + section{
 	background-color: #39cb88;
 }
 .layui-btn-small{
-	min-width: 70px;
+	/*min-width: 70px;*/
 	height: 26px;
 	line-height: 26px;
 }
@@ -339,6 +339,9 @@ div.layui-fluid > section + section{
 }
 .ml40{
 	margin-left: 40px;
+}
+.border-right-dashed{
+	border-right: 1px dashed #e2e2e2;
 }
 .gradient{
 	font-size: 16px;

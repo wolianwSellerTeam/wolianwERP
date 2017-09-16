@@ -63,6 +63,8 @@
 }
 .labelText{
 	display: inline-block;
+	line-height: 55px;
+	width: 100%;
 }
 .listLine{
 	display: inline-block;
@@ -269,12 +271,16 @@
     line-height: 26px;
 }
 
-@media (min-width: 768px) { 
-	.listLine { width: 45px; }
+
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+	.layui-col-lg4.layui-col-md12.layui-col-sm12.layui-col-xs12.border-right-dashed{
+		border-right: none;
+	}
 }
-@media (min-width: 992px) { 
-	.listLine { width: 60px; }
-} 
-@media (min-width: 1300px) { 
-		.listLine { width: 90px; }
+@media screen and (min-width: 768px) and (max-width:992px) {
+	.border-right-dashed{
+		border-right: none;
+	}
 }
+

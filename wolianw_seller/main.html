@@ -24,7 +24,7 @@
 			<section class="ibox" style="padding: 5px 20px;">
 				<header class="ibox-title">
 					<div class="layui-row">
-						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12" style="border-right: 1px dashed #e2e2e2;height:170px;">
+						<div class="layui-col-lg4 layui-col-md12 layui-col-sm12 layui-col-xs12 border-right-dashed" style="height:170px;">
 							<div class="user-box">
 								<a href="index.html" target="_top">
 									<img src="build/images/user.png" class="user-img" />
@@ -52,14 +52,14 @@
 										<i class="fa fa-comment-o weixin"></i>
 										<input type="button" value="微信" />
 									</a>
-									<a href="javascripa:;" class="icon-i" id="home" style="margin-right: 0px;">
+									<a href="javascripa:;" class="icon-i" id="home">
 										<i class="fa fa-home home"></i>
 										<input type="button" value="主页" />
 									</a>
 								</label>
 							</div>
 						</div>
-						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12" style="border-right: 1px dashed #e2e2e2;">
+						<div class="layui-col-lg4 layui-col-md6 layui-col-sm12 layui-col-xs12 border-right-dashed">
 							<div class="lineBox line-flex">
 								<label class="listLine">
 									<span class="listIcon color-blue"><i class="fa fa-list-alt"></i></span>
@@ -121,46 +121,57 @@
 								</label>
 							</div>
 						</div>
-						<div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
-							<div class="layui-row">
-								<div class="layui-col-md3">
+						<div class="layui-col-lg4 layui-col-md6 layui-col-sm12 layui-col-xs12">
+							<div class="layui-row" style="margin-left: 20px;border-bottom: 1px dashed #e2e2e2;">
+								<div class="layui-col-md3 layui-col-sm3 layui-col-xs3">
 									<label class="labelText text-right">
 										<span class="listIcon">账户余额</span>
 									</label>
 								</div>
-								<div class="layui-col-md5">
-									<label class="">
+								<div class="layui-col-md5 layui-col-sm5 layui-col-xs5">
+									<label class="labelText">
 										<span class="listIcon amount color-blue">12000.00</span>
 									</label>
 								</div>
-								<div class="layui-col-md4">
-									<label>
+								<div class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+									<label class="labelText">
 										<button class="layui-btn layui-btn-small layui-btn-normal">充值</button>
 										<button class="layui-btn layui-btn-small">转账</button>
 									</label>
 								</div>
 							</div>
+							<div class="layui-row" style="margin-left: 20px;border-bottom: 1px dashed #e2e2e2;">
+								<div class="layui-col-md3 layui-col-sm3 layui-col-xs3">
+									<label class="labelText text-right">
+										<span class="listIcon">可提现金额</span>
+									</label>
+								</div>
+								<div class="layui-col-md5 layui-col-sm5 layui-col-xs5">
+									<label class="labelText">
+										<span class="listIcon amount">1100.00</span>
+									</label>
+								</div>
+								<div class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+									<label class="labelText">
+										<button class="layui-btn layui-btn-small layui-btn-normal">充值</button>
+										<button class="layui-btn layui-btn-small">银行卡</button>
+									</label>
+								</div>
+							</div>
 							
-							<div class="lineBox">
-								<label class="listLine text-right" style="min-width: 75px;">
-									<span class="listIcon">可提现金额</span>
-								</label>
-								<label class="listLine" style="min-width: 86px;width: auto; max-width: 165px;">
-									<span class="listIcon amount">12000.00</span>
-								</label>
-								<label class="listLine" style="width: 155px;">
-									<button class="layui-btn layui-btn-small layui-btn-normal">充值</button>
-									<button class="layui-btn layui-btn-small">银行卡</button>
-								</label>
+							<div class="layui-row" style="margin-left: 20px;">
+								<div class="layui-col-md3 layui-col-sm3 layui-col-xs3">
+									<label class="labelText text-right">
+										<span class="listIcon">冻结金额</span>
+									</label>
+								</div>
+								<div class="layui-col-md9 layui-col-sm9 layui-col-xs9">
+									<label class="labelText">
+										<span class="listIcon amount color-red">100.00</span>
+									</label>
+								</div>
 							</div>
-							<div class="lineBox">
-								<label class="listLine text-right" style="min-width: 75px;">
-									<span class="listIcon">冻结金额</span>
-								</label>
-								<label class="listLine" style="min-width: 86px;width: auto; max-width: 165px;margin-top: 20px;">
-									<span class="listIcon amount color-red">12000.00</span>
-								</label>
-							</div>
+							
 						</div>
 					</div>
 				</header>
