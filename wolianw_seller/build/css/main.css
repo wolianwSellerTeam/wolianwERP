@@ -218,7 +218,7 @@ body{
 }
 /*搜索按钮 end*/
 /*删除按钮 start*/
-.delete-btn{
+.layui-btn.delete-btn{
     width: 70px;
     height: 26px;
     padding: 0;
