@@ -139,21 +139,6 @@
                 type: 'iframe'
             }).init();
             
-            navbar.set({
-            	elem: "#kitNavbar",
-            	spreadOne: true, //设置是否只展开一个二级菜单
-            	bind:function($elem){
-            		if(spreadOne){
-			            $elem.find('li.layui-nav-item').each(function () {
-			                $(this).on('click', function () {
-			                    $(this).siblings().removeClass('layui-nav-itemed');
-			                });
-			            });
-				        }
-            	}
-            	
-            }).render();
-            
         });
     </script>
 </body>

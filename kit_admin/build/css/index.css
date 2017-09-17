@@ -1,8 +1,30 @@
 /** 我连网wolianw.com index.css 20170905 */
+/*解决左侧菜单树 滚动条问题 start*/
+.kit-sided.kit-side .layui-side-scroll{
+	width: 60px;
+}
+.kit-side .layui-side-scroll .layui-nav-tree{
+	width: 200px;
+}
+.kit-sided.kit-side .layui-side-scroll .layui-nav-tree{
+	width: 50px;
+}
+.kit-side .layui-side-scroll{
+	width: 210px;
+}
+.kit-side .layui-side-scroll .kit-side-fold{
+	width: 200px;
+}
+.kit-sided.kit-side .layui-side-scroll .kit-side-fold{
+	width: 50px;
+}
+
+
 .indexLogo{
 	height: 90px;
 	line-height: 90px;
 	background:#2F4056;
+  position: relative;
 }
 .indexLogo > a{
 	background:#2F4056;
@@ -25,4 +47,25 @@
 	position: absolute;
   left: 10px;
   top: 25px;
+}
+
+.kit-side-folded.layui-nav-itemed .layui-nav-child{
+	position: fixed;
+	left: 50px;
+	min-width: 0;
+	width: 200px;
+	background-color: #4E5465!important;
+	text-align: left;
+}
+
+.kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a span{
+	display: inline-block;
+	color: #fff;
+}
+.kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a{
+	text-align: left;
+	margin-left: 20px;
+}
+.kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a i{
+	margin-right: 15px;
 }
