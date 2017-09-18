@@ -33,24 +33,18 @@ layui.define(["layer", "laytpl", "element"], function(i) {
 		bind: function(i) {
 			var n = this;
 			n.config;
-			
-			
-			e(this).find('li.layui-nav-item').each(function () {
-	        e(this).on('click', function () {
-	            //e(this).siblings().removeClass('layui-nav-itemed');
-	            alert("新消息layui-nav-itemed");
-	        });
-	    });
-	    
 	    
 			return n.hasElem() ? (n.getElem().find("a[kit-target]").each(function() {
 				var t = e(this),
 					n = void 0;
-				t.hover(function() {
+				
+				/* 鼠标悬停二级菜单时  用tips显示二级菜单的 text*/
+				/*t.hover(function() {
 					n = a.tips(e(this).children("span").text(), this)
 				}, function() {
 					n && a.close(n)
-				}), t.off("click").on("click", function() {
+				}), */
+				t.off("click").on("click", function() {
 					var e, a = t.data("options");
 					if(void 0 !== a) try {
 						e = new Function("return " + a)()
@@ -64,7 +58,14 @@ layui.define(["layer", "laytpl", "element"], function(i) {
 					};
 					"function" == typeof i && i(e)
 				})
-			}), e(".kit-side-fold").off("click").on("click", function() {
+			}),
+			
+			/*控制一级菜单下拉打开时 关闭 其他的下拉菜单  即：只允许打开一个下拉菜单*/
+			e(".layui-nav-item").on("click", function(){
+     			e(this).siblings().removeClass("layui-nav-itemed");
+       }),
+       /*菜单控制按钮 点击缩小和放大*/
+			e(".kit-side-fold").off("click").on("click", function() {
 				var i = t.find("div.kit-side");
 				i.hasClass("kit-sided") ? (i.removeClass("kit-sided"), i.find("li.layui-nav-item").removeClass("kit-side-folded"), i.find("dd").removeClass("kit-side-folded"), t.find("div.layui-body").removeClass("kit-body-folded"), t.find("div.layui-footer").removeClass("kit-footer-folded")) : (i.addClass("kit-sided"), i.find("li.layui-nav-item").addClass("kit-side-folded"), i.find("dd").addClass("kit-side-folded"), t.find("div.layui-body").addClass("kit-body-folded"), t.find("div.layui-footer").addClass("kit-footer-folded"));
 				/* 点击控制按钮  切换大小logo  start*/
@@ -77,7 +78,33 @@ layui.define(["layer", "laytpl", "element"], function(i) {
 					$div.find("#smallLogo").hide();
 				}
 				/* 点击控制按钮  切换大小logo  end*/
-			}), n) : n
+			}), 
+			e(".layui-nav-item").hover(
+				function(){
+					if(e(this).hasClass("kit-side-folded")){
+						e(this).addClass("layui-nav-itemed").siblings().removeClass("layui-nav-itemed");
+						/*没有滚动的时候 给二级菜单定位 获取父级top 然后传给它*/
+						var liTop=e(this).offset().top;
+			    	var $dl=e(this).find("dl.layui-nav-child");
+			    	$dl.css("top",liTop+'px');
+					}
+				},
+				function(){
+					if(e(this).hasClass("kit-side-folded")){
+						e(this).removeClass("layui-nav-itemed");
+					}
+				}), 
+				
+  	  	/*在滚动的时候 给二级菜单定位 获取父级top 然后传给它*/
+  	  	e(".layui-side-scroll").scroll(function(){
+  	  		e(this).find(".layui-nav-tree .layui-nav-item").each(function(){
+  	  			if(e(this).hasClass("kit-side-folded")){
+	  	  			var liTop=e(this).offset().top;
+				    	var $dl=e(this).find("dl.layui-nav-child");
+				    	$dl.css("top", liTop+'px');
+				    }
+  	  		})
+  	  	}), n) : n
 		},
 		render: function(i) {
 			var t = this,
@@ -98,7 +125,7 @@ layui.define(["layer", "laytpl", "element"], function(i) {
 						layui.hint().error("Navbar error:AJAX请求出错." + a)
 					},
 					success: function(i) {
-						s = i
+						s = i;
 					}
 				};
 				e.extend(!0, u, o.jsonp ? {
@@ -116,13 +143,6 @@ layui.define(["layer", "laytpl", "element"], function(i) {
 					}), c && a.close(c)
 				}))
 			}, 50);
-			
-			/*e(this).find('li.layui-nav-item').each(function () {
-	        e(this).on('click', function () {
-	            //e(this).siblings().removeClass('layui-nav-itemed');
-	            alert("新消息layui-nav-itemed");
-	        });
-	    });*/
 			
 			return t
 		}
