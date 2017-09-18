@@ -82,3 +82,6 @@
     font-size: 15px;
     font-weight: bold;
 }
+.layui-nav-tree .layui-nav-item a:hover, .layui-nav-tree .kit-side-folded.layui-nav-itemed{
+  background-color: #4E5465;
+}
