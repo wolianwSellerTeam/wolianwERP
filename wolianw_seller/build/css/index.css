@@ -112,8 +112,12 @@
 .layui-nav-tree .layui-nav-itemd .layui-nav-child, .layui-nav-tree .layui-nav-item .layui-nav-child{
 	position: fixed;
 	left: 90px;
-	min-height: 100px;
-	background-color: transparent!important;
+	height: auto;
+	min-height: 90px;
+	padding: 5px 0;
+	background-color: rgba(255, 255, 255, 1)!important;
+	box-shadow: 4px 0px 18px 2px 
+		rgba(214, 214, 215, 0.67);
 	min-width: 0;
 }
 
@@ -124,17 +128,28 @@
   padding: 0;
   border-right: 1px dashed #eee;
   background-color: #fff;
-  min-height: 100px;
+  min-height: 90px;
+  line-height: 0;
   
+}
+.layui-nav-tree .layui-nav-item .layui-nav-child dd:last-child{
+	border-right: 1px solid #eee;
 }
 .layui-nav-tree .layui-nav-item .layui-nav-child dd>cite{
 	color: #4892fd;
 	font-size: 12px;
 	font-style: initial;
+  display: inline-block;
+  width: 100%;
+  line-height: 30px;
+  height: 30px;
 }
 .layui-nav-tree .layui-nav-item .layui-nav-child dd>cite>i{
 	margin: 0 10px;
-	font-size: 1px;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #458efd;
 }
 .layui-nav-tree .layui-nav-item .layui-nav-child dd>a{
 	color: #666;
