@@ -56,11 +56,13 @@
 	width: 200px;
 	background-color: #4E5465!important;
 	text-align: left;
+	border-radius: 0;
+	display: block;
+	z-index: 9999;
 }
 
 .kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a span{
 	display: inline-block;
-	color: #fff;
 }
 .kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a{
 	text-align: left;
@@ -68,4 +70,15 @@
 }
 .kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a i{
 	margin-right: 15px;
+}
+.kit-sided .layui-side-scroll .kit-side-folded.layui-nav-itemed .layui-nav-child.dlbefore::before {
+    content: "菜单";
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    background-color: #4E5465;
+    width: 180px;
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
