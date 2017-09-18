@@ -97,6 +97,9 @@
 
             </tbody>
         </table>
+        <div class="page" id="page">
+
+        </div>
     </div>
 </div>
 
@@ -134,12 +137,13 @@
     {{# }) }}
 </script>
 <script>
-    layui.use(['element','form','laydate','laytpl','jquery'],function () {
+    layui.use(['element','form','laydate','laytpl','jquery','laypage'],function () {
         var element=layui.element
         var form=layui.form
         var laydate=layui.laydate
         var laytpl=layui.laytpl
         var $=layui.$
+        var laypage=layui.laypage
 
         laydate.render({
             elem:"#startDate"
@@ -171,42 +175,12 @@
         }
         getGeneralOrder()
 
+        laypage.render({
+            elem:'page',
+            count: 10000,
+            layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+        })
 
-        var getProductsOrderList=function () {
-            $.getJSON('./datas/order/products-order-list.json',function (generalOrderData) {
-                var getTpl=orderList.innerHTML
-                var generalOrderHtml=document.getElementById("productOrderList")
-                laytpl(getTpl).render(generalOrderData,function (html) {
-                    generalOrderHtml.innerHTML=html
-                })
-            })
-        }
-
-        getProductsOrderList()
-        function comdify(n) {
-            var sign = true;
-            if (n < 0) {
-                sign = false;
-                n = -n;
-            }
-            var arr = n.toString().split('.');
-            var num = arr[0];
-            var float = arr[1];
-            var num = (num || 0).toString(), result = '';
-            while (num.length > 3) {
-                result = ',' + num.slice(-3) + result;
-                num = num.slice(0, num.length - 3);
-            }
-            if (num) { result = num + result; }
-            if (typeof (float) != "undefined" && float.length > 0)
-                result = result + "." + float.slice(0, 2);
-
-            if (!sign)
-                result = "-" + result;
-            return result;
-        }
-
-        console.log(comdify(10012.05))
     })
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>

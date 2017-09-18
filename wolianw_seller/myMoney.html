@@ -115,7 +115,7 @@
 							  </ul>
 							  <div class="layui-tab-content" style="height: 200px;">
 							    <div class="layui-tab-item layui-show">
-							    	<table lay-filter="parse_table" lay-data="{url:'datas/money_table.json', id:'parse_table', skin:'line'}"  class="layui-table">
+							    	<!--<table lay-filter="parse_table" lay-data="{url:'datas/money_table.json', id:'parse_table', skin:'line'}"  class="layui-table">
 							    		<thead>
 							    			<tr>
 							    				<th lay-data="{field:'dates', width: '250'}">日期</th>
@@ -124,33 +124,33 @@
 										      <th lay-data="{field:'results', width: '250'}">结果</th>
 							    			</tr>
 							    		</thead>
-							    	</table>
-							    	<!--<table class="layui-table layui-table-line">
-							    		<tr>
-							    			<td>2017-10-1</td>
-							    			<td>交易流水号</td>
-							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
-							    			<td>交易成功</td>
-							    		</tr>
-							    		<tr>
-							    			<td>2017-10-1</td>
-							    			<td>充值</td>
-							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
-							    			<td>交易成功</td>
-							    		</tr>
-							    		<tr>
-							    			<td>2017-10-1</td>
-							    			<td>交易流水号</td>
-							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
-							    			<td>交易失败</td>
-							    		</tr>
-							    		<tr>
-							    			<td>2017-10-1</td>
-							    			<td>充值</td>
-							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
-							    			<td>交易失败</td>
-							    		</tr>
 							    	</table>-->
+							    	<table class="layui-table layui-table-line">
+							    		<tr>
+							    			<td>2017-10-1</td>
+							    			<td>交易流水号</td>
+							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
+							    			<td>交易成功</td>
+							    		</tr>
+							    		<tr>
+							    			<td>2017-10-1</td>
+							    			<td>充值</td>
+							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
+							    			<td>交易成功</td>
+							    		</tr>
+							    		<tr>
+							    			<td>2017-10-1</td>
+							    			<td>交易流水号</td>
+							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
+							    			<td>交易失败</td>
+							    		</tr>
+							    		<tr>
+							    			<td>2017-10-1</td>
+							    			<td>充值</td>
+							    			<td>韩璐休闲男装2017新款男士T恤打底衬衣衣服纯色印花长袖男等多件</td>
+							    			<td>交易失败</td>
+							    		</tr>
+							    	</table>
 							    </div>
 							    <div class="layui-tab-item">内容2</div>
 							    <div class="layui-tab-item">内容3</div>
@@ -175,12 +175,13 @@
 		<script src="./plugins/layui/layui.js"></script>
 		<script>
 			//JavaScript代码区域
-			layui.use(['element', 'laydate', 'table', 'form'], function(){
+			layui.use(['element', 'laydate', 'table', 'form','laypage'], function(){
 			  var form = layui.form,
 			  		$ = layui.jquery,	
 			  	  layer = layui.layer,
 			  	  laydate = layui.laydate,
-			  	  table = layui.table;
+			  	  table = layui.table,
+				  laypage=layui.laypage;
 			  	  
 			  	  //自定义格式
 					  laydate.render({
