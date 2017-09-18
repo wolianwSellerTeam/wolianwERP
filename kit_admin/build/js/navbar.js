@@ -67,7 +67,7 @@ layui.define(["layer", "laytpl", "element"], function(i) {
        /*菜单控制按钮 点击缩小和放大*/
 			e(".kit-side-fold").off("click").on("click", function() {
 				var i = t.find("div.kit-side");
-				i.hasClass("kit-sided") ? (i.removeClass("kit-sided"), i.find("li.layui-nav-item").removeClass("kit-side-folded"), i.find("dd").removeClass("kit-side-folded"), t.find("div.layui-body").removeClass("kit-body-folded"), t.find("div.layui-footer").removeClass("kit-footer-folded")) : (i.addClass("kit-sided"), i.find("li.layui-nav-item").addClass("kit-side-folded"), i.find("dd").addClass("kit-side-folded"), t.find("div.layui-body").addClass("kit-body-folded"), t.find("div.layui-footer").addClass("kit-footer-folded"));
+				i.hasClass("kit-sided") ? (i.removeClass("kit-sided"), i.find("li.layui-nav-item").removeClass("kit-side-folded"), i.find("dd").removeClass("kit-side-folded"), t.find("div.layui-body").removeClass("kit-body-folded"), t.find("div.layui-footer").removeClass("kit-footer-folded")) : (i.addClass("kit-sided"), i.find("li.layui-nav-item").addClass("kit-side-folded"), i.find("dd").addClass("kit-side-folded"), t.find("div.layui-body").addClass("kit-body-folded"), t.find("div.layui-footer").addClass("kit-footer-folded"), i.find("li.layui-nav-item").removeClass("layui-nav-itemed"));
 				/* 点击控制按钮  切换大小logo  start*/
 				var $div=e("div.indexLogo");
 				if($div.width()<150){
@@ -87,11 +87,14 @@ layui.define(["layer", "laytpl", "element"], function(i) {
 						var liTop=e(this).offset().top;
 			    	var $dl=e(this).find("dl.layui-nav-child");
 			    	$dl.css("top",liTop+'px');
+			    	var citeText=$dl.siblings("a").find("span").text();
+		    	$dl.append('<style>.kit-sided .layui-side-scroll .kit-side-folded.layui-nav-itemed .layui-nav-child.dlbefore::before{ content:"'+citeText+'"}</style>');
 					}
 				},
 				function(){
 					if(e(this).hasClass("kit-side-folded")){
 						e(this).removeClass("layui-nav-itemed");
+						e(this).find("dl.layui-nav-child").css("top", 0);
 					}
 				}), 
 				
@@ -110,7 +113,7 @@ layui.define(["layer", "laytpl", "element"], function(i) {
 			var t = this,
 				d = t.config,
 				o = d.remote,
-				r = ["{{# layui.each(d,function(index, item){ }}", "{{# if(item.spread){ }}", '<li class="layui-nav-item layui-nav-itemed">', "{{# }else{ }}", '<li class="layui-nav-item">', "{{# } }}", "{{# var hasChildren = item.children!==undefined && item.children.length>0; }}", "{{# if(hasChildren){ }}", '<a href="javascript:;">', '{{# if (item.icon.indexOf("fa-") !== -1) { }}', '<i class="fa {{item.icon}}" aria-hidden="true"></i>', "{{# } else { }}", '<i class="layui-icon">{{item.icon}}</i>', "{{# } }}", "<span> {{item.title}}</span>", "</a>", "{{# var children = item.children; }}", '<dl class="layui-nav-child">', "{{# layui.each(children,function(childIndex, child){ }}", "<dd>", "<a href=\"javascript:;\" kit-target data-options=\"{url:'{{child.url}}',icon:'{{child.icon}}',title:'{{child.title}}',id:'{{child.id}}'}\">", '{{# if (child.icon.indexOf("fa-") !== -1) { }}', '<i class="fa {{child.icon}}" aria-hidden="true"></i>', "{{# } else { }}", '<i class="layui-icon">{{child.icon}}</i>', "{{# } }}", "<span> {{child.title}}</span>", "</a>", "</dd>", "{{# }); }}", "</dl>", "{{# }else{ }}", "<a href=\"javascript:;\" kit-target data-options=\"{url:'{{item.url}}',icon:'{{item.icon}}',title:'{{item.title}}',id:'{{item.id}}'}\">", '{{# if (item.icon.indexOf("fa-") !== -1) { }}', '<i class="fa {{item.icon}}" aria-hidden="true"></i>', "{{# } else { }}", '<i class="layui-icon">{{item.icon}}</i>', "{{# } }}", "<span> {{item.title}}</span>", "</a>", "{{# } }}", "</li>", "{{# }); }}"],
+				r = ["{{# layui.each(d,function(index, item){ }}", "{{# if(item.spread){ }}", '<li class="layui-nav-item layui-nav-itemed">', "{{# }else{ }}", '<li class="layui-nav-item">', "{{# } }}", "{{# var hasChildren = item.children!==undefined && item.children.length>0; }}", "{{# if(hasChildren){ }}", '<a href="javascript:;">', '{{# if (item.icon.indexOf("fa-") !== -1) { }}', '<i class="fa {{item.icon}}" aria-hidden="true"></i>', "{{# } else { }}", '<i class="layui-icon">{{item.icon}}</i>', "{{# } }}", "<span> {{item.title}}</span>", "</a>", "{{# var children = item.children; }}", '<dl class="layui-nav-child dlbefore">', "{{# layui.each(children,function(childIndex, child){ }}", "<dd>", "<a href=\"javascript:;\" kit-target data-options=\"{url:'{{child.url}}',icon:'{{child.icon}}',title:'{{child.title}}',id:'{{child.id}}'}\">", '{{# if (child.icon.indexOf("fa-") !== -1) { }}', '<i class="fa {{child.icon}}" aria-hidden="true"></i>', "{{# } else { }}", '<i class="layui-icon">{{child.icon}}</i>', "{{# } }}", "<span> {{child.title}}</span>", "</a>", "</dd>", "{{# }); }}", "</dl>", "{{# }else{ }}", "<a href=\"javascript:;\" kit-target data-options=\"{url:'{{item.url}}',icon:'{{item.icon}}',title:'{{item.title}}',id:'{{item.id}}'}\">", '{{# if (item.icon.indexOf("fa-") !== -1) { }}', '<i class="fa {{item.icon}}" aria-hidden="true"></i>', "{{# } else { }}", '<i class="layui-icon">{{item.icon}}</i>', "{{# } }}", "<span> {{item.title}}</span>", "</a>", "{{# } }}", "</li>", "{{# }); }}"],
 				s = [],
 				c = a.load(2);
 			if(!t.hasElem()) return t;
