@@ -1,25 +1,24 @@
+/* 公共区域 start */
 *{margin: 0;padding: 0;}
 body{font-family: "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑";}
 ul{list-style: none;}
 a{text-decoration: none;color: #666;}
 a:hover{
-	color: #000;
+	color: #349aac;
 }
-
 .active{
  	color: #349aac;
  }
- 
- 
+/* 公共区域 end */
+
+ /* top区域 start */
 .top{
 	width: 100%;
-	background-color: lightcyan;
 }
 .nav{
 	width: 1130px;
 	height: 60px;
 	margin: 30px auto;
-	border: 1px solid red;
 }
 .nav ul, .nav div.logo, .nav div.search{
 	float: left;
@@ -75,7 +74,173 @@ a:hover{
 .banner{
 	width: 100%;
 	height: 500px;
+	background-color: lightcoral;
+	position: relative;
+	overflow: hidden;
+}
+.ulBox{
+	width: 100%;
+	height: 500px;
+	position: absolute;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+.ulBox>li{
+	float: left;
+	width: 100%;
+	height: 500px;
+	text-align: center;
+}
+.ulBox>li:nth-child(1){
+	background-color: lightblue;
+}
+.ulBox>li:nth-child(2){
+	background-color: lightgray;
+}
+.ulBox>li:nth-child(3){
+	background-color: lightgreen;
+}
+.ulBox>li:nth-child(4){
+	background-color: lightseagreen;
+}
+.quare_ul{
+	position: absolute;
+	left: 50%;
+	margin-left: -65px;
+  width: auto;
+  overflow: hidden;
+  bottom: 30px;
+}
+.quare_ul>li{
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin-right: 20px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	border-radius: 15px;
+	background-color: #fff;
+	
+}
+.quare_ul>li:last-child{
+	margin-right: 0px;
+}
+.quare_ul>li.inThis{
+	background-color: rgba(0,0,0,.5);
+	border: 1px solid rgba(0,0,0,.5);
 }
 
+/* top区域 end */
+
+/* container区域 start */
+		/* 我们的服务 区域 start */
+.service_wrap{
+	width: 1130px;
+	margin: 30px auto;
+  overflow: hidden;
+  margin-top: 42px;
+}
+.titleBox{
+	position: relative;
+}
+.znTxt{
+	font-size: 24px;
+	color: #333;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	padding-right: 5px;
+	position: relative;
+  z-index: 99;
+  background: #fff;
+}
+.enTxt{
+	font-size: 16px;
+	color: #999;
+	font-family: ﻿ArialMT;
+	font-style: inherit;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	padding-right: 10px;
+	position: relative;
+  z-index: 99;
+  background: #fff;
+}
+.lab_line{
+	height: 1px;
+	line-height: 30px;
+	width: 100%;
+	border-top: 1px solid #ccc;
+	position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: -99;
+}
+.service_img_wrap{
+	width: 360px;
+	height: 240px;
+	position: relative;
+  float: left;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.content_wrap>div.service_img_wrap:last-child{
+	margin-right: 0;
+}
+.img_title{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font-size: 18px;
+	color: #fff;
+	height: 50px;
+	line-height: 50px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	background-color: rgba(0,0,0,.8);
+}
+		/* 我们的服务 区域end */
+.wrapBox{
+	width: 1130px;
+	margin: 30px auto;
+  overflow: hidden;
+}
+.about_wrap, .contact_wrap{
+	width: 540px;
+	float: left;
+	margin-top: 16px;
+	
+}
+.about_wrap>p, .contact_wrap>p{
+	line-height: 24px;
+	font-size: 14px;
+	color: #666;
+}
+		/* 关于我们 区域start */
+.about_wrap{
+	margin-right: 35px;
+	
+}
+		/* 关于我们 区域end */
+.aboutImgBox{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+		/* 联系我们 区域start */
+.contactImgBox{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+		/* 联系我们 区域end */
+		
+/* container区域 end */
+
+
+
+/* 在线客服、发送邮件、提交需求 start */
+/* 在线客服、发送邮件、提交需求  end */
 
 
