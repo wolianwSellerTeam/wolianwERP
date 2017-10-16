@@ -1,3 +1,81 @@
 *{margin: 0;padding: 0;}
+body{font-family: "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑";}
 ul{list-style: none;}
+a{text-decoration: none;color: #666;}
+a:hover{
+	color: #000;
+}
+
+.active{
+ 	color: #349aac;
+ }
+ 
+ 
+.top{
+	width: 100%;
+	background-color: lightcyan;
+}
+.nav{
+	width: 1130px;
+	height: 60px;
+	margin: 30px auto;
+	border: 1px solid red;
+}
+.nav ul, .nav div.logo, .nav div.search{
+	float: left;
+}
+ .nav div.search{
+ 	width: 200px;
+ 	height: 60px;
+  line-height: 60px;
+  position: relative;
+ }
+ .search>input{
+ 	height: 36px;
+ 	background-color: rgba(238, 238, 238, 1);
+	border-radius: 18px 18px 18px 18px;
+ 	border: 1px solid #ccc;
+ 	padding: 0 10px;
+ 	padding-right: 35px;
+ }
+ .search>input:focus{
+ 	outline: 0;
+ }
+ .search>i.fa{
+ 	position: absolute;
+ 	right: 0;
+  position: absolute;
+  right: -3px;
+  top: 22px;
+  color: #ccc;
+  font-size: 20px;
+  cursor: pointer;
+ }
+ .search>i.fa:hover{
+ 	color: #000;
+ }
+.nav li{
+	display: inline-block;
+	height: 100%;
+	width: 105px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 18px;
+	color: #666;
+	background: url(../img/cols_line.png) right center no-repeat;
+}
+.nav li:last-child{
+	background: none;
+}
+.nav li>a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.banner{
+	width: 100%;
+	height: 500px;
+}
+
+
 
