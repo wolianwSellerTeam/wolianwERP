@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>首页</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="./plugs/layui/css/layui.css">
+    <link rel="stylesheet" href="./font/font_399822_n4n5dhe4b7ta9k9/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="./css/myWorkSpace/header.css">
+    <link rel="stylesheet" href="./css/agentIndex/main.css">
+    <link rel="stylesheet" href="./css/agentIndex/tool.css">
+    <link rel="stylesheet" href="./css/agentIndex/nav.css">
+    <link rel="stylesheet" href="./css/agentIndex/carousel.css">
+    <link rel="stylesheet" href="./css/agentIndex/buy-limit.css">
+    <link rel="stylesheet" href="./css/agentIndex/list-carousel.css">
+    <link rel="stylesheet" href="./css/agentIndex/special-recommend.css">
+    <link rel="stylesheet" href="./css/agentIndex/special-column-title.css">
+    <link rel="stylesheet" href="./css/agentIndex/special-show.css">
+    <link rel="stylesheet" href="./css/agentIndex/special-counter.css">
+    <link rel="stylesheet" href="./css/agentIndex/live-streamimg.css">
+    <link rel="stylesheet" href="./css/agentIndex/footer.css">
+
+
+</head>
+<body>
+    <div class="main">
+        <!--头部开始-->
+        <div class="layui-header container">
+            <div class="layui-header-left layui-col-lg2 layui-col-md3 layui-col-sm3">
+                <ul class="layui-nav">
+                    <li class="layui-nav-item">
+                        <i class="iconfont">&#xe607;</i>
+                        <a href="javasript:;" class="">13557155397</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">修改信息</a></dd>
+                            <dd><a href="javascript:;">安全管理</a></dd>
+                            <dd><a href="javascript:;">退出登录</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-header-right  layui-col-lg10 layui-col-md9 layui-col-sm9" id="headerRight">
+
+            </div>
+        </div>
+        <!--头部结束-->
+        <!--logo、搜索栏、购物车开始-->
+        <div class="layui-tool container">
+            <div class="logo">
+            <!--logo部分-->
+            <h1>
+                <a href="javascript:;">
+                    我连网
+                </a>
+            </h1>
+            <h2></h2>
+        </div>
+            <div class="shopping-cart">
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe600;</i>
+                    <span>我的进货单</span>
+                    <span class="layui-badge">99</span>
+                </a>
+            </div>
+            <div class="search-content">
+                <form action="" class="layui-form">
+                    <select name="city" lay-verify="required">
+                        <option value="0" selected>全部分类</option>
+                        <option value="1">店铺</option>
+                        <option value="2">商品</option>
+                        <option value="3">视频</option>
+                        <option value="4">新闻</option>
+                        <option value="4">问问</option>
+                        <option value="4">相册</option>
+                    </select>
+                    <input type="text" class="layui-input search-content-word">
+                    <input type="button" value="搜索" class="layui-btn search-content-btn">
+                </form>
+                <div class="hot-search">
+                    <span>热门搜索:</span>
+                    <a href="javascript:;">美国车厘子</a>
+                    <a href="javascript:;">养殖用品</a>
+                    <a href="javascript:;">清凉空调7折</a>
+                </div>
+            </div>
+
+        </div>
+        <!--logo、搜索栏、购物车结束-->
+        <!--导航栏开始-->
+        <div class="index-nav nav container">
+            <ul>
+                <li><a href="javasript:;">全部商品</a></li>
+                <li><a href="javasript:;">首页</a></li>
+                <li><a href="javasript:;">预售专场</a></li>
+                <li><a href="javasript:;">特价专场</a></li>
+                <li><a href="javasript:;">我连推荐</a></li>
+            </ul>
+        </div>
+        <!--导航栏结束-->
+        <!--轮播图开始-->
+        <div class="big-container">
+        <div class="carousel container">
+            <div class="layui-carousel" id="test1">
+                <div carousel-item>
+                    <div><a href="javascript:;"><img src="./img/banner.png" alt=""></a></div>
+                    <div><a href="javascript:;"><img src="./img/banner.png" alt=""></a></div>
+                    <div><a href="javascript:;"><img src="./img/banner.png" alt=""></a></div>
+                    <div><a href="javascript:;"><img src="./img/banner.png" alt=""></a></div>
+                    <div><a href="javascript:;"><img src="./img/banner.png" alt=""></a></div>
+                </div>
+            </div>
+        </div>
+        <!--轮播图结束-->
+        <!--限时抢购开始-->
+        <div class="buy-limit container">
+            <span class="buy-limit-type">限时抢购</span>
+            <span class="buy-limit-dec">距离本场结束还有</span>
+        </div>
+        <!--限时抢购结束-->
+        <!--列表轮播开始-->
+        <div class="list-carousel container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="product-img">
+                                <img src="./img/5927e107Na3e9ecbf.png" alt="">
+                            </div>
+                            <p class="product-dec">nihade阿萨德撒的发顺丰的阿里将机就回来了</p>
+                            <div class="product-price">
+                                <span class="cur-price">￥288.00</span>
+                                <span class="original-price">￥399.00</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+            </div>
+        </div>
+        <!--列表轮播结束-->
+        </div>
+        <!--特别推荐开始-->
+        <div class="special-recommend container">
+           <!-- <div class="recommend-left">
+                <a href="javascript:;">
+                    <img src="./img/pb%20(1).png" alt="">
+                </a>
+            </div>
+            <div class="recommend-right">
+                <ul class="recommend-right-list">
+                    <li class="">
+                        <a href="javascript:;">
+                            <img src="./img/pb%20(2).png" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <img src="./img/pb%20(3).png" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <img src="./img/pb%20(3).png" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <img src="./img/pb%20(2).png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>-->
+            <ul class="special-recommend-list">
+                <li>
+                    <a href="javasript:;">
+                        <img src="./img/pb%20(3).png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javasript:;">
+                        <img src="./img/pb%20(2).png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javasript:;">
+                        <img src="./img/pb%20(4).png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javasript:;">
+                        <img src="./img/pb%20(3).png" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--特别推荐结束-->
+        <!--我连推荐开始-->
+        <div class="special-column-title wlw-recommend">
+            <div class="wolian-recommend container"></div>
+        </div>
+        <!--我连推荐结束-->
+        <!--母婴专场开始-->
+        <div class="special-show" >
+            <div class="container" id="MontherAndBady">
+
+            </div>
+        </div>
+        <!--母婴专场结束-->
+        <!--美妆专场开始-->
+        <div class="special-show">
+            <div class="container" id="cosmetics"></div>
+
+        </div>
+        <!--美妆专场结束-->
+        <!--预售专场开始-->
+        <div class="special-column-title advance-sale">
+            <div class="container"></div>
+        </div>
+        <div class="special-counter yuShouBg">
+            <div class="container" id="yuShouSpecial">
+            </div>
+        </div>
+        <!--预售专场结束-->
+        <!--特价专场开始-->
+        <div class="special-column-title special-offer">
+            <div class="container"></div>
+        </div>
+        <div class="special-counter offerBg">
+            <div class="container" id="specialOffer"></div>
+        </div>
+        <!--特价专场结束-->
+        <!--我连直播开始-->
+        <div class="special-column-title wolian-live-streaming" >
+            <div class="container"></div>
+        </div>
+        <div class="live-stream container" id="wolianLiveStream">
+
+        </div>
+        <!--我连直播结束-->
+        <!--底部开始-->
+        <div class="footer">
+            <div class="wolian-server container">
+                <ul class="wolian-server-list">
+                    <li>
+                        <h5></h5>
+                        <p class="server-title">正品保证</p>
+                        <p class="server-dec">假一赔十</p>
+                    </li>
+                    <li>
+                        <h5></h5>
+                        <p class="server-title">配送保证</p>
+                        <p class="server-dec">假一赔十</p>
+                    </li>
+                    <li>
+                        <h5></h5>
+                        <p class="server-title">安全保证</p>
+                        <p class="server-dec">在线支付安全便捷</p>
+                    </li>
+                    <li>
+                        <h5></h5>
+                        <p class="server-title">服务保证</p>
+                        <p class="server-dec">15天内退换</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="wolian-help">
+                    <dl>
+                        <dt>购物帮助</dt>
+                        <dd><a href="javascript:;">购物的基本问题</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>支付方式</dt>
+                        <dd><a href="javascript:;">货到付款</a></dd>
+                        <dd><a href="javascript:;">银行电汇</a></dd>
+                        <dd><a href="javascript:;">网银支付</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>配送方式及费用</dt>
+                        <dd><a href="javascript:;">物流信息查询</a></dd>
+                        <dd><a href="javascript:;">配送范围</a></dd>
+                        <dd><a href="javascript:;">配送方式</a></dd>
+                        <dd><a href="javascript:;">运费说明</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>售后服务</dt>
+                        <dd><a href="javascript:;">品质保证原则</a></dd>
+                        <dd><a href="javascript:;">退换货总原则</a></dd>
+                        <dd><a href="javascript:;">退换货地址及流程</a></dd>
+                        <dd><a href="javascript:;">退换货特殊说明</a></dd>
+                    </dl>
+                </div>
+                <div class="wolian-info">
+                    <div class="wolian-weixin">
+                        <img src="./img/weixin.png" alt="">
+                        <p>关注我连网官方微信</p>
+                    </div>
+                    <div class="wolian-phone">
+                        <img src="./img/phone.png" alt="">
+                        <p>关注我连网手机版</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--底部结束-->
+    </div>
+
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./plugs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="./plugs/layui/layui.js"></script>
+
+    <script src="./plugs/swiper-3.4.2.jquery.min.js"></script>
+
+    <script src="./plugs/echart/echarts.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <script type="text/html" id="headerNav">
+        <ul class="layui-nav layui-layout-right">
+            {{# layui.each(d, function(index,item){ }}
+            <li class="layui-nav-item">
+                <i class="iconfont"> {{  item.icon }} </i>
+                <a href="javascript:;" class="">
+                    {{ item.title }}
+                </a>
+                {{# if(item.child){ }}
+                <dl class="layui-nav-child">
+                    {{# layui.each(item.child, function(index1,item1){ }}
+                    <dd>
+                        <a href="javascript:;"> {{ item1.title }} </a>
+                    </dd>
+                    {{# }) }}
+                </dl>
+                {{# } }}
+            </li>
+            {{# }); }}
+        </ul>
+    </script>
+    <script type="text/html" id="specialShow">
+        <div class="special-show-left">
+            <a href={{ d.target }}>
+                <img src={{ d.mainImg }} alt="">
+            </a>
+        </div>
+        <div class="special-show-right">
+            <ul>
+                {{# layui.each(d.productList, function(index,item){ }}
+                <li>
+                    <a href={{ item.productTarget }}>
+                        <div class="product-img">
+                            <img src={{ item.productImg }} alt="">
+                        </div>
+                        <p class="product-dec" title={{ item.productDec }}> {{ item.productDec }} </p>
+                        <div class="product-price">
+                            <span class="cur-price">￥{{ item.productCurPrice }}</span>
+                            <span class="original-price">￥{{ item.productOriginalPrice }}</span>
+                        </div>
+                        <div class="product-tag">
+                            {{# if(item.isSelfSupport && item.isSelfSupport == "true"){ }}
+                            <span class="wolian-self-support"></span>
+                            {{# } }}
+                            {{# if(item.isFreeShipping && item.isFreeShipping == "true"){ }}
+                            <span class="free-shipping"></span>
+                            {{# } }}
+                        </div>
+                    </a>
+                </li>
+                {{# }); }}
+            </ul>
+        </div>
+    </script>
+    <script type="text/html" id="specialCounter">
+        <ul class="special-counter-list">
+            {{# layui.each(d,function(index,item){ }}
+            <li>
+                <a href={{ item.productTarget }}>
+                    <div class="product-img">
+                        <img src={{ item.productImg }} alt="">
+                    </div>
+                    <p class="product-dec" title={{ item.productDec }}> {{ item.productDec }} </p>
+                    <div class="product-price">
+                        <span class="cur-price">￥{{ item.productCurPrice }}</span>
+                    </div>
+                    <div class="product-tag">
+                        {{# if(item.isSelfSupport && item.isSelfSupport == "true"){ }}
+                        <span class="wolian-self-support"></span>
+                        {{# } }}
+                        {{# if(item.isFreeShipping && item.isFreeShipping == "true"){ }}
+                        <span class="free-shipping"></span>
+                        {{# } }}
+                    </div>
+                </a>
+            </li>
+            {{# }) }}
+        </ul>
+    </script>
+    <script type="text/html" id="liveStreamList">
+        <div class="live-stream-left">
+            <div class="live-stream-content">
+                <div class="live-stream-img">
+                    <img src={{ d.image }} alt="">
+                </div>
+                <div class="live-stream-head-picture">
+                    <img src="./img/live-logo.png" alt="">
+                </div>
+                <a href={{ d.address }} class="live-stream-adress">
+                    <div class="live-stream-video">
+                        <img src="./img/video-img.png" alt="">
+                    </div>
+                </a>
+                <p class="live-stream-title"> {{ d.title }} </p>
+            </div>
+            <div class="live-stream-footer">
+                <a href="javascript:;" class="wolian-live-streaming-address"></a>
+                <a href="javascript:;" class="viewer-number">{{ d.viewerNumber }}人观看</a>
+            </div>
+        </div>
+        <div class="live-stream-right">
+            <ul>
+                {{# layui.each(d.liveStreamList,function(index,item){ }}
+                <li>
+                    <div class="live-stream-content">
+                        <div class="live-stream-img">
+                            <img src={{ item.image }} alt="">
+                        </div>
+                        <div class="live-stream-head-picture">
+                            <img src="./img/live-logo.png" alt="">
+                        </div>
+                        <a href={{ item.address }} class="live-stream-adress">
+                            <div class="live-stream-video">
+                                <img src="./img/video-img.png" alt="">
+                            </div>
+                        </a>
+                        <p class="live-stream-title">{{ item.title }}</p>
+                    </div>
+                    <div class="live-stream-footer">
+                        <a href="javascript:;" class="wolian-live-streaming-address"></a>
+                        <a href="javascript:;" class="viewer-number">{{ item.viewerNumber }}人观看</a>
+                    </div>
+                </li>
+                {{# }) }}
+            </ul>
+        </div>
+    </script>
+
+
+    <script>
+        layui.use(['element','laytpl','jquery','form','carousel'],function () {
+            var element=layui.element;
+            var laytpl=layui.laytpl;
+            var $=layui.$;
+            var form=layui.form;
+            var carousel=layui.carousel;
+
+            carousel.render({
+                elem:'#test1',
+                width:"1200px",
+                height:"380px"
+
+            })
+
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 6,
+                paginationClickable: true,
+                spaceBetween: 0,
+                loop:true,
+                autoplay:2000,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev'
+            });
+
+
+            var getHeaderNav=function () {
+                $.getJSON("./json/headerNav.json",function (headerNavData) {
+                    var getTpl=headerNav.innerHTML;
+                    var headerHtml=document.getElementById("headerRight")
+                    layui.use("laytpl",function () {
+                        layui.laytpl(getTpl).render(headerNavData, function (html) {
+                            headerHtml.innerHTML=html
+                            element.init();
+
+                        })
+                    })
+                })
+            }
+            getHeaderNav()
+
+            var getSpecialShowList=function () {
+                $.getJSON("./json/monther-body-show.json",function (headerNavData) {
+                    var getTpl=specialShow.innerHTML;
+                    var headerHtml=document.getElementById("MontherAndBady")
+                    var cosmeticsHtml=document.getElementById("cosmetics")
+                    layui.use("laytpl",function () {
+                        layui.laytpl(getTpl).render(headerNavData, function (html) {
+                            headerHtml.innerHTML=html
+                            cosmeticsHtml.innerHTML=html
+                            element.init();
+
+                        })
+                    })
+                })
+            }
+            getSpecialShowList()
+
+            var getSpecialCounterList=function () {
+                $.getJSON("./json/special-counter.json",function (headerNavData) {
+                    var getTpl=specialCounter.innerHTML;
+                    var headerHtml=document.getElementById("yuShouSpecial")
+                    var offerHtml=document.getElementById("specialOffer")
+                    layui.use("laytpl",function () {
+                        layui.laytpl(getTpl).render(headerNavData, function (html) {
+                            headerHtml.innerHTML=html
+                            offerHtml.innerHTML=html
+                            element.init();
+
+                        })
+                    })
+                })
+            }
+            getSpecialCounterList()
+
+
+            var getLiveStreamList=function () {
+                $.getJSON("./json/live-stream.json",function (headerNavData) {
+                    var getTpl=liveStreamList.innerHTML;
+                    console.log(liveStreamList)
+                    var headerHtml=document.getElementById("wolianLiveStream")
+                    layui.use("laytpl",function () {
+                        layui.laytpl(getTpl).render(headerNavData, function (html) {
+                            headerHtml.innerHTML=html
+                            element.init();
+
+                        })
+                    })
+                })
+            }
+            getLiveStreamList()
+
+        })
+    </script>
+</body>
+</html>

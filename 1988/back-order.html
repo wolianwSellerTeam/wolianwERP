@@ -1,0 +1,202 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>待发货订单</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css">
+    <link rel="stylesheet" href="./plugins/font-awesome/font_399839_u0h8dbd9lu4pwrk9/iconfont.css">
+    <link rel="stylesheet" href="./build/css/main.css">
+    <link rel="stylesheet" href="./build/css/seller-header.css">
+    <link rel="stylesheet" href="./build/css/back-order/back-order-operate.css">
+
+</head>
+<body>
+<div class="seller-header">
+            <span class="layui-breadcrumb">
+              <a href="javascript:;">你当前所在的位置</a>
+              <a href="javascript:;">订单管理</a>
+              <a><cite>待发货订单</cite></a>
+            </span>
+</div>
+<div class="main ">
+    <div class="back-order-operate layui-row layui-form">
+        <div class="buyer-input  layui-col-lg2 layui-col-md6 layui-col-sm6 layui-col-xs12">
+            <label for="buyer">买家名称</label>
+            <input type="text" class=" layui-input-inline" id="buyer">
+        </div>
+        <div class="seller-input layui-col-lg2 layui-col-md6 layui-col-sm6 layui-col-xs12">
+            <label for="seller">卖家名称</label>
+            <input type="text" class="layui-input-inline" id="seller">
+        </div>
+        <div class="release-date layui-col-lg4 layui-col-md6 layui-col-sm7 layui-col-xs12">
+            <span>发布日期</span>
+            <input type="text" id="releaseStartDate" class="dateInput">
+            <span>-</span>
+            <input type="text" id="releaseEndDate" class="dateInput">
+        </div>
+        <div class="button-list layui-col-lg4 layui-col-md6 layui-col-sm5 layui-col-xs12">
+            <button class="layui-btn search-btn">
+                <i class="layui-icon iconfont">&#xe620;</i>搜索
+            </button>
+            <button class="layui-btn delete-btn">
+                <i class="layui-icon iconfont">&#xe626;</i>删除
+            </button>
+            <button class="layui-btn export-btn">
+                <i class="layui-icon iconfont">&#xe638;</i>导出
+            </button>
+        </div>
+    </div>
+    <div class="back-order-list">
+        <table>
+            <thead>
+            <tr>
+                <th class="buyer-order-info">买家订单信息</th>
+                <th class="produt-info">商品信息</th>
+                <th class="product-number">数量</th>
+                <th class="product-price">单价</th>
+                <th class="product-total-price">金额</th>
+                <th class="product-shippng">运费</th>
+                <th class="product-total-money">结算金额</th>
+                <th class="product-operate">操作</th>
+            </tr>
+            </thead>
+            <tbody id="productOrderList">
+                <tr style="height: 40px;"></tr>
+                <tr class="buyer-info">
+                    <td class="order-buyer-name">买家名称:桂平市农村电商服务站</td>
+                    <td class="order-receiver-name">收件人:何玲</td>
+                    <td class="order-receiver-phone">收件人电话:18320548846</td>
+                    <td class="order-receiver-address">收件地址:广东省深圳市南山区高新工勘大厦7D</td>
+                    <td class="order-call-buyer"><button class="call-buyer-btn">联系买家</button></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td class="order-operate"> <button class="edit-order-info">填写订单信息</button> </td>
+                    <td><input type="checkbox">全选 </td>
+                </tr>
+                <tr class="product-detail-info">
+                    <td class="buyer-order-info">
+                        <p>订单日期:
+                            <span>2017-07-13</span>
+                            <span>12:00</span>
+                        </p>
+                        <p>订单编号:
+                            <span class="number-of-order">D1707310637612364568</span>
+                        </p>
+                        <p>预计发货日期: <span>2017-07-20</span> </p>
+                        <p>买家备注: <span>请尽快发货</span></p>
+                    </td>
+                    <td class="product-info">
+                        <div class="product-image">
+                            <img src="./build/images/p1.png" alt="">
+                        </div>
+                        <div class="product-all-info">
+                            <p class="product-dec">新款格纹头层牛皮女包韩版双铆钉双肩包女真皮背包一件代发学院风</p>
+                            <p>货号:<span>001.sz01</span> </p>
+                            <p>单位:件</p>
+                            <p>规格型号:颜色:黑|尺寸:S</p>
+                            <p>单价:110.00</p>
+                        </div>
+                    </td>
+                    <td class="product-number">1000</td>
+                    <td class="product-price">1000</td>
+                    <td class="product-total-price">50</td>
+                    <td class="product-shipping">120</td>
+                    <td class="product-total-money">12000.00</td>
+                    <td class="product-operate"><input type="checkbox"></td>
+                </tr>
+                <tr class="product-detail-info">
+                    <td class="buyer-order-info">
+                        <p>订单日期:
+                            <span>2017-07-13</span>
+                            <span>12:00</span>
+                        </p>
+                        <p>订单编号:
+                            <span class="number-of-order">D1707310637612364568</span>
+                        </p>
+                        <p>预计发货日期: <span>2017-07-20</span> </p>
+                        <p>买家备注: <span>请尽快发货</span></p>
+                    </td>
+                    <td class="product-info">
+                        <div class="product-image">
+                            <img src="./build/images/p1.png" alt="">
+                        </div>
+                        <div class="product-all-info">
+                            <p class="product-dec">新款格纹头层牛皮女包韩版双铆钉双肩包女真皮背包一件代发学院风</p>
+                            <p>货号:<span>001.sz01</span> </p>
+                            <p>单位:件</p>
+                            <p>规格型号:颜色:黑|尺寸:S</p>
+                            <p>单价:110.00</p>
+                        </div>
+                    </td>
+                    <td class="product-number">1000</td>
+                    <td class="product-price">1000</td>
+                    <td class="product-total-price">50</td>
+                    <td class="product-shipping">120</td>
+                    <td class="product-total-money">12000.00</td>
+                    <td class="product-operate"><input type="checkbox"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<script src="./plugins/layui/layui.js"></script>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script type="text/html" id="generalData">
+    {{# layui.each(d,function(index,item){ }}
+    <div class="order-area layui-col-xs4 layui-col-sm4 layui-col-md4">
+        <div class="order-bgf">
+            <span class="order-type">{{ item.orderType }}</span>
+            <span class="order-number">{{ item.orderNumber }}</span>
+            <span class="order-unit">{{ item.orderUnit }}</span>
+        </div>
+    </div>
+    {{# }) }}
+</script>
+<script type="text/html" id="orderList">
+    {{# layui.each(d,function(index, item){ }}
+    <tr>
+        <td class="products-bill-date">{{ item.billDate }}</td>
+        <td class="produts-bill-number">{{ item.billNumber }}</td>
+        <td class="products-name">{{ item.name }}</td>
+        <td class="products-buyer-name">{{ item.buyerName }}</td>
+        <td class="products-seller-name">{{ item.sellerName }}</td>
+        <td class="products-specifications">{{ item.specifications }}</td>
+        <td class="products-unit">{{ item.unit }}</td>
+        <td class="products-number">{{ item.number }}</td>
+        <td class="products-sale-money">{{ item.saleMoney }}</td>
+        <td class="products-receive-date">{{ item.receiveDate }}</td>
+    </tr>
+    {{# }) }}
+</script>
+<script>
+    layui.use(['element','form','laydate','laytpl','jquery'],function () {
+        var element=layui.element
+        var form=layui.form
+        var laydate=layui.laydate
+        var laytpl=layui.laytpl
+        var $=layui.$
+
+        laydate.render({
+            elem:"#releaseStartDate"
+        })
+        laydate.render({
+            elem:"#releaseEndDate"
+        })
+
+
+
+
+    })
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+</html>
+

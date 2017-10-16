@@ -1,0 +1,60 @@
+.option-container{
+    width: 100%;
+    height: 84px;
+    box-shadow: 0px 0px 5px 15px #f5f5f5;
+    background-color: #fff;
+}
+.option{
+    height: 84px;
+}
+.option .products-center{
+    width: 120px;
+    height: 84px;
+    padding: 8px 0;
+}
+.option .products-center a{
+    display: block;
+    width: 120px;
+    height: 67px;
+}
+.option .products-center a img{
+    width: 120px;
+    height: 67px;
+}
+.option-select{
+    padding: 24px 30px;
+    width: 160px;
+    height: 84px;
+}
+.option-select .layui-form-select .layui-input{
+    border: 0;
+    color: #fe5228;
+}
+.option-select .layui-form-select .layui-edge{
+    border-top-color: #fe5228;
+}
+
+.option-select　input::-webkit-input-placeholder { /* WebKit browsers */
+
+    　　color:#fe5228;
+        font-size:16px;
+
+}
+
+.option-select　　input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+
+    　　color:#fe5228;
+        font-size:16px;
+
+}
+
+.option-select　input::-moz-placeholder { /* Mozilla Firefox 19+ */
+
+    　　color:#fe5228;font-size:16px;
+}
+
+.option-select　　input:-ms-input-placeholder { /* Internet Explorer 10+ */
+
+    　　color:#fe5228;font-size:16px;
+
+}

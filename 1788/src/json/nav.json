@@ -1,0 +1,65 @@
+[{
+    "title":"订单中心",
+    "icon":"&#xe6db;",
+    "child":[{
+        "title":"订单列表",
+        "icon":""
+    },{
+        "title":"退货管理",
+        "icon":""
+    },{
+        "title":"app订单管理",
+        "icon":""
+    }]
+},{
+    "title":"进货单",
+    "icon":"&#xe608;",
+    "child":[{
+        "title":"订单列表",
+        "icon":""
+    },{
+        "title":"退货管理",
+        "icon":""
+    },{
+        "title":"app订单管理",
+        "icon":""
+    }]
+},{
+    "title":"收藏中心",
+    "icon":"&#xe612;"
+},{
+    "title":"资产中心",
+    "icon":"&#xe6a2;"
+},{
+    "title":"用户中心",
+    "icon":"&#xe607;"
+},{
+    "title":"报表分析",
+    "icon":"&#xe601;",
+    "child":[{
+        "title":"采购趋势图",
+        "icon":""
+    },{
+        "title":"收货订单明细表",
+        "icon":""
+    },{
+        "title":"商品排行榜",
+        "icon":""
+    }]
+},{
+    "title":"服务中心",
+    "icon":"&#xe661;"
+},{
+    "title":"配置",
+    "icon":"&#xe614;",
+    "child":[{
+        "title":"订单列表",
+        "icon":""
+    },{
+        "title":"退货管理",
+        "icon":""
+    },{
+        "title":"app订单管理",
+        "icon":""
+    }]
+}]

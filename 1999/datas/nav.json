@@ -1,0 +1,147 @@
+
+
+[{
+	"id": "1",
+	"title": "订单中心",
+	"icon": "&#xe621;",
+	"spread": false,
+	"children": [{
+		"id": "9",
+		"title": "我的订单",
+		"icon": "&#xe641;",
+		"href": "button.html"
+	}, {
+		"id": "10",
+		"title": "退货管理",
+		"icon": "&#xe63c;",
+		"href": "form.html"
+	}, {
+		"id": "11",
+		"title": "App订单",
+		"icon": "&#xe63c;",
+		"href": "table.html"
+	}]
+}, {
+	"id": "2",
+	"title": "进货单",
+	"icon": "fa-shopping-cart",
+	"href": "form.html",
+	"spread": false
+}, {
+	"id": "3",
+	"title": "收藏中心",
+	"icon": "fa-bookmark-o",
+	"spread": false,
+	"children": [{
+		"id": "12",
+		"title": "收藏的商品",
+		"icon": "fa-navicon",
+		"href": "navbar.html"
+	}, {
+		"id": "13",
+		"title": "收藏的供应商",
+		"icon": "&#xe62a;",
+		"href": "btable.html"
+	}]
+}, {
+	"id": "4",
+	"title": "用户中心",
+	"icon": "fa-users",
+	"spread": false,
+	"children": [{
+		"id": "14",
+		"title": "员工管理",
+		"icon": "fa-user",
+		"href": "icheck.html"
+	},{
+		"id": "15",
+		"title": "岗位管理",
+		"icon": "fa-user",
+		"href": "icheck.html"
+	}]
+}, {
+	"id": "5",
+	"title": "资产管理",
+	"icon": "fa-cny",
+	"href": "javascript:;",
+	"spread": false,
+	"children": [{
+		"id": "16",
+		"title": "充值",
+		"icon": "fa-github",
+		"href": "a.html"
+	}, {
+		"id": "17",
+		"title": "提现",
+		"icon": "fa-qq",
+		"href": "b.html"
+	}, {
+		"id": "18",
+		"title": "转账",
+		"icon": "&#xe609;",
+		"href": "c.html"
+	}, {
+		"id": "19",
+		"title": "银行卡管理",
+		"icon": "fa-weibo",
+		"href": "e.html"
+	}]
+}, {
+	"id": "6",
+	"title": "报表分析",
+	"icon": "fa-file-excel-o",
+	"href": "#",
+	"spread": false,
+	"children": [{
+		"id": "20",
+		"title": "采购分析图",
+		"icon": "fa-github",
+		"href": "cop.html"
+	}, {
+		"id": "21",
+		"title": "收货订单分析图",
+		"icon": "fa-github",
+		"href": "cop.html"
+	}, {
+		"id": "22",
+		"title": "商品排行榜",
+		"icon": "fa-github",
+		"href": "cop.html"
+	}]
+}, {
+	"id": "7",
+	"title": "服务中心",
+	"icon": "fa-headphones",
+	"href": "",
+	"spread": false,
+	"children": [{
+		"id": "23",
+		"title": "意见建议",
+		"icon": "fa-github",
+		"href": "f.html"
+	}, {
+		"id": "24",
+		"title": "举报中心",
+		"icon": "fa-qq",
+		"href": "g.html"
+	}]
+}, {
+	"id": "8",
+	"title": "设置",
+	"icon": "fa-cog",
+	"href": "",
+	"spread": false,
+	"children": [{
+		"id": "25",
+		"title": "个人中心",
+		"icon": "fa-github",
+		"href": "h.html"
+	}, {
+		"id": "26",
+		"title": "收货地址",
+		"icon": "fa-qq",
+		"href": "i.html"
+	}]
+}
+]
+

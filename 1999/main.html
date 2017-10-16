@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="./build/css/main.css" />
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 9]>
+		  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+		  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			[class^=layui-col-lg2]{
+				/*border: 1px solid red;*/
+			}
+		</style>
+	</head>
+
+	<body class="gray-bg">
+		<div class="layui-fluid" style="margin-top: 45px;">
+			<!-- 收入、订单、供应商、总代理、农村电商、县区运营中心 start-->
+			<div class="layui-row layui-col-space20">
+			  <div class="layui-col-lg2 layui-col-sm4 layui-col-xs12">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>收入</h5>
+            </div>
+            <div class="ibox-content">
+                <h1 class="no-margins">¥1,804.20</h1>
+                <small>当月收入总数</small>
+            </div>
+          </div>
+			  </div>
+			  <div class="layui-col-lg2 layui-col-sm4 layui-col-xs12">
+			  	<div class="ibox float-e-margins">
+			  		<div class="ibox-title">
+			  			<h5>订单</h5>
+			  		</div>
+			  		<div class="ibox-content">
+			  			<h1 class="no-margins">66</h1>
+			  			<small>当月付款订单总数</small>
+			  		</div>
+			  	</div>
+			  </div>
+			  <div class="layui-col-lg2 layui-col-sm4 layui-col-xs12">
+			   	<div class="ibox float-e-margins">
+			   		<div class="ibox-title">
+			   			<h5>供应商</h5>
+			   		</div>
+			   		<div class="ibox-content">
+			   			<h1 class="no-margins">169</h1>
+			   			<small>截止时间：2017/8/31</small>
+			   		</div>
+			   	</div>
+			  </div>
+			  <div class="layui-col-lg2 layui-col-sm4 layui-col-xs12">
+			  	<div class="ibox float-e-margins">
+			  		<div class="ibox-title">
+			  			<h5>总代理</h5>
+			  		</div>
+			  		<div class="ibox-content">
+			  			<h1 class="no-margins">51</h1>
+			  			<small>截止时间：2017/8/31</small>
+			  		</div>
+			  	</div>
+			  </div>
+			  <div class="layui-col-lg2 layui-col-sm4 layui-col-xs12">
+			  	<div class="ibox float-e-margins">
+			  		<div class="ibox-title">
+			  			<h5>农村电商</h5>
+			  		</div>
+			  		<div class="ibox-content">
+			  			<h1 class="no-margins">39</h1>
+			  			<small>截止时间：2017/8/31</small>
+			  		</div>
+			  	</div>
+			  </div>
+			  <div class="layui-col-lg2 layui-col-sm4 layui-col-xs12">
+			  	<div class="ibox float-e-margins">
+			  		<div class="ibox-title">
+			  			<h5>县区运营中心</h5>
+			  		</div>
+			  		<div class="ibox-content">
+			  			<h1 class="no-margins">44</h1>
+			  			<small>截止时间：2017/8/31</small>
+			  		</div>
+			  	</div>
+			  </div>
+			</div>
+			
+			<div class="layui-row">
+				<div class="layui-col-lg12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>订单</h5>
+							<div class="pull-right">
+								<a class="btn-showlist" href="javascript:void(0)" style="padding-right:10px;">查看列表</a>
+								<div class="btn-group">
+									<button type="button" data-type="2" onclick="refreshOrderTrendGraph(2);" class="btn btn-xs btn-white active">天</button>
+									<button type="button" data-type="1" onclick="refreshOrderTrendGraph(1);" class="btn btn-xs btn-white">月</button>
+									<button type="button" data-type="0" onclick="refreshOrderTrendGraph(0);" class="btn btn-xs btn-white">年</button>
+								</div>
+							</div>
+						</div>
+						<div class="ibox-content">
+								<div id="flot-dashboard-chart" style="width:100%; height: 200px;">
+									
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-row">
+				<div class="layui-col-log12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>区域销售统计</h5>
+							<div class="ibox-tools">
+								<a class="collapse-link">
+									<i class="fa fa-chevron-up"></i>
+								</a>
+								<a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html">
+									<i class="fa fa-wrench"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-user">
+									<li>
+										<a href="graph_flot.html#">选项1</a>
+									</li>
+									<li>
+										<a href="graph_flot.html#">选项2</a>
+									</li>
+								</ul>
+								<a class="close-link" id="close-link">
+									<i class="fa fa-times"></i>
+								</a>
+							</div>
+						</div>
+						<div class="ibox-content">
+								<div id="china-chart" style="width:100%; height:600px;">
+									
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+		</div>
+		<script type="text/javascript" src="plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="build/js/echarts/echarts.js" ></script>
+		<script type="text/javascript" src="build/js/echarts/china.js" ></script>
+		<script>
+			layui.use('element', function(){
+			  var element = layui.element;
+			  var $ = layui.jquery;
+			  
+			  $("#close-link").on("click",function(){
+			  	$(this).parents("div.row").slideUp(1000);
+			  })
+			  
+			});
+			
+			var myChart = echarts.init(document.getElementById('flot-dashboard-chart'));
+			
+			function echartsdata(dataCount){
+				var categoryData = [];
+				for (var i = 0; i < dataCount; i++) {
+				    var val = Math.random() * 1000;
+				    val=Math.round(val);
+				    categoryData.push('' + val);
+				    
+				}
+				return categoryData;
+			}
+			
+			
+	    var options={
+	    		tooltip: {
+		        trigger: 'axis',
+		        axisPointer: {
+		            type: 'shadow'
+		        }
+			    },
+	        //定义一个标题
+	       /* title:{
+	            text:'测试成绩'
+	        },*/
+	        legend:{
+	            data:['订单数','付款数','金额']
+	        },
+	        //是否启用拖拽重计算特性，默认关闭(即值为false)  
+	        calculable: true, 
+	        //X轴设置
+	        xAxis:{
+	            					data:['5日','6日','7日','8日','9日','10日','11日','12日','13日','14日','15日','16日','17日','18日','19日','20日','21日','22日','23日','24日','25日','26日','27日','28日','29日','30日','31日','1日']
+	        },
+	        yAxis:{
+	        	
+	        },
+	        //name=legend.data的时候才能显示图例
+	        series:[
+	        	{
+	            name:'订单数',
+	            type:'bar',
+	            data:echartsdata(28),
+	            //['12','32','45','21','1','15','16','19','11','31','51','21','12','13','14','18','10','1','9','7','1','6','1','3','1','2','6','1']
+	            markLine : {
+                lineStyle: {
+                    normal: {
+                        type: 'dashed'
+                    }
+                },
+                data : [
+                    [{type : 'min'}, {type : 'max'}]
+                ]
+            	}
+	        	},
+	        	{
+	            name:'付款数',
+	            type:'bar',
+	            data:echartsdata(28)
+	            
+	        	},
+	        	{
+	            name:'金额',
+	            type:'bar',
+	            data:echartsdata(28)
+	        	}]
+
+	        	};
+	        	myChart.setOption(options);
+	        	
+	        	
+						/* 中国地图  */
+	        	var myChart2 = echarts.init(document.getElementById('china-chart'));
+
+	        	function randomData() {
+	        		return Math.round(Math.random()*10000);
+	        	}
+
+	        	options2 = {
+	        		title: {
+	        			text: '全国销量',
+	        			left: 'center'
+	        		},
+	        		tooltip: {
+	        			trigger: 'item',
+	        			formatter: '{b}<br>{c}件'
+	        			
+	        		},
+	        		legend: {
+	        			orient: 'vertical',
+	        			left: 'left',
+	        			data: ['地区'],
+	        			
+	        		},
+	        		visualMap: {
+	        			min: 0,
+	        			max: 2500,
+	        			left: 'left',
+	        			top: 'bottom',
+	        			text: ['高', '低'], // 文本，默认为数值文本
+	        			color: ['#0773DE', '#3993E6','#77BBEF', '#A2D7F6', '#DAFBFE'],
+	        			calculable: true
+	        		},
+	        		toolbox: {
+	        			show: true,
+	        			orient: 'vertical',
+	        			left: 'right',
+	        			top: 'center',
+	        			feature: {
+	        				mark: { show: true },
+                  dataView: { show: true, readOnly: false },
+                  restore: { show: true },
+                  saveAsImage: { show: true }
+	        			}
+	        		},
+	        		series: [
+	        			{
+	        				name: '地区',
+	        				type: 'map',
+	        				mapType: 'china',
+	        				selectedMode : 'multiple',
+	        				roam: false,
+        				 	itemStyle: {
+                    normal: {
+                      borderWidth: 2,
+                      borderColor: 'lightgreen',
+                      color: 'lightgreen',
+                      areaStyle:{color:'#f60'},//设置地图颜色
+                      label: { show: true }
+                    },
+                    emphasis: {
+                      borderWidth: 2,
+                      borderColor: '#fff',
+                      color: '#32cd32',
+                      label: {
+                          show: true,
+                          textStyle: {
+                              color: '#fff'
+                          }
+                      }
+                    }
+                 },
+	        				data: [
+	        					{ name: '北京', value: randomData() }, { name: '天津', value: randomData() }, { name: '上海', value: randomData() },
+	        					{ name: '重庆', value: randomData() }, { name: '河北', value: randomData() }, { name: '河南', value: randomData() },
+	        					{ name: '云南', value: randomData() }, { name: '辽宁', value: randomData() }, { name: '黑龙江', value: randomData() },
+	        					{ name: '湖南', value: randomData() }, { name: '安徽', value: randomData() }, { name: '山东', value: randomData() },
+	        					{ name: '新疆', value: randomData() }, { name: '江苏', value: randomData() }, { name: '浙江', value: randomData() },
+	        					{ name: '江西', value: randomData() }, { name: '湖北', value: randomData() }, { name: '广西', value: randomData() },
+	        					{ name: '甘肃', value: randomData() }, { name: '山西', value: randomData() }, { name: '内蒙古', value: randomData() },
+	        					{ name: '陕西', value: randomData() }, { name: '吉林', value: randomData() }, { name: '福建', value: randomData() },
+	        					{ name: '贵州', value: randomData() }, { name: '广东', value: randomData() }, { name: '青海', value: randomData() },
+	        					{ name: '西藏', value: randomData() }, { name: '四川', value: randomData() }, { name: '宁夏', value: randomData() },
+	        					{ name: '海南', value: randomData() }, { name: '台湾', value: randomData() }, { name: '香港', value: randomData() },
+	        					{ name: '澳门', value: randomData() }
+	        				]
+	        			}
+	        		]
+	        	};
+	        	
+	    
+	        	
+	        	myChart2.setOption(options2);
+	        	//用于使chart自适应高度和宽度
+						window.onresize = function () {
+						    //重置容器高宽
+						    myChart.resize();
+						    myChart2.resize();
+						};
+	        	
+	</script>
+	</body>
+	
+	
+	
+		<!--
+        	作者：873095192@qq.com
+        	时间：2017-09-02
+        	描述：
+        ->
+   GetSalesAmount();//执行
+    //创建ECharts图表方法
+    function AddEChartsMap(title, total, jsondata) {
+        // --- 地图 ---
+        //基于准备好的dom,初始化echart图表
+        var myChart = echarts.init(document.getElementById('echartsmap'));
+        //接收数据
+        var option = GetMapData(title, total, jsondata);
+        //为echarts对象加载数据
+        myChart.setOption(option);
+    }
+    //生成地图统计数据
+    function GetMapData(title, total, jsondata) {
+
+        var option = {
+            title: {
+                text: title,
+                subtext: '',
+                x: 'center',
+                y: 'top'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                y: 'top',
+                data: ['地区' + title]
+            },
+            dataRange: {
+                orient: 'vertical',
+                min: 0,
+                max: total,
+                x: 'left',
+                y: 'bottom',
+                text: ['高', '低'],
+                calculable: true
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                x: 'right',
+                y: 'center',
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            roamController: {
+                show: true,
+                x: 'right',
+                y: 'top',
+                mapTypeControl: {
+                    'china': true
+                }
+            },
+            series: [
+                {
+                    name: title,
+                    type: 'map',
+                    mapType: 'china',
+                    roam: 'scale',
+                    itemStyle: {
+                        normal: {
+                            borderWidth: 2,
+                            borderColor: 'lightgreen',
+                            label: { show: true }
+                        },
+                        emphasis: {
+                            borderWidth: 2,
+                            borderColor: '#fff',
+                            color: '#32cd32',
+                            label: {
+                                show: true,
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            }
+                        }
+                    },
+                    data: jsondata,
+                }
+            ]
+        };
+        return option;
+    }
+
+    //加载销售金额分布
+    function GetSalesAmount() {
+        var actionUrl = "/Home/GetSalesAmount";
+        $.ajax({
+            type: "POST",
+            url: actionUrl,
+            success: function (data) {
+                if (data != []) {
+                    var jsondata = [];
+                    jsondata = data.result;
+                    AddEChartsMap('', data.total, jsondata);
+                }
+            }
+        });
+    }
+    <!--
+        	作者：873095192@qq.com
+        	时间：2017-09-02
+        	描述：
+        -->
+
+</html>
