@@ -380,20 +380,23 @@ a:hover{
 /* 在线客服、发送邮件、提交需求 start */
 .rightPullOver{
 	position: fixed;
-	left: 1130px;
-	width: 70px;
+	width: 55px;
 	height: 200px;
 	left: 9999px;
 	bottom: 95px;
+	background-color: #fff;
 }
 .rightPullOver>ul>li{
-	width: 70px;
-	height: 68px;
+	width: 54px;
+	height: 65px;
 	border: 1px solid #ddd;
 	text-align: center;
 	line-height: 100px;
 	font-size: 12px;
 	color: #666;
+}
+.rightPullOver>ul>li:last-child{
+	height: 66px;
 }
 .rightPullOver>ul>li>a{
 	display: inline-block;

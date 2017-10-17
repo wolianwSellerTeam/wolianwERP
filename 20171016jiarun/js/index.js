@@ -25,6 +25,5 @@ function produceLi(liNum){
 }
 
 var theLeft=$("#serviceWrap").offset().left;
-//var theTop=$("#serviceWrap").offset().top;
 var theWidth=$("#serviceWrap").width();
-$(".rightPullOver").css("left", theLeft+theWidth+25+'px');
+$(".rightPullOver").css("left", theLeft+theWidth+5+'px');
