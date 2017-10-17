@@ -24,6 +24,9 @@ function produceLi(liNum){
 	}
 }
 
-var theLeft=$("#serviceWrap").offset().left;
-var theWidth=$("#serviceWrap").width();
-$(".rightPullOver").css("left", theLeft+theWidth+5+'px');
+if($("#serviceWrap").length!=0){
+	var theLeft=$("#serviceWrap").offset().left;
+	var theWidth=$("#serviceWrap").width();
+	$(".rightPullOver").css("left", theLeft+theWidth+5+'px');
+}
+

@@ -75,13 +75,13 @@ a:hover{
 }
 .banner{
 	width: 100%;
-	height: 500px;
+	height: 330px;
 	position: relative;
 	overflow: hidden;
 }
 .ulBox{
 	width: 100%;
-	height: 500px;
+	height: 100%;
 	position: absolute;
 	overflow: hidden;
 	margin: 0;
@@ -90,7 +90,7 @@ a:hover{
 .ulBox>li{
 	float: left;
 	width: 100%;
-	height: 500px;
+	height: 100%;
 	text-align: center;
 }
 .ulBox>li>a{
@@ -98,6 +98,10 @@ a:hover{
 	width: 100%;
 	height: 100%;
 	position: relative;
+}
+.ulBox>li>a>img{
+	height: 100%;
+	width: 100%;
 }
 .quare_ul{
 	position: absolute;
@@ -445,3 +449,23 @@ a:hover{
 .footRight{
 	float: right;
 }
+
+
+/********************* contact.html start********************/
+.introduce, .contact{
+	width: 1130px;
+	margin: 30px auto;
+	overflow: hidden;
+}
+.introduce{
+	margin-top: 40px;
+}
+ .contact{
+ 	margin-bottom: 35px;
+ }
+.introduce>p, .contact>p{
+	font-size: 16px;
+	color: #333;
+	line-height: 32px;
+}
+/********************* contact.html end********************/

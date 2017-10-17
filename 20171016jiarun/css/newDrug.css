@@ -1,0 +1,15 @@
+
+#newGrugBanner{
+	height: 330px;
+}
+#newGrugBanner .baner_txt{
+	text-align: center;
+	color: #349aac;
+}
+#newGrugBanner .baner_txt .bannerBtn{
+	color: #349aac;
+	border: 1px solid #349aac;
+}
+#newGrugContainer{
+	background-color: #f5f5f5;
+}
