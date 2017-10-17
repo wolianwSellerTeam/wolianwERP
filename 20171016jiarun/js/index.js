@@ -23,3 +23,8 @@ function produceLi(liNum){
 		$(".quare_ul").append(strli);
 	}
 }
+
+var theLeft=$("#serviceWrap").offset().left;
+//var theTop=$("#serviceWrap").offset().top;
+var theWidth=$("#serviceWrap").width();
+$(".rightPullOver").css("left", theLeft+theWidth+25+'px');
