@@ -136,9 +136,10 @@ a:hover{
 	left: 50%;
 	margin-left: -565px;
 	background: transparent;
-	height: 200px;
+	height: auto;
 	top: 50%;
 	margin-top: -100px;
+	overflow: hidden;
 	text-align: left;
 }
 .baner_txt>span{
@@ -451,7 +452,13 @@ a:hover{
 }
 
 
-/********************* contact.html start********************/
+/********************* contact.html 								start********************/
+#contactBanner .ulBox{
+	background: url(../img/contactBanner_bg01.png) center no-repeat;
+}
+#contactBanner .baner_txt{
+	text-align: center;
+}
 .introduce, .contact{
 	width: 1130px;
 	margin: 30px auto;
@@ -468,4 +475,105 @@ a:hover{
 	color: #333;
 	line-height: 32px;
 }
-/********************* contact.html end********************/
+/********************* contact.html 							end********************/
+
+/********************* applicationField.html 			start********************/
+#applicationFieldBanner .baner_txt{
+	text-align: center;
+	color: #349aac;
+}
+/********************* applicationField.html 			end********************/
+
+/********************* serviceCenter.html 				start********************/
+#serviceCenterBanner .ulBox{
+	background: url(../img/serviceCenterBanner_bg01.png) center no-repeat;
+}
+#serviceCenterBanner .baner_txt{
+	text-align: center;
+}
+/********************* serviceCenter.html 				end********************/
+
+
+/********************* newGrug.html 							start********************/
+#newGrugBanner{
+	height: 330px;
+}
+#newGrugBanner .baner_txt{
+	text-align: center;
+	color: #349aac;
+}
+#newGrugBanner .baner_txt .bannerBtn{
+	color: #349aac;
+	border: 1px solid #349aac;
+}
+#newGrugContainer{
+	background-color: #f5f5f5;
+	overflow: hidden;
+}
+.wihteWrap{
+	width: 1120px;
+	overflow: hidden;
+	margin: 30px auto;
+	background-color: #fff;
+	padding: 0 25px;
+	margin-bottom: 40px;
+}
+.myTab{
+	min-height: 250px;
+	border-bottom: 1px dashed #ddd;
+}
+.myTab ul{
+	overflow: hidden;
+	height: 38px;
+	width: 572px;
+	margin: 40px auto;
+	
+}
+.myTab ul>li{
+	float: left;
+	text-align: center;
+	height: 36px;
+	line-height: 36px;
+	font-size: 14px;
+	color: #349aac;
+	border: 1px solid #349aac;
+	border-right: none;
+	width: 189px;
+	cursor: pointer;
+}
+.activeLi{
+	background-color: #349aac!important;
+	color: #fff!important;
+}
+.myTab ul>li:last-child{
+	border-right: 1px solid #349aac;
+	width: 188px;
+}
+#tagService, #detectionService, #scientificService{
+	display: none;
+	line-height: 24px;
+	width: 850px;
+	margin: 0 auto;
+	color: #666;
+	text-align: center;
+}
+.introduceWrap{
+	overflow: hidden;
+	margin: 35px 0;
+	
+}
+.introduceWrap>p{
+	line-height: 24px;
+	color: #333;
+	font: 16px;
+}
+.newDrugIntroduceImg{
+	overflow: hidden;
+	margin: 20px 0;
+	
+}
+.newDrugIntroduceImg>img{
+	vertical-align: middle;
+	margin-right: 15px;
+}
+/********************* newGrug.html 							end********************/

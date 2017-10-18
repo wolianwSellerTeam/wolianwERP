@@ -2,22 +2,40 @@
 $(function(){
 	var linum=$(".ulBox li").size();
 	var liWidth=$(".ulBox li").width();
-	produceLi(linum);
-	var widthul=$(".ulBox").css("width", liWidth*linum+"px");
-	$(".ulBox li").width(liWidth);
-	$(".quare_ul li:first").addClass("inThis");
-	$(".quare_ul li").click(function(){
-		var liIndex=$(this).index();
-		$(this).addClass("inThis").siblings().removeClass("inThis");
-		$(".ulBox").animate({
-				left:-liIndex*liWidth+'px'
-		},500);
-	});
+	if(linum>1){
+		produceLi(linum);
+		var widthul=$(".ulBox").css("width", liWidth*linum+"px");
+		$(".ulBox li").width(liWidth);
+		$(".quare_ul li:first").addClass("inThis");
+		$(".quare_ul li").click(function(){
+			var liIndex=$(this).index();
+			$(this).addClass("inThis").siblings().removeClass("inThis");
+			$(".ulBox").animate({
+					left:-liIndex*liWidth+'px'
+			},500);
+		});
+	}
+	
+	var bannerTextHeight=$(".baner_txt").height();
+	$(".baner_txt").css("marginTop", -bannerTextHeight/2+"px");
+	
+	$(".myTab li").each(function(){
+		if($(this).hasClass("activeLi")){
+			var serviceDivId=$(this).attr("data-point");
+			$("#"+serviceDivId).show().siblings("div").hide();
+		}
+		
+		$(this).click(function(){
+			$(this).addClass("activeLi").siblings("li").removeClass("activeLi");
+			var serviceDivId=$(this).attr("data-point");
+			$("#"+serviceDivId).show().siblings("div").hide();
+		})
+		
+	})
 	
 });
 
 function produceLi(liNum){
-	
 	for(var i=0;i<liNum;i++){
 		var strli='<li class="liYuan" id=liYuan'+i+'></li>';
 		$(".quare_ul").append(strli);
