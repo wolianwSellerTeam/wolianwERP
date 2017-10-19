@@ -563,7 +563,7 @@ a:hover{
 	background-color: #f5f5f5;
 	overflow: hidden;
 }
-.wihteWrap{
+.whiteWrap{
 	width: 1120px;
 	overflow: hidden;
 	margin: 30px auto;
@@ -630,3 +630,106 @@ a:hover{
 	margin-right: 15px;
 }
 /********************* newGrug.html 							end********************/
+
+/********************* applicationField.html 							start********************/
+.applicationFieldWrap{
+	width: 810px;
+	margin: 30px auto;
+	overflow: hidden;
+  margin-bottom: 10px;
+}
+.applicationBox{
+	width: 395px;
+	height: 165px;
+	position: relative;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  line-height: 24px;
+	color: #fff;
+  background: url(../img/applicationField_bg.png) center no-repeat;
+}
+.applicationBox>h3{
+	font-size: 20px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.applicationBox>p{
+	font-size: 14px;
+	margin-left: 20px;
+}
+.applicationBox>img{
+	position: absolute;
+	right: 45px;
+	top: 50%;
+	margin-top: -48px;
+	
+}
+.applicationFieldWrap>div.applicationBox:nth-child(2n){
+	margin-right: 0;
+}
+/********************* applicationField.html 							end********************/
+
+
+/********************* productCenter.html 							start********************/
+
+#productCenterBanner .ulBox{
+	background: url(../img/productCenterBanner_bg.png) center no-repeat;
+}
+#productCenterBanner .baner_txt{
+	text-align: center;
+}
+#productCenterContainer{
+	background-color: #f5f5f5;
+  overflow: hidden;
+}
+#productCenterContainer .whiteWrap{
+	padding: 0;
+}
+.leftNav{
+	width: 270px;
+	height: 387px;
+	box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+	float: left;
+}
+.leftNav>ul>li, .leftNav>ul>li dd{
+	font-size: 16px;
+	line-height: 36px;
+	color: #333;
+	width: 100%;
+	position: relative;
+}
+.leftNav>ul>li dd{padding-left: 10px;}
+.leftNav>ul>li dl{display: none;}
+.leftNav>ul>li{
+	border-bottom: 1px solid #eee;
+	box-sizing: border-box;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.leftNav>ul>li:hover>a{
+	color: #349aac;
+}
+.leftNav>ul>li>a{
+	height: 36px;
+	line-height: 36px;
+	width: 100%;
+	display: inline-block;
+	
+}
+.leftNav>ul>li>img{
+	position: absolute;
+	right: 20px;
+	top: 17px;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+}
+
+.right_content{
+	width: 830px;
+	border: 1px solid red;
+	float: left;
+}
+/********************* productCenter.html 							end********************/

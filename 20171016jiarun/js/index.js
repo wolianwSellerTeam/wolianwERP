@@ -31,6 +31,18 @@ $(function(){
 			$("#"+serviceDivId).show().siblings("div").hide();
 		})
 		
+	});
+	
+	$(".leftNav li>img").each(function(){
+		$(this).hover(function(){
+			$(this).attr("src", 'img/pointUp_black.png');
+		},function(){
+			$(this).attr("src", 'img/pointUp_gray.png');
+		});
+		
+		$(this).click(function(){
+			$(this).siblings("dl").slideToggle();
+		});
 	})
 	
 });
