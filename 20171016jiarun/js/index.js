@@ -33,15 +33,37 @@ $(function(){
 		
 	});
 	
-	$(".leftNav li>img").each(function(){
-		$(this).hover(function(){
-			$(this).attr("src", 'img/pointUp_black.png');
-		},function(){
-			$(this).attr("src", 'img/pointUp_gray.png');
-		});
+	$(".leftNav li").each(function(){
+		$(this).hover(
+			function(){
+				if($("img", this).attr("src").indexOf("pointUp")>0){
+					$("img", this).attr("src", 'img/pointUp_black.png');
+				}else{
+					$("img", this).attr("src", 'img/pointDown_black.png');
+				}
+				
+			},
+			function(){
+				if($("img", this).attr("src").indexOf("pointUp")>0){
+					$("img", this).attr("src", 'img/pointUp_gray.png');
+				}else{
+					$("img", this).attr("src", 'img/pointDown_gray.png');
+				}
+			}
+		);
 		
-		$(this).click(function(){
-			$(this).siblings("dl").slideToggle();
+		$(this).click(function(event){
+			if(event.target==this||event.target==$("a", this)[0]){
+				$('dl', this).slideToggle();
+			}
+			
+			if($("img", this).attr("src").indexOf("pointUp")>0){
+				var newsrc=$("img", this).attr("src").replace("Up", "Down");
+				$("img", this).attr("src", newsrc);
+			}else{
+				var newsrc=$("img", this).attr("src").replace("Down", "Up");
+				$("img", this).attr("src", newsrc);
+			}
 		});
 	})
 	
