@@ -491,6 +491,59 @@ a:hover{
 #serviceCenterBanner .baner_txt{
 	text-align: center;
 }
+#serviceCenterIntroduceWrap{
+	border-bottom: 1px dashed #ddd;
+	position: relative;
+}
+#serviceCenterIntroduceWrap>img{
+	float: left;
+	width: 350px;
+	height: 245px;
+	margin-left: 20px;
+  margin-bottom: 35px;
+}
+#serviceCenterIntroduceWrap>label{
+	float: left;
+	margin-left:420px;
+	width: 685px;
+	height: 224px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+#serviceCenterIntroduceWrap>label>p{
+	font-size: 16px;
+	line-height: 26px;
+	color: #666;
+	margin-bottom: 20px;
+}
+#serviceCenterContact>p{
+	font-size: 14px;
+	line-height: 24px;
+	color: #666;
+}
+.labTitle{
+	font-size: 18px;
+	color: #333;
+	display: block;
+	margin-bottom: 15px;
+}
+.serviceCenterIntroduceImg{
+	overflow: hidden;
+	margin: 0 auto;
+  margin-top: -5px;
+	border-bottom: 1px dashed #ddd;
+	padding-bottom: 30px;
+}
+.imgBox{
+	display: inline-block;
+	margin-right: 15px;
+}
+.imgBox>p{
+	font-size: 12px;
+	color: #999;
+	margin-top: 7px;
+}
 /********************* serviceCenter.html 				end********************/
 
 
@@ -565,7 +618,7 @@ a:hover{
 .introduceWrap>p{
 	line-height: 24px;
 	color: #333;
-	font: 16px;
+	font-size: 16px;
 }
 .newDrugIntroduceImg{
 	overflow: hidden;
