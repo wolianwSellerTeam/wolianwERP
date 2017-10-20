@@ -686,12 +686,14 @@ a:hover{
 }
 #productCenterContainer .whiteWrap{
 	padding: 0;
+	background-color: #f5f5f5;
 }
 .leftNav{
 	width: 270px;
 	height: 387px;
 	box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
 	float: left;
+	background-color: #fff;
 }
 .leftNav>ul>li, .leftNav>ul>li dd{
 	font-size: 16px;
@@ -708,6 +710,7 @@ a:hover{
 	padding: 10px;
 	margin-bottom: 10px;
 }
+.leftNav>ul>li:last-child{border-bottom: none;}
 .leftNav>ul>li:hover>a{
 	color: #349aac;
 }
@@ -716,7 +719,6 @@ a:hover{
 	line-height: 36px;
 	width: 100%;
 	display: inline-block;
-	
 }
 .leftNav>ul>li>img{
 	position: absolute;
@@ -732,6 +734,7 @@ a:hover{
 	float: left;
 	overflow: hidden;
 	margin-left: 15px;
+	background-color: #f5f5f5;
 }
 .searchDiv{
 	height: 40px;
@@ -760,5 +763,54 @@ a:hover{
 }
 a.searchA:hover{
 	color: #fff;
+}
+.contentBox{
+	box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+	width: 835px;
+	overflow: hidden;
+	background-color: #fff;
+	margin-top: 20px;
+	min-height: 325px;
+	position: relative;
+}
+.tableBox{
+	width: 800px;
+	margin: 20px auto;
+	text-align: center;
+	border: 1px solid #349aac;
+	display: none;
+}
+.tableBox tr td{
+	border-bottom: 1px solid #349aac;
+	border-right: 1px solid #349aac;
+}
+table.tableBox tr.firstTr{
+	background-color: #349aac;
+}
+.tableBox tr:nth-child(2n){
+	background-color: #ebf5f7;
+}
+.tableBox tr:nth-child(2n+1){
+	background-color: #cce6eb;
+}
+.tableBox tr td:last-child{border-right: none;}
+.tableBox tr:last-child>td{border-bottom: none;}
+.tableBox caption{
+	font-size: 18px;
+	line-height: 32px;
+	color: #349aac;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.contentBox>p.noData{
+	font-size: 18px;
+	color: #333;
+	line-height: 325px;
+	height: 325px;
+	width: 100%;
+	text-align: center;
+}
+p.noData>a{
+	color: #349aac;
 }
 /********************* productCenter.html 							end********************/
