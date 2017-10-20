@@ -33,7 +33,7 @@ $(function(){
 		
 	});
 	
-	$(".leftNav li").each(function(){
+	$("#productCenterContainer .leftNav li").each(function(){
 		$(this).hover(
 			function(){
 				if($("img", this).attr("src").indexOf("pointUp")>0){
@@ -68,9 +68,11 @@ $(function(){
 	});
 	
 	
+	if(document.getElementById("rightContentFrame")){
+		parent.document.getElementById("rightContentFrame").height=0;
+		parent.document.getElementById("rightContentFrame").height=document.body.scrollHeight;
+	}
 	
-	parent.document.getElementById("rightContentFrame").height=0;
-	parent.document.getElementById("rightContentFrame").height=document.body.scrollHeight;
 	
 });
 
