@@ -53,7 +53,7 @@ $(function(){
 		);
 		
 		$(this).click(function(event){
-			if(event.target==this||event.target==$("a", this)[0]){
+			if(event.target==this||event.target==$("a", this)[0]||event.target==$("img", this)[0]){
 				$('dl', this).slideToggle();
 			}
 			
@@ -65,7 +65,12 @@ $(function(){
 				$("img", this).attr("src", newsrc);
 			}
 		});
-	})
+	});
+	
+	
+	
+	parent.document.getElementById("rightContentFrame").height=0;
+	parent.document.getElementById("rightContentFrame").height=document.body.scrollHeight;
 	
 });
 

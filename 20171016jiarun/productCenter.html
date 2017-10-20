@@ -45,10 +45,16 @@
 					</li>
 				</ul>
 				<ul class="quare_ul"></ul>
-				
 			</div>
 		</div>
 		<div class="container" id="productCenterContainer">
+			<ol class="breadcrumb">
+		    <li><a href="index.html">首页</a></li>
+		    <li>>></li>
+		    <li><a href="productCenter.html">产品中心</a></li>
+		    <li>>></li>
+		    <li class="active">丁苯</li>
+			</ol>
 			<div class="whiteWrap">
 				<div class="leftNav">
 					<ul>
@@ -78,50 +84,7 @@
 					</ul>
 				</div>
 				<div class="rightContent">
-					<div class="searchDiv">
-						<input placeholder="在此输入要搜索的产品名称" class="searchInput" />
-						<input type="hidden" name="" id="" value="搜索" />
-						<a class="searchA" href="javascript:;">搜索</a>
-					</div>
-					<div class="contentBox">
-						<!--if （搜索到产品）{ -->
-						<table class="tableBox" cellspacing="0" cellpadding="0">
-							<caption>氘代药物</caption>
-							<tr class="firstTr">
-								<td width="170px" height="40px">产品名称</td>
-								<td width="170px">英文名</td>
-								<td width="120px"> CAS NO. </td>
-								<td width="230px">结构 </td>
-								<td>丰度规格 </td>
-							</tr>
-							<tr>
-								<td>丁苯那嗪-D6  </td>
-								<td>Tetrabenzine D6</td>
-								<td>1392826-25-3</td>
-								<td><img src="img/productCenterList_001.png" alt="" /></td>
-								<td>≥95%</td>
-							</tr>
-							<tr>
-								<td>丁苯那嗪-D6  </td>
-								<td>Tetrabenzine D6</td>
-								<td>1392826-25-3</td>
-								<td><img src="img/productCenterList_002.png" alt="" /></td>
-								<td>≥95%</td>
-							</tr>
-							<tr>
-								<td>丁苯那嗪-D6  </td>
-								<td>Tetrabenzine D6</td>
-								<td>1392826-25-3</td>
-								<td><img src="img/productCenterList_003.png" alt="" /></td>
-								<td>≥95%</td>
-							</tr>
-						</table>
-						<!--}-->
-						
-						<!--if （搜索不到产品）{ -->
-						<p class="noData">暂无此产品，您可以<a href="javascript:;">提交需求</a>或者选择其他产品</p>
-						<!--} -->
-					</div>
+					<iframe id="rightContentFrame" frameborder="0" scrolling="no" name="rightContentFrame" src="productDetails.html" width="830px"></iframe>
 				</div>
 			</div>
 		</div>
@@ -138,5 +101,6 @@
 		</div>
 		<script src="js/jquery-1.8.3.min.js"></script>
 		<script src="js/index.js"></script>
+		
 	</body>
 </html>
