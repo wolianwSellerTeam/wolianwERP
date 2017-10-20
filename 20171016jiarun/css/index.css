@@ -1021,3 +1021,44 @@ a>.i_title{
 	display: block;
 	margin-top: 10px;
 }
+.paging>a{
+	font-size: 12px;
+	color: #666;
+	float: left;
+	width: 80px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	margin: 10px 0;
+}
+.paging>ul{
+	float: left;
+	height: 37px;
+	width: auto;
+	overflow: hidden;
+	margin-top: 10px;
+}
+.paging>ul>li{
+	height: 35px;
+	width: 36px;
+	text-align: center;
+	line-height: 35px;
+	border: 1px solid #eee;
+	float: left;
+}
+.paging>ul>li>a{
+	display: inline-block;
+	width: 100%;
+	height: 35px;
+}
+.paging>ul>li.activePage{
+	
+}
+.paging>ul>li>a:hover{
+	color: #000;
+	background-color: lightcyan;
+}
+.paging>ul>li.activePage>a{
+	color: #349aac;
+	background-color: #5c5c5c;
+}
