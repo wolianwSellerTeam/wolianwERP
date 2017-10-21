@@ -89,3 +89,14 @@ if($("#serviceWrap").length!=0){
 	$(".rightPullOver").css("left", theLeft+theWidth+5+'px');
 }
 
+function submitRequire(){
+	layer.open({
+	  type: 2,
+	  title: "稳定同位素化合物定制需求信息表",
+	  closeBtn: 1, //显示关闭按钮
+	  shade: [0.5],
+	  area: ['940px', '680px'],
+	  anim: 0,
+	  content: ['require.html', 'no'], //iframe的url，no代表不显示滚动条
+	});
+}

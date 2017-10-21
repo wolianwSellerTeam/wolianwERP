@@ -1089,3 +1089,43 @@ a>.i_title{
 .newsWord>img{
 	margin: 20px auto;
 }
+
+
+
+#requireForm table{
+	color: #000;
+	font-size: 14px;
+	line-height: 50px;
+}
+#requireForm table tr>td:nth-child(2n+1){
+	text-align: right;
+}
+#requireForm table tr>td:nth-child(2n){padding-left: 30px;}
+#requireForm table input[type=text]{
+	width: 240px;
+	padding: 0 10px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #ddd;
+}
+#requireForm table input.submitInput{
+	width: 150px;
+	height: 50px;
+	border: 1px solid #349aac;
+	background-color: #349aac;
+	color: #fff;
+	font-size: 18px;
+	cursor: pointer;
+}
+#requireForm table textarea{
+	height: 100px;
+	width: 686px;
+	resize: none;
+	border: 1px solid #ddd;
+	margin-top: 10px;
+	padding: 12px;
+}
+#requireForm table .asterisk{
+	color: #ff6633;
+	font-style: inherit;
+}
