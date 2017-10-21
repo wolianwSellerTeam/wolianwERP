@@ -926,7 +926,9 @@ p.noData>a{
 #newsCenterContainer .whiteWrap{
 	padding: 0;
 	background-color: #f5f5f5;
+	margin-top: 45px;
 }
+#newsCenterContainer ol.breadcrumb{top: 15px;}
 #newsCenterContainer ol>li {
     float: left;
     font-size: 12px;
@@ -1051,9 +1053,7 @@ a>.i_title{
 	width: 100%;
 	height: 35px;
 }
-.paging>ul>li.activePage{
-	
-}
+
 .paging>ul>li>a:hover{
 	color: #000;
 	background-color: lightcyan;
@@ -1061,4 +1061,31 @@ a>.i_title{
 .paging>ul>li.activePage>a{
 	color: #349aac;
 	background-color: #5c5c5c;
+}
+.newsTitle{}
+.newsTitle>h3{
+	font-size: 24px;
+	color: #333;
+	text-align: center;
+	line-height: 50px;
+}
+.newsTitle>p{
+	font-size: 12px;
+	color: #999;
+	text-align: center;
+	line-height: 30px;
+}
+.newsTime, .newsClassification{margin-right: 15px;}
+.newsWord{
+	margin-top: 10px;
+	font-size: 14px;
+	line-height: 24px;
+	color: #333;
+	text-align: center;
+}
+.newsWord>p{
+	text-align: left;
+}
+.newsWord>img{
+	margin: 20px auto;
 }
