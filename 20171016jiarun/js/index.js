@@ -23,16 +23,12 @@ $(function(){
 		if($(this).hasClass("activeLi")){
 			var serviceDivId=$(this).attr("data-point");
 			$("#"+serviceDivId).show().siblings("div").hide();
-			$("div[name*="+serviceDivId+"]").show();
-			$("div.introduceWrap").not($("div[name*="+serviceDivId+"]")).hide();
 		}
 		
 		$(this).click(function(){
 			$(this).addClass("activeLi").siblings("li").removeClass("activeLi");
 			var serviceDivId=$(this).attr("data-point");
 			$("#"+serviceDivId).show().siblings("div").hide();
-			$("div[name*="+serviceDivId+"]").show();
-			$("div.introduceWrap").not($("div[name*="+serviceDivId+"]")).hide();
 		})
 		
 	});
