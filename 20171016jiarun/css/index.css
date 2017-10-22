@@ -1069,6 +1069,7 @@ a>.i_title{
 	color: #333;
 	text-align: center;
 	line-height: 50px;
+	margin-top: 10px;
 }
 .newsTitle>p{
 	font-size: 12px;
@@ -1129,4 +1130,83 @@ a>.i_title{
 #requireForm table .asterisk{
 	color: #ff6633;
 	font-style: inherit;
+}
+/*.file-uploader-wrap{
+    position: relative;
+    width: 70px;
+    height: 35px;
+    -background-color: lawngreen;
+}
+
+.file-uploader-wrap .file-uploader{
+    position: relative;
+    width: 70px;
+    height: 35px;
+    top: -13px;
+    left: 0px;
+    -border: 1px solid red;
+    filter : alpha(opacity = 0);
+    opacity: 0.3;
+    z-index: 2;
+    cursor: pointer;
+}
+.file-a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	font-size: 12px;
+	color: #fff;
+	background-color: #349aac;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+.file-a:hover{
+	color: #fff;
+}*/
+.fileTd{position: relative;}
+td.fileTd>#textName{
+	width: auto;
+  min-width: 1px;
+  float: left;
+  height: 100%;
+}
+.report-file {
+    position: relative;
+    width: 70px;
+    height: 35px;
+    top: 6px;
+    overflow: hidden;
+    border: 1px solid #428bca;
+    background: none repeat scroll 0 0 #428bca;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    float: left;
+    margin-right:5px;
+}
+.report-file span {
+  cursor: pointer;
+  display: block;
+  text-align: center;
+	height: 35px;
+	line-height: 35px;
+	font-size: 12px;
+	color: #fff;
+	background-color: #349aac;
+}
+.file-prew {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 70px;
+  height: 35px;
+  font-size: 100px; 
+  opacity: 0; 
+  filter: alpha(opacity=0);
+  cursor: pointer;
 }

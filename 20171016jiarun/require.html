@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
-		<form id="requireForm" action="" method="post">
+		<form id="requireForm">
 			
 			<table border="0px" cellspacing="0" cellpadding="0">
 				<tr>
@@ -16,50 +16,50 @@
 				</tr>
 				<tr>
 					<td width="115px"><i class="asterisk">*</i> 化合物名称</td>
-					<td width="280px"><input type="text" name="" /></td>
+					<td width="280px"><input type="text" name="compoundName" /></td>
 					<td width="140px"><i class="asterisk">*</i> 化合物结构式</td>
-					<td><input type="text" name="" /></td>
+					<td class="fileTd">
+			      <div class="report-file">
+					    <span>上传文件</span>
+					    <input tabindex="3" name="structure" class="file-prew" type="file" onchange="document.getElementById('textName').innerHTML=this.value">
+						</div>
+					 	<div id="textName">&nbsp;</div>
+					</td>
 				</tr>
 				<tr>
-					<td>需求量(mg/g)</td>
-					<td><input type="text" name="" /></td>
+					<td><i class="asterisk">*</i> 需求量(mg/g)</td>
+					<td><input type="text" name="requireNum" /></td>
 					<td>分子量</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="molecularNum" /></td>
 				</tr>
 				<tr>
 					<td>丰度要求（%）</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="abundanceRequires" /></td>
 					<td>周期需求</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="cycleRequires" /></td>
 				</tr>
 				<tr>
 					<td>质控要求</td>
-					<td><input placeholder="（核磁图谱/HPLC 图谱等）" type="text" name="" /></td>
+					<td><input placeholder="（核磁图谱/HPLC 图谱等）" type="text" name="controlRequires" /></td>
 					<td>纯度规格</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="puritySpecifications" /></td>
 				</tr>
 				<tr>
 					<td><i class="asterisk">*</i> 委托单位名称</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="entrustName" /></td>
 					<td><i class="asterisk">*</i> 委托单位填写人</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="entrustFill" /></td>
 				</tr>
 				<tr>
 					<td><i class="asterisk">*</i> 联系电话</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="contactTel" placeholder="请输入您的11位手机号" oninput='this.value=this.value.replace(/\D/gi,"")' maxlength="11" /></td>
 					<td><i class="asterisk">*</i> 电子邮箱</td>
-					<td><input type="text" name="" /></td>
-				</tr>
-				<tr>
-					<td><i class="asterisk">*</i> 化合物名称</td>
-					<td><input type="text" name="" /></td>
-					<td><i class="asterisk">*</i> 化合物结构式</td>
-					<td><input type="text" name="" /></td>
+					<td><input type="text" name="email" /></td>
 				</tr>
 				<tr>
 					<td>备注</td>
 					<td colspan="3">
-						<textarea class="note" name="" ></textarea>
+						<textarea class="note" name="note" ></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -69,8 +69,74 @@
 			</table>
 			
 		</form>
-		
+		<div class="getBox">
+			
+		</div>
 		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/layer-v3.1.0/layer/layer.js"></script>
 		<script src="js/index.js"></script>
+		<script type="text/javascript">
+			$('#requireForm').submit(function() {
+			  var AjaxURL= "require.html";       
+        var formString=$('#requireForm').serialize();  //jquery把表单input数据 序列化成字符串
+        var formJson=$('#requireForm').serializeJson();//jquery把表单input数据 序列化成json
+        var compoundName=$("input[name=compoundName]").val();
+        var structure=$("input[name=structure]").val();
+        var requireNum=$("input[name=requireNum]").val();
+        var entrustName=$("input[name=entrustName]").val();
+        var entrustFill=$("input[name=entrustFill]").val();
+        var contactTel=$("input[name=contactTel]").val();
+        var email=$("input[name=email]").val();
+        if(compoundName == ""  ){
+			     layer.alert("化合物名称不能为空");
+			     return false;
+			   }
+			   if(structure == ""  ){
+			    layer.alert("化合物结构式不能为空");
+			     return false;
+			   }
+			   if(requireNum == ""  ){
+			    layer.alert("需求量(mg/g)不能为空");
+			     return false;
+			   }
+			   if(entrustName == ""  ){
+			    layer.alert("委托单位名称不能为空");
+			     return false;
+			   }
+			   if(entrustFill == ""  ){
+			    layer.alert("委托单位填写人不能为空");
+			     return false;
+			   }
+			   if(contactTel == ""  ){
+			    layer.alert("联系电话不能为空");
+			     return false;
+			   }
+			   if(email == ""  ){
+			    layer.alert("电子邮箱不能为空");
+			     return false;
+			   }
+			   if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){   
+			   	layer.alert("格式不正确！请重新输入");   
+			   	$("input[name=email]").focus();
+			   	return false;
+			   }
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: AjaxURL,
+            data: $('#requireForm').serializeJson(),
+            success: function (data) {
+              var strresult=data;
+              alert(strresult);
+              $(".getBox").html(strresult);
+            },
+            error: function(data) {
+              alert("error:"+data.responseText);
+            }
+ 
+        });
+
+			});
+		</script>
 	</body>
 </html>

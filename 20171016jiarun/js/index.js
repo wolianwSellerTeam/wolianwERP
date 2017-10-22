@@ -23,40 +23,40 @@ $(function(){
 		if($(this).hasClass("activeLi")){
 			var serviceDivId=$(this).attr("data-point");
 			$("#"+serviceDivId).show().siblings("div").hide();
+			$("div[name*="+serviceDivId+"]").show();
+			$("div.introduceWrap").not($("div[name*="+serviceDivId+"]")).hide();
 		}
 		
 		$(this).click(function(){
 			$(this).addClass("activeLi").siblings("li").removeClass("activeLi");
 			var serviceDivId=$(this).attr("data-point");
 			$("#"+serviceDivId).show().siblings("div").hide();
+			$("div[name*="+serviceDivId+"]").show();
+			$("div.introduceWrap").not($("div[name*="+serviceDivId+"]")).hide();
 		})
 		
 	});
 	
 	$("#productCenterContainer .leftNav li").each(function(){
-		$(this).hover(
-			function(){
+		//产品中心 左侧菜单树 鼠标悬停li 切换图片
+		$(this).hover(function(){
 				if($("img", this).attr("src").indexOf("pointUp")>0){
 					$("img", this).attr("src", 'img/pointUp_black.png');
 				}else{
 					$("img", this).attr("src", 'img/pointDown_black.png');
 				}
-				
-			},
-			function(){
+			},function(){
 				if($("img", this).attr("src").indexOf("pointUp")>0){
 					$("img", this).attr("src", 'img/pointUp_gray.png');
 				}else{
 					$("img", this).attr("src", 'img/pointDown_gray.png');
 				}
-			}
-		);
-		
+		});
+		//鼠标点击  下拉二级菜单或者收起
 		$(this).click(function(event){
 			if(event.target==this||event.target==$("a", this)[0]||event.target==$("img", this)[0]){
 				$('dl', this).slideToggle();
 			}
-			
 			if($("img", this).attr("src").indexOf("pointUp")>0){
 				var newsrc=$("img", this).attr("src").replace("Up", "Down");
 				$("img", this).attr("src", newsrc);
@@ -67,7 +67,7 @@ $(function(){
 		});
 	});
 	
-	
+	//ifrme 自适应高度
 	if(document.getElementById("rightContentFrame")){
 		parent.document.getElementById("rightContentFrame").height=0;
 		parent.document.getElementById("rightContentFrame").height=document.body.scrollHeight;
@@ -76,6 +76,7 @@ $(function(){
 	
 });
 
+//banner  根据图片的数量（其实也是li的数量）自动增加小圆点（用于点击切换banner图片）
 function produceLi(liNum){
 	for(var i=0;i<liNum;i++){
 		var strli='<li class="liYuan" id=liYuan'+i+'></li>';
@@ -89,6 +90,8 @@ if($("#serviceWrap").length!=0){
 	$(".rightPullOver").css("left", theLeft+theWidth+5+'px');
 }
 
+
+//点击提交需求按钮   打开需求页面弹窗
 function submitRequire(){
 	layer.open({
 	  type: 2,
@@ -100,3 +103,14 @@ function submitRequire(){
 	  content: ['require.html', 'no'], //iframe的url，no代表不显示滚动条
 	});
 }
+
+//把jquery序列化的表单string 转成json
+(function($){  
+    $.fn.serializeJson=function(){  
+        var serializeObj={};  
+        $(this.serializeArray()).each(function(){  
+            serializeObj[this.name]=this.value;  
+        });  
+        return serializeObj;  
+    };  
+})(jQuery); 
