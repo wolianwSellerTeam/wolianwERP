@@ -69,6 +69,11 @@ $(function(){
 		parent.document.getElementById("rightContentFrame").height=document.body.scrollHeight;
 	}
 	
+	$("li.productCenterLi").hover(function(){
+			$("div", this).show(150);
+		},function(){
+			$("div", this).hide(150);
+	});
 	
 });
 
