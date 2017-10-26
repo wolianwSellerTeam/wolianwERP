@@ -147,10 +147,6 @@ a:hover{
 	height: 100%;
 	position: relative;
 }
-.ulBox>li>a>img{
-	height: 100%;
-	width: 100%;
-}
 .quare_ul{
 	position: absolute;
 	left: 50%;
