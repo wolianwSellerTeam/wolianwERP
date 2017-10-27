@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打气球的游戏balloon</title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+		html,body{height:100%}
+		.balloon{
+			position: relative;
+			width: 150px;
+			height: 150px;
+			background-color: lightblue;
+			border-radius: 150px 150px 65px 150px;
+			transform: rotate(45deg);
+			box-shadow: 5px 5px 60px red inset;
+			cursor: pointer;
+		}
+		.balloon:after{
+			content: "";
+			left: 135px;
+			bottom: 0;
+			position: absolute;
+			border: 8px solid transparent;
+			border-bottom-color:lightcoral;
+			border-right-color:lightcoral;
+			border-radius: 50px;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<!--<div class="balloon"></div>-->
+		</div>
+		
+		
+		
+		
+		<script>
+			var wHeight=document.body.clientHeight;
+			var wWidth=document.body.clientWidth;
+			addBalloons(10);
+			
+			function addBalloons(num){
+				var fragment=document.createDocumentFragment();
+				for(var i=0;i<num;i++){
+					var divDOM = document.createElement("div");
+					divDOM.className="balloon";
+					divDOM.style.left=Math.abs(Math.random()*wWidth-200)+"px";
+					divDOM.style.bottom=0+"px";
+					fragment.appendChild(divDOM);
+				}
+				document.body.appendChild(fragment);
+			}
+			
+			
+		</script>
+	</body>
+</html>
