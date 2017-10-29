@@ -6,16 +6,17 @@
 	</head>
 	<style>
 		*{margin: 0;padding: 0;}
-		html,body{height:100%}
+		html,body{height:100%;overflow: hidden;}
 		.balloon{
-			position: relative;
+			position: absolute;
 			width: 150px;
 			height: 150px;
 			background-color: lightblue;
 			border-radius: 150px 150px 65px 150px;
 			transform: rotate(45deg);
-			box-shadow: 5px 5px 60px red inset;
+			box-shadow: -8px -8px 80px red inset;
 			cursor: pointer;
+			
 		}
 		.balloon:after{
 			content: "";
@@ -23,34 +24,49 @@
 			bottom: 0;
 			position: absolute;
 			border: 8px solid transparent;
-			border-bottom-color:lightcoral;
 			border-right-color:lightcoral;
-			border-radius: 50px;
+			transform: rotate(45deg);
+			border-radius: 50%;
 		}
 	</style>
 	<body>
-		<div class="container">
 			<!--<div class="balloon"></div>-->
-		</div>
 		
 		
 		
 		
 		<script>
-			var wHeight=document.body.clientHeight;
-			var wWidth=document.body.clientWidth;
+			var wHeight=window.innerHeight;
+			var wWidth=window.innerWidth;
+			var bz=150;
+			var timer;
 			addBalloons(10);
+			timer=setInterval(bmove, 1000/60);
 			
 			function addBalloons(num){
 				var fragment=document.createDocumentFragment();
 				for(var i=0;i<num;i++){
 					var divDOM = document.createElement("div");
 					divDOM.className="balloon";
-					divDOM.style.left=Math.abs(Math.random()*wWidth-200)+"px";
-					divDOM.style.bottom=0+"px";
+					ranX=~~(Math.random()*wWidth)-bz;
+					ranX=Math.max(0, ranX);  //边界限制 防止为负
+					divDOM.style.left=ranX+"px";
+					divDOM.style.top=wHeight-bz+"px";
 					fragment.appendChild(divDOM);
 				}
 				document.body.appendChild(fragment);
+			}
+			
+			function bmove(){
+				var balllons=document.querySelectorAll(".balloon");
+				for(var j=0;len=balllons.length,j<len;j++){
+						balllons[j].style.top=balllons[j].offsetTop-10+"px";
+					
+					/*balllons[j].onclick=function(){
+						this.style.display="none";
+					}*/
+				}
+				
 			}
 			
 			
