@@ -30,9 +30,6 @@
 		}
 	</style>
 	<body>
-			<!--<div class="balloon"></div>-->
-		
-		
 		
 		
 		<script>
@@ -42,6 +39,13 @@
 			var timer;
 			addBalloons(10);
 			timer=setInterval(bmove, 1000/60);
+			
+			document.body.addEventListener("click", function(e){
+				if(e.target.className == "balloon"){
+					this.removeChild(e.target);
+					addBalloons(1);
+				}
+			})
 			
 			function addBalloons(num){
 				var fragment=document.createDocumentFragment();
@@ -59,15 +63,12 @@
 			
 			function bmove(){
 				var balllons=document.querySelectorAll(".balloon");
-				for(var j=0;len=balllons.length,j<len;j++){
-						balllons[j].style.top=balllons[j].offsetTop-10+"px";
-					
-					/*balllons[j].onclick=function(){
-						this.style.display="none";
-					}*/
+				var len=balllons.length;
+				for(var j=0; j<len; j++){
+						balllons[j].style.top=balllons[j].offsetTop-1+"px";
 				}
-				
 			}
+			
 			
 			
 		</script>
