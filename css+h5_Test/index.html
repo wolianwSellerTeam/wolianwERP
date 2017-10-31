@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>css3练习</title>
+	</head>
+	<style>
+		.divBox{
+			border: 1px solid #ccc;
+			overflow: hidden;
+			margin: 10px;
+		}
+		.div1, .div2, .div3, .div4, .div5, .div6{
+			width: 200px;
+			height: 200px;
+			margin: 10px;
+			float: left;
+			border: 1px solid #ddd;
+			text-align: center;
+			line-height: 200px;
+		}
+		.div1{
+			background-image: linear-gradient(270deg, red, green);  
+		}
+		.div2{
+			background-image: linear-gradient(45deg, red 10%, green 100%);  
+		}
+		.div3{
+			background-image: linear-gradient(225deg, red, green);  
+		}
+	</style>
+	<body>
+		<div class="divBox">
+			<div class="div1">我是div1 [线性渐变]</div>
+			<div class="div2">我是div2 [线性渐变]</div>
+			<div class="div3">我是div3 [线性渐变]</div>
+		</div>
+		
+		<div class="divBox">
+			<div class="div1">我是div4 [径向渐变]</div>
+			<div class="div2">我是div5 [径向渐变]</div>
+			<div class="div3">我是div6 [径向渐变]</div>
+		</div>
+	</body>
+</html>

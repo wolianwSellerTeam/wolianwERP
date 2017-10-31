@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>flex练习</title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;box-sizing: border-box;}
+		a{color: #666; text-decoration: none;}
+		.container {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+		}
+		header {
+			display: flex;
+			height: 100px;
+			background-color: lightcyan;
+		}
+		header > ul{
+			list-style: none;
+			display: flex;
+			flex-flow: row nowrap;
+			height: 100%;
+			width: 100%;
+			justify-content: space-around;
+		}
+		header > ul >li{
+			height: 100%;
+			text-align: center;
+			line-height: 100px;
+			-background-color: lightseagreen;
+		}
+		header > ul >li > a{
+			display: block;
+			height: 100%;
+			width: 100%;
+		}
+		main {
+			display: flex;
+			background-color: lightblue;
+			flex-grow: 1;
+		}
+		
+		footer {
+			display: flex;
+			background-color: lightgreen;
+			height: 100px;
+		}
+	</style>
+	<style>
+		
+	</style>
+	<body>
+		<div class="container">
+			<header id="header">
+				<ul>
+					<li><a href="#">首&emsp;页</a></li>
+					<li><a href="#">新药开发</a></li>
+					<li><a href="#">产品中心</a></li>
+					<li><a href="#">服务中心</a></li>
+					<li><a href="#">联系我们</a></li>
+				</ul>
+			</header>
+			<main id="main">我是main</main>
+			<footer id="footer">我是footer</footer>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			!(function(doc, win) {
+			    var docEle = doc.documentElement,
+			        evt = "onorientationchange" in window ? "orientationchange" : "resize",
+			        fn = function() {
+			            var width = docEle.clientWidth;
+			            width && (docEle.style.fontSize = 15 * (width / 320) + "px");
+			        };
+			     
+			    win.addEventListener(evt, fn, false);
+			    doc.addEventListener("DOMContentLoaded", fn, false);
+			 
+			}(document, window));
+		</script>
+	</body>
+</html>
