@@ -10,12 +10,15 @@
 			width: 120px;
 			padding: 0 10px;
 			margin-left:5px;
+			line-height: 30px;
 		}
 		.moneyLab{
 			display: inline-block;
 			width: 60px;
+			line-height: 30px;
 			text-align: right;
 			vertical-align: middle;
+			*margin-bottom: 10px;
 		}
 	</style>
 	<body>
@@ -77,6 +80,7 @@
 					this.label.className = "moneyLab";
 					this.input = document.createElement("input");
 					this.input.className = "money";
+					this.input.setAttribute("placeholder", "请输入"+this.name);
 					this.p.appendChild(this.label);
 					this.p.appendChild(this.input);
 					document.body.appendChild(this.p);
@@ -87,13 +91,17 @@
 				Rmb.prototype.bindEvent = function(obj){  //如果有参数 该参数obj是构造函数waibi()的一个实例
 					var that = this;
 					if(obj){
-						this.input.value = obj.input.value * obj.huilv;
+						if(obj.input.value == ""){
+							this.input.value = ""
+						}else{
+							this.input.value = obj.input.value * obj.huilv;
+						}
 						for(var i=0; i<this.listens.length; i++){
 							this.listens[i].listen(this.input.value);
 						}
 					}else{ 
 						//如果没有参数 监听Rmb()实例 里面的input值变化 鼠标，键盘修改生效，脚本(js)修改监听不到
-						this.input.oninput = function(){
+						this.input.onkeyup = function(){//此处可以使用 oninput(只是IE9及其以下无法兼容， Chrome可兼容)，经调试使用onkeyup可兼容到ie7
 							for(var i=0; i<that.listens.length; i++){
 								that.listens[i].listen(this.value);
 							}
@@ -114,12 +122,17 @@
 				
 				//waibi 监听根据Rmb input的值 改变自身input值
 				waibi.prototype.listen =function(rmbCount){
-					this.input.value = rmbCount / this.huilv;
+					if(rmbCount){
+						this.input.value = rmbCount / this.huilv;
+					}else{
+						this.input.value = "";
+					}
+					
 				}
 				
-				waibi.prototype.bindEvent =function(rmbCount){
+				waibi.prototype.bindEvent =function(){
 					var that = this;
-					this.input.oninput = function(){
+					this.input.onkeyup = function(){ //此处可以使用 oninput(只是IE9及其以下无法兼容， Chrome可兼容)，经调试使用onkeyup可兼容到ie7
 						that.obj.regist(that);
 						that.obj.bindEvent(that);
 					};

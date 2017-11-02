@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>观察者模式2</title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<body>
+		
+		
+		<script type="text/javascript">
+
+
+				//观察者模式 实现代码
+				function Teacher(name){
+					this.name = name;
+					this.students = [];
+				}
+				Teacher.prototype.homework = function(zuoye){
+					for(var i = 0;len = this.students.length, i < len; i++){
+						this.students[i].listen(zuoye);
+					}
+				}
+				Teacher.prototype.regist = function(obj){
+					this.students.push(obj);
+				}
+				function Student(teacher){
+					this.zuoye = "无"; //初始化作业是无，如果没布置作业 调用的时候显示 '无'
+					this.teacher = teacher;
+					teacher.regist(this);
+				}
+				Student.prototype.listen = function(zuoye){
+					this.zuoye = zuoye;
+				}
+				
+				var teacher = new Teacher("黄老师");
+				var teacher2 = new Teacher("潘老师");
+				var teacher3 = new Teacher("刘老师");
+				
+				var lh = new Student(teacher);
+				var xiaoming = new Student(teacher2);
+				var xiaohong = new Student(teacher3);
+				
+				teacher.homework("写代码");
+				teacher2.homework("背课文");
+//				teacher3.homework("写作文");
+				
+				alert(lh.teacher.name +"：布置了【"+lh.name+"】的作业：" + lh.zuoye);
+				alert(xiaoming.teacher.name +"：布置了【"+xiaoming.name+"】的作业：" + xiaoming.zuoye);
+				alert(xiaohong.teacher.name +"：布置了【"+xiaohong.name+"】的作业：" + xiaohong.zuoye);
+		</script>
+	</body>
+</html>
