@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数</title>
+	</head>
+	<body>
+		
+		
+		
+		<script type="text/javascript">
+			function People(id, name, age, sex, hobby){
+				this.id = id;
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+				this.hobby =hobby;
+				this.fn = this.id + this .age;
+			}
+			//new 操作符 "四步走":1.创建一个空对象obj{}  2.把this 指向这个空对象 并执行构造函数 3.设置原型链  4.判断返回值类型，如果是值类型，返回obj。如果是引用类型，就返回这个引用类型对象
+			var xiaoming = new People(20093048, "lihui", 27, "男", "code");
+			console.log(xiaoming);
+			
+			/***********单例模式***************/
+			/*单例模式是javascript中最常用的模式，它是将自己的代码放在一个命名空间下，这样的好处是可以减少使用全局变量，在多人协同开发时也能避免命名冲突等问题。
+			    这样的好处是维护起来非常方便，如下例：*/
+//			var m = {
+//		    name: 'dog',
+//		    action: function() {
+//	        console.log(this.name);
+//	     	}
+//			};
+//	 		m.action();//调用
+	 		
+	 		
+	 		var dog = function() {
+		     this.name = 'dog';
+		     this.action = function() {
+		        return console.log(this.name);
+		     };
+		     action();
+		 	};
+		 	dog(); //调用
+	 		
+		</script>
+	</body>
+</html>

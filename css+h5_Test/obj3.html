@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>观察者模式</title>
+	</head>
+	<style type="text/css">
+		.money{
+			height: 30px;
+			width: 120px;
+			padding: 0 10px;
+			margin-left:5px;
+		}
+		.moneyLab{
+			display: inline-block;
+			width: 60px;
+			text-align: right;
+			vertical-align: middle;
+		}
+	</style>
+	<body>
+		<!--<p>
+			<label for="rmb">人民币:</label>
+			<input placeholder="请输入人民币" class="money" type="text" name="rmb" id="rmb" />
+		</p>
+		<p>
+			<label for="my">美&emsp;元:</label>
+			<input placeholder="美元" class="money" type="text" name="my" id="my" disabled />
+		</p>
+		<p>
+			<label for="ry">日&emsp;元:</label>
+			<input placeholder="日元" class="money" type="text" name="ry" id="ry" disabled />
+		</p>
+		<p>
+			<label for="tz">泰&emsp;铢:</label>
+			<input placeholder="泰铢" class="money" type="text" name="tz" id="tz" disabled />
+		</p>
+		<p>
+			<label for="gb">港&emsp;币:</label>
+			<input placeholder="港币" class="money" type="text" name="my" id="gb" disabled />
+		</p>
+		<p>
+			<label for="oy">欧&emsp;元:</label>
+			<input placeholder="欧元" class="money" type="text" name="oy" id="oy" disabled />
+		</p>-->
+		
+		
+		<script type="text/javascript">
+
+//			var rmb = document.getElementById("rmb");
+//			var my = document.getElementById("my");
+//			var ry = document.getElementById("ry");
+//			var tz = document.getElementById("tz");
+//			var gb = document.getElementById("gb");
+//			var oy = document.getElementById("oy");
+//			
+//			rmb.oninput = function(){
+//				my.value = this.value / 6.86;
+//				ry.value = this.value / 0.06;
+//				tz.value = this.value / 0.19;
+//				gb.value = this.value / 0.845;
+//				oy.value = this.value / 7.2;
+//			}
+
+				//观察者模式 实现代码
+				function Rmb(name){
+					this.name =name;
+					this.init();
+					this.listens = [];
+					this.bindEvent();
+				}
+				//初始化 创建dom对象 生成对应的文字和html标签以及class
+				Rmb.prototype.init = function(){
+					this.p = document.createElement("p");
+					this.label = document.createElement("label");
+					this.label.innerHTML = this.name+":";
+					this.label.className = "moneyLab";
+					this.input = document.createElement("input");
+					this.input.className = "money";
+					this.p.appendChild(this.label);
+					this.p.appendChild(this.input);
+					document.body.appendChild(this.p);
+				}
+				Rmb.prototype.regist = function(obj){
+					this.listens.push(obj);
+				}
+				Rmb.prototype.bindEvent = function(obj){  //如果有参数 该参数obj是构造函数waibi()的一个实例
+					var that = this;
+					if(obj){
+						this.input.value = obj.input.value * obj.huilv;
+						for(var i=0; i<this.listens.length; i++){
+							this.listens[i].listen(this.input.value);
+						}
+					}else{ 
+						//如果没有参数 监听Rmb()实例 里面的input值变化 鼠标，键盘修改生效，脚本(js)修改监听不到
+						this.input.oninput = function(){
+							for(var i=0; i<that.listens.length; i++){
+								that.listens[i].listen(this.value);
+							}
+						}
+					};
+				}
+				
+				function waibi(name, huilv, obj){
+					this.name = name;
+					this.huilv = huilv;
+					this.obj = obj;
+					this.obj.regist(this);
+					this.init();
+					this.bindEvent();
+				}
+				//复制上面Rmb 原型的 初始化方法 省的再写一遍 
+				waibi.prototype.init = Rmb.prototype.init;
+				
+				//waibi 监听根据Rmb input的值 改变自身input值
+				waibi.prototype.listen =function(rmbCount){
+					this.input.value = rmbCount / this.huilv;
+				}
+				
+				waibi.prototype.bindEvent =function(rmbCount){
+					var that = this;
+					this.input.oninput = function(){
+						that.obj.regist(that);
+						that.obj.bindEvent(that);
+					};
+				}
+				
+				var rmb = new Rmb("人民币");
+				var my = new waibi("美元", 6.5, rmb);
+				var ry = new waibi("日元", 0.002, rmb);
+				var tz = new waibi("泰铢", 0.19, rmb);
+			
+		</script>
+	</body>
+</html>

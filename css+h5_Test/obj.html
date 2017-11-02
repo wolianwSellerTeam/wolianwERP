@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js面对对象</title>
+		<style>
+			#box1, #box2, #box3{
+				height: 100px;
+				width: 100px;
+				background-color: lightblue;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		
+		<script type="text/javascript">
+			//var obj = {
+			//	"2017": "aslihui",
+			//	"id": 201711011559,
+			//	"key": 201314
+			//}
+			//var key= 2014+2+1;
+			//console.log(obj[key]);  //aslihui  因为变量key=2014+2+1=2107  等同于  obj["2017"] = aslihui
+			//console.log(obj["key"]);  //201314
+			//console.log(obj.key);  //201314
+			
+			//var fullname = 'John Doe1';
+			//var obj = {
+			//   fullname: 'Colin Ihrig',
+			//   prop: {
+			//      fullname: 'Aurelio De Rosa2',
+			//      getFullname: function() {
+			//         return this.fullname;
+			//      }
+			//   }
+			//};
+			//
+			// console.log(obj.prop.getFullname());
+			// var test = obj.prop.getFullname;
+			// console.log(test());
+			
+			var box1 = document.getElementById("box1");
+			var box2 = document.getElementById("box2");
+			var box3 = document.getElementById("box3");
+			
+			//box1.onclick = function(){
+			//	setTimeout(function(){
+			//		//定时器调用的函数 其this指向window
+			//		this.style.backgroundColor = "red";
+			//	}.call(this), 500);  //这里用call(this) 改变this指向 ,绑定this为box1
+			//}
+			function fn(){
+				setTimeout(function(){
+					this.style.backgroundColor = "red";
+				}.call(this), 500);  
+			}
+			box1.onclick = fn;
+			box2.onclick = fn;
+			box3.onclick = fn;
+			
+			//box2.onclick = function(){
+			//	//事件调用的函数 ，谁调用的 this指向谁 所以这里的this 是 box2
+			//	var that = this;
+			//	setTimeout(function(){
+			//		//定时器调用的函数 其this指向window
+			//		that.style.backgroundColor = "red";
+			//	}, 500); 
+			//}
+
+		</script>
+	</body>
+</html>
