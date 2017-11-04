@@ -8,6 +8,7 @@
 	</head>
 	<style>
 		*{margin: 0;padding: 0;box-sizing: border-box;}
+		body{font-size: 14px; font-family: "微软雅黑";}
 		a{color: #666; text-decoration: none;}
 		.container {
 			display: flex;
@@ -59,8 +60,8 @@
 					<li><a href="#">首&emsp;页</a></li>
 					<li><a href="#">新药开发</a></li>
 					<li><a href="#">产品中心</a></li>
-					<li><a href="#">雷波叼毛</a></li>
-					<li><a href="#">陈永智障</a></li>
+					<li><a href="#">应用领域</a></li>
+					<li><a href="#">联系我们</a></li>
 				</ul>
 			</header>
 			<main id="main">我是main</main>
@@ -70,38 +71,20 @@
 		
 		
 		<script type="text/javascript">
-			!(function(doc, win) {
-			    var docEle = doc.documentElement,
-			        evt = "onorientationchange" in window ? "orientationchange" : "resize",
-			        fn = function() {
-			            var width = docEle.clientWidth;
-			            width && (docEle.style.fontSize = 12 * (width / 320) + "px");
-			        };
-			     
-			    win.addEventListener(evt, fn, false);
-			    doc.addEventListener("DOMContentLoaded", fn, false);
-			 
-			}(document, window));
+//			!(function(doc, win) {
+//			    var docEle = doc.documentElement,
+//			        evt = "onorientationchange" in window ? "orientationchange" : "resize",
+//			        fn = function() {
+//			            var width = docEle.clientWidth;
+//			            width && (docEle.style.fontSize = 12 * (width / 320) + "px");
+//			        };
+//			     
+//			    win.addEventListener(evt, fn, false);
+//			    doc.addEventListener("DOMContentLoaded", fn, false);
+//			 
+//			}(document, window));
 			
-//			var foo = 1;
-//			function main(){
-//				console.log(foo);
-//				var foo = 2;
-//				console.log(this.foo);
-//				this.foo = 3;
-//			}
-//			var m1 = main();  //undefined 1
-//			var m2 = new main(); // undefined undefined
 
-//				var foo={
-//					writeLength:function(){
-//						console.log(this.length);
-//					},
-//					Lenght:10,
-//				};
-//				(function(){
-//					arguments[0]();
-//				})(foo.writeLength);
 		</script>
 	</body>
 </html>

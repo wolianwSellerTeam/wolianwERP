@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--<meta http-equiv="x-ua-compatible" content="IE=edge" >-->
+		<title>轮播组件</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			img{border: none;}
+			a{text-decoration: none; outline：none}
+			ul, ol, li{list-style: none;}
+			#carousel>ul>li>a{
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+			}
+			#carousel>ul>li>a>img{
+				width: 100%;
+				height: 300px
+			}
+			.leftBtn, .rightBtn{
+				width: 30px;
+				height: 30px;
+				position: absolute;
+				top: 50%;
+				margin-top: -15px;
+				font-size: 12px;
+				color: #fff;
+				text-align: center;
+				line-height: 30px;
+				z-index: 999;
+				background-color: rgba(0,0,0,0.5);
+				background-color: #033D6F \9; /* 单独ie8 */
+	/*		*+background-color: #033D6F;   单独ie7 */
+				*background-color: #033D6F;/* ie6和 ie7 */
+				_background-color: #033D6F;/* 单独ie6 */
+			}
+			.leftBtn{left: -30px; background: url(images/leftBtn.png) center no-repeat;}
+			.rightBtn{right: -30px; background: url(images/rightBtn.png) center no-repeat;}
+			.selected{
+				background-color: #ff5000!important;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div id="carousel"></div>
+		
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script>
+			function carousel(json){
+				this.$dom = $("#" + json.id);  //根据id获取盒子jqueryDOM， 后面加了$符号的 都是jQuery对象 
+				this.$imageUrlArr = json.images;//图片数组
+				this.$imageNum = json.images.length;//图片的数量==li的数量==ul的数量
+				this.$a_hrefArr = json.a_href || null;  //有没有超链接，没有的话 就是null
+				this.$height = json.height;//整个盒子的高度：图片的高度==li的高度==ul的高度
+				this.$width = json.width || "100%"; //有没有设置宽度，不设置的话 默认为100%
+				this.$imageUl = $("<ul></ul>");//定义装图片的ul
+				this.$leftBtn = $("<a hideFocus href='javascript:;' class='leftBtn'></a>");//left切换按钮
+				this.$rightBtn = $("<a hideFocus href='javascript:;' class='rightBtn'></a>");//right切换按钮
+				this.$imageUlLis = null;//定义装图片的li们
+				this.$circleOl = $("<ol></ol>");//定义一个ol有序列表
+				this.$circleOlLis = null;//定义点击切换图片的小圆点li们
+				this.$index = 0;//当前显示的li序列号
+				this.$setInterval = null;//定时器
+				this.init();//初始化(生成)
+				this._hover();//悬停状态（$dom盒子 和 左($leftBtn)右($rightBtn)切换按钮 的悬停事件 ）
+				this._click();//(左($leftBtn)右($rightBtn)切换按钮 的点击事件)
+				this._listen();
+				this._setTimer();
+			}
+			
+			carousel.prototype.init = function(){
+				for(var i=0; len = this.$imageNum, i < len; i++){
+					//如果有超链接 就把超链接加入进去 如果没有就不加
+					if(this.$a_hrefArr){//hideFocus 是为了去掉IE下 a标签点击时出现虚线边框
+						$("<li><a hideFocus href='" + this.$a_hrefArr[i] + "'><img src='" + this.$imageUrlArr[i] + "' /></a></li>").appendTo(this.$imageUl);
+					}else{
+						$("<li><img src='" + this.$imageUrlArr[i] + "' /></li>").appendTo(this.$imageUl);
+					}
+				}
+				
+				this.$dom.css({
+					"margin" : "0 auto",
+					"overflow" : "hidden",
+					"width" : this.$width,
+					"height" : this.$height,
+					"position" : "relative"
+				});
+				
+				this.$imageUl.css({
+					"width" : this.$width * this.$imageNum + "px",
+					"position" : "absolute",
+					"listStyle" : "none",
+					"left" : "0px"
+				});
+				
+				this.$imageUlLis = this.$imageUl.find("li");
+				this.$imageUlLis.each(function(index, e){
+					$(e).css({
+						"position" : "absolute",
+						"left" : this.$width * index + "px",
+						"top" : 0
+					});
+				}.bind(this));
+				
+				for(var m = 0; lem = this.$imageNum, m < lem; m++){
+					$("<li></li>").appendTo(this.$circleOl);
+				}
+				
+				this.$circleOlLis = this.$circleOl.find("li");
+				this.$circleOlLis.each(function(index, e){
+					$(e).css({
+						"float" : "left",
+						"width" : "10px",
+						"height" : "10px",
+						"marginRight" : "10px",
+						"background-color" : "rgba(0,0,0,0.5)",
+						"borderRadius" : "20px"
+					});
+				}.bind(this));
+				this.$circleOlLis.last().css("marginRight", "0px");
+				this.$circleOl.css({
+					"listStyle" : "none",
+					"cursor" : "pointer",
+					"position" : "absolute",
+					"bottom" : "20px",
+					"left" : "50%",
+					//margin-left为 ol总长度/2, ol总长度没定义，根据填充内容来计算。方法:数量*li宽度(20)+(数量-1)*右边距(10)
+					"marginLeft" : -(this.$imageNum*10 + (this.$imageNum -1)*10) / 2+"px"
+				});
+				
+				//把创建的dom元素一一插入盒子
+				this.$dom.append(this.$imageUl);
+				this.$dom.append(this.$leftBtn);
+				this.$dom.append(this.$rightBtn);
+				this.$dom.append(this.$circleOl);
+				
+			}
+			
+			/*
+			 * 悬停事件
+			 */
+			carousel.prototype._hover = function(){
+				var that = this; //保存this  以为事件调用函数里面的this 指向当前被绑定事件的dom对象
+				that.$dom.hover(function(){
+					clearInterval(that.$setInterval);
+					that.$leftBtn.stop(true, false).animate({"left": 0}, 200);
+					that.$rightBtn.stop(true, false).animate({"right": 0}, 200);
+				}, function(){
+					that.$leftBtn.stop(true, false).animate({"left": "-30px"}, 200);
+					that.$rightBtn.stop(true, false).animate({"right": "-30px"}, 200);
+					that._setTimer();
+				});
+				//把两个按钮（左that.$leftBtn，右that.$rightBtn） 放入数组 然后遍历这2个按钮 分别绑定悬停事件
+//				$.each([that.$leftBtn, that.$rightBtn], function(){
+//					$(this).hover(function(){
+//						$(this).stop(true, false).animate({"width" : "45px"}, 100);
+//					}, function(){
+//						$(this).stop(true, false).animate({"width" : "30px"}, 100);
+//					});
+//				})
+			}
+			
+			/*
+			 * 点击事件
+			 */
+			carousel.prototype._click = function(){
+				var that = this;
+				//左边按钮 点击事件
+				that.$leftBtn.click(function(){
+						clearInterval(that.$setInterval);
+						that.$index++;
+						that.$index %= that.$imageNum;
+						that._listen(that.$index);
+						that.$imageUl.stop(true, false).animate({"left": -that.$index * that.$width + "px"}, 500);
+				});
+				//右边边按钮 点击事件
+				that.$rightBtn.click(function(){
+					clearInterval(that.$setInterval);
+					if(that.$index == 0){
+						that.$index = that.$imageNum;
+					}
+					that.$index--;
+					that._listen(that.$index);
+					that.$imageUl.stop(true, false).animate({"left": -that.$index * that.$width + "px" }, 500);
+				});
+				
+				that.$circleOlLis.bind("click", function(e){
+					clearInterval(that.$setInterval);
+					that.$index = $(e.target).index();
+					that._listen(that.$index);
+					that.$imageUl.stop(true, false).animate({"left": -that.$index * that.$width + "px" }, 500);
+				});
+			}
+			
+			/*
+			 * 监听 小圆点切换
+			 */
+			carousel.prototype._listen = function(num){
+				this.$index = num || this.$index;
+				var that = this;
+				that.$circleOlLis.eq(that.$index).addClass("selected").siblings().removeClass("selected");
+			}
+			
+			/*
+			 * 定时器
+			 */
+			carousel.prototype._setTimer = function(){
+				var that = this;
+				that.$setInterval = setInterval(function(){
+					that.$index++;
+					that.$index %= that.$imageNum;
+					that._listen(that.$index);
+					that.$imageUl.stop(true, false).animate({"left": -that.$index * that.$width + "px"}, 500);
+				}, 4000);
+			}
+			
+			var lunbo = new carousel({
+				"id" : "carousel",
+				"height" : 300,
+				"width" : 860,
+				"images" : [
+					"images/qq_img01.png",
+					"images/qq_img02.png",
+					"images/qq_img03.png",
+					"images/qq_img04.png",
+					"images/qq_img05.png"
+				],
+				"a_href" : ["#", "#", "#", "#", "#"]
+			});
+			
+		</script>
+		
+	</body>
+</html>
