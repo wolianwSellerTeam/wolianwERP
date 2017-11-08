@@ -46,17 +46,22 @@ layui.use(['element', 'jquery'], function(){
 		};
 	
 	function limitProvince(id){
-		this.$Pid = id;
-		this.$Pchecked = false;
-		this.$Pvalue = "";
-		this.$PlabelId = "provinceLab";
+		this.$ProvinceId = id;
+		this.$headInputProvinceAll = false;
+		this.$checked = false;
+		this.$value = "";
+		this.$ProvinceLabelId = "provinceLab";
+		this.$ProvinceLabelIsChecked = false;
+		this.listens = [];
 	}
 	
-  function limitCity(id){
-  	this.$Cid = id;
+  function limitCity(id, pid, obj){
+  	this.$cityId = id;
+  	this.$cityPid = pid;
 		this.$Cchecked = false;
-		this.$Cvalue = "";
+		this.$value = "";
 		this.$ClabelId = "cityLab";
+		obj.regist(this);
   }
   
   	  //省份选择
