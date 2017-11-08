@@ -26,6 +26,7 @@
 				margin-top: -15px;
 				font-size: 12px;
 				color: #fff;
+				display: none;
 				text-align: center;
 				line-height: 30px;
 				z-index: 999;
@@ -35,8 +36,9 @@
 				*background-color: #033D6F;/* ie6和 ie7 */
 				_background-color: #033D6F;/* 单独ie6 */
 			}
-			.leftBtn{left: -30px;}
-			.rightBtn{right: -30px}
+			#carousel:hover .leftBtn, #carousel:hover .rightBtn{display: block;}
+			.leftBtn{left: 0px;}
+			.rightBtn{right: 0px}
 			.selected{
 				background-color: #fff!important;
 			}
@@ -146,15 +148,15 @@
 			 */
 			carousel.prototype._hover = function(){
 				var that = this; //保存this  以为事件调用函数里面的this 指向当前被绑定事件的dom对象
-				that.$dom.hover(function(){
-					clearInterval(that.$setInterval);
-					that.$leftBtn.stop(true, false).animate({"left": 0}, 200);
-					that.$rightBtn.stop(true, false).animate({"right": 0}, 200);
-				}, function(){
-					that.$leftBtn.stop(true, false).animate({"left": "-30px"}, 200);
-					that.$rightBtn.stop(true, false).animate({"right": "-30px"}, 200);
-					that._setTimer();
-				});
+//				that.$dom.hover(function(){
+//					clearInterval(that.$setInterval);
+//					that.$leftBtn.stop(true, false).animate({"left": 0}, 200);
+//					that.$rightBtn.stop(true, false).animate({"right": 0}, 200);
+//				}, function(){
+//					that.$leftBtn.stop(true, false).animate({"left": "-30px"}, 200);
+//					that.$rightBtn.stop(true, false).animate({"right": "-30px"}, 200);
+//					that._setTimer();
+//				});
 				//把两个按钮（左that.$leftBtn，右that.$rightBtn） 放入数组 然后遍历这2个按钮 分别绑定悬停事件
 //				$.each([that.$leftBtn, that.$rightBtn], function(){
 //					$(this).hover(function(){
@@ -172,7 +174,6 @@
 				var that = this;
 				//左边按钮 点击事件
 				that.$leftBtn.click(function(){
-						clearInterval(that.$setInterval);
 						that.$index++;
 						that.$index %= that.$imageNum;
 						that._listen(that.$index);
@@ -180,7 +181,6 @@
 				});
 				//右边边按钮 点击事件
 				that.$rightBtn.click(function(){
-					clearInterval(that.$setInterval);
 					if(that.$index == 0){
 						that.$index = that.$imageNum;
 					}
@@ -190,7 +190,6 @@
 				});
 				
 				that.$circleOlLis.bind("click", function(e){
-					clearInterval(that.$setInterval);
 					that.$index = $(e.target).index();
 					that._listen(that.$index);
 					that.$imageUl.stop(true, false).animate({"left": -that.$index * that.$width + "px" }, 500);

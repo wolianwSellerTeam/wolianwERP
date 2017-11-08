@@ -32,11 +32,10 @@
 			this.$imageUl = $("<ul></ul>");//定义装图片的ul
 			//根据图片数量 创建同等量的li
 			for(var i=0; len = this.$imageNum, i < len; i++){
-				//如果有超链接 就把超链接加入进去 如果没有就不加
-				if(this.$a_hrefArr){//hideFocus 是为了去掉IE下 a标签点击时出现虚线边框
+				if(this.$a_hrefArr){// 如果有超链接 就把超链接加入进去 如果没有就不加    hideFocus 是为了去掉IE下 a标签点击时出现虚线边框
 					$("<li><a hideFocus href='" + this.$a_hrefArr[i] + "'><img src='" + this.$imageUrlArr[i] + "' /></a></li>").appendTo(this.$imageUl);
 				}else{
-					$("<li><img src='" + this.$imageUrlArr[i] + "' /></li>").appendTo(this.$imageUl);
+					$("<li><img src='"+this.$imageUrlArr[i]+"' width ='"+this.$width+"px' height='"+this.$height+"px' /></li>").appendTo(this.$imageUl);
 				}
 			}
 			//设置存放图片的ul的样式
@@ -55,8 +54,7 @@
 			});
 			
 			this.$circleOl = $("<ol></ol>");//定义一个ol有序列表
-			//根据图片数量 创建同等量的li小圆点
-			for(var m = 0; lem = this.$imageNum, m < lem; m++){
+			for(var m = 0; lem = this.$imageNum, m < lem; m++){//根据图片数量 创建同等量的li小圆点
 				$("<li></li>").appendTo(this.$circleOl);
 			}
 			this.$circleOlLis = this.$circleOl.find("li");
@@ -87,7 +85,6 @@
 			this.$dom.append(this.$leftBtn);
 			this.$dom.append(this.$rightBtn);
 			this.$dom.append(this.$circleOl);
-			
 		}
 			
 		/*
@@ -104,14 +101,6 @@
 				that.$rightBtn.stop(true).animate({"right": "-30px"}, 200);
 				that._setTimer();
 			});
-			//把两个按钮（左that.$leftBtn，右that.$rightBtn） 放入数组 然后遍历这2个按钮 分别绑定悬停事件
-//				$.each([that.$leftBtn, that.$rightBtn], function(){
-//					$(this).hover(function(){
-//						$(this).stop(true, false).animate({"width" : "45px"}, 100);
-//					}, function(){
-//						$(this).stop(true, false).animate({"width" : "30px"}, 100);
-//					});
-//				})
 		}
 			
 		/*
@@ -121,28 +110,38 @@
 			var that = this;
 			//左边按钮 点击事件
 			that.$leftBtn.click(function(){
-					that.$index++;
-					that.$index %= that.$imageNum;
-					that._listen(that.$index);
-					that.$imageUl.stop(true).animate({"left": -that.$index * that.$width + "px"}, that.$animateTime);
+					that.showNext();
 			});
 			//右边边按钮 点击事件
 			that.$rightBtn.click(function(){
-				if(that.$index == 0){
-					that.$index = that.$imageNum;
-				}
-				that.$index--;
-				that._listen(that.$index);
-				that.$imageUl.stop(true).animate({"left": -that.$index * that.$width + "px" }, that.$animateTime);
+				that.showPrev();
 			});
 			//小圆点 点击事件
 			that.$circleOlLis.bind("click", function(e){
 				that.$index = $(e.target).index();
 				that._listen(that.$index);
-				that.$imageUl.stop(true).animate({"left": -that.$index * that.$width + "px" }, that.$animateTime);
+				that.$imageUl.stop(true, false).animate({"left": -that.$index * that.$width + "px" }, 500);
 			});
 		}
 		
+		//下一张
+		Carousel.prototype.showNext = function(){
+				var that = this;
+				that.$index++;
+				that.$index %= that.$imageNum;
+				that._listen(that.$index);
+				that.$imageUl.stop(true).animate({"left": -that.$index * that.$width + "px"}, that.$animateTime);
+		}
+		//上一张
+		Carousel.prototype.showPrev = function(){
+			var that = this;
+			if(that.$index == 0){
+					that.$index = that.$imageNum;
+			}
+			that.$index--;
+			that._listen(that.$index);
+			that.$imageUl.stop(true).animate({"left": -that.$index * that.$width + "px"}, that.$animateTime);
+		}
 		/*
 		 * 监听 小圆点切换
 		 */
@@ -157,10 +156,7 @@
 		Carousel.prototype._setTimer = function(){
 			var that = this;
 			that.$interval = setInterval(function(){
-				that.$index++;
-				that.$index %= that.$imageNum;
-				that._listen(that.$index);
-				that.$imageUl.stop(true, false).animate({"left": -that.$index * that.$width + "px"}, that.$animateTime);
+				 that.showNext();
 			}, that.$intervalTime);
 		}
 		

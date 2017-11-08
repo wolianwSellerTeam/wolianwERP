@@ -45,7 +45,20 @@ layui.use(['element', 'jquery'], function(){
 			$("#area").append(area);
 		};
 	
+	function limitProvince(id){
+		this.$Pid = id;
+		this.$Pchecked = false;
+		this.$Pvalue = "";
+		this.$PlabelId = "provinceLab";
+	}
 	
+  function limitCity(id){
+  	this.$Cid = id;
+		this.$Cchecked = false;
+		this.$Cvalue = "";
+		this.$ClabelId = "cityLab";
+  }
+  
   	  //省份选择
   	  $("#province").on("change", "input" ,function(){
   	  	var $cityInputs=$("#city input[parentId="+this.id+"]");

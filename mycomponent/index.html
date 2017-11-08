@@ -2,9 +2,60 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<title>封装js组件</title>
+		<script src = "http://code.jquery.com/jquery-1.8.3.min.js "></script>
+		<script src="js/fn.js"></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			img{border: none; outline: none;}
+			a{text-decoration: none;}
+			li{list-style: none;}
+			.left_btn, .right_btn{
+				background-color: rgba(255,255,255,.5);
+				display: inline-block;
+				height: 30px;
+				width: 30px;
+				font-size: 12px;
+				text-align: center;
+				line-height: 30px;
+				color: #fff;
+				position: absolute;
+				top: 50%;
+				margin-top: -15px;
+			}
+			.left_btn{left: 0px;}
+			.right_btn{right: 0px;}
+			.selected{background-color: #ff5000!important;}
+		</style>
 	</head>
 	<body>
+		<div id="lunbo"></div>
+		<div id="carousel">
+			
+		</div>
 		
+		<script type="text/javascript">
+			$("#lunbo").carousel({
+				"width" : 860,
+				"height" : 300,
+				"images" : [
+					"images/qq_img01.png",
+					"images/qq_img02.png",
+					"images/qq_img03.png",
+					"images/qq_img04.png",
+					"images/qq_img05.png",
+					"images/qq_img06.png",
+					"images/qq_img07.png"
+				],
+					"a_href" : ["#", "#", "#", "#", "#", "#", "#"]
+			});
+			$("#carousel").carousel({
+				"width": 500,
+				"height": 200,
+				"images":[
+					"images/qq_img01.png",		"images/qq_img02.png",		"images/qq_img03.png",		"images/qq_img04.png",		"images/qq_img05.png"
+				]
+			}).
+		</script>
 	</body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src = "http://code.jquery.com/jquery-1.8.3.min.js "></script>
+    <style type="text/css">
+        *{ margin: 0; padding: 0;}
+        img{ display: block;border: none;}
+        .banner{margin: 50px auto;position: relative; overflow: hidden; border: 1px solid red;}
+        .banner ul{position: absolute; left:0;}
+        .banner ul li{ list-style: none; float: left; width:818px;height:418px; border:1px solid red;}
+        .left_btn, .right_btn{
+            width: 30px;
+            height: 30px;
+            background: rgba(0,0,0,.5);
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            line-height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 12px;
+            color: #fff;
+            margin-top: -15px;
+        }
+        .left_btn{
+            left: 0;
+        }
+        .right_btn{
+            right: 0;
+        }
+        .bottom_btn{
+            width: 220px;
+            height: 14px;
+            background-color: #000;
+            opacity: 0.5;
+            filter: alpha(opacity = 50);
+            border-radius:10px 10px 10px 10px;
+            padding: 3px 40px;
+            margin-top: 400px;
+            margin-left: 300px;
+        }
+        .bottom_btn div{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            float: left;
+            margin-left: 20px;
+            background-color: #fff;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="banner"></div>
+</div>
+
+	<script>
+	    $(function(){
+	        var $ul = $("<ul></ul>");
+	        var timer;
+	        var count = 0;
+	        var lisNum =7;
+	        
+	        
+	        for(var i=0; i<lisNum; i++){
+	        	$("<li><img src='#' /></li>").appendTo($ul);
+	        }
+	        $(".banner").append($ul);
+	        
+	        move();
+	        $(".banner").mouseenter(function(){
+	            clearInterval(timer);
+	        }).mouseleave(function(){
+	            move();
+	        });
+	
+	        function move(){
+	            timer = setInterval(function(){
+	                next();
+	            },3000);
+	        }
+	        //-----------------point----------------------------
+	        /*  $(".point").click(function(){
+	         count = $(this).index()-1;
+	         ul.animate({ left : -count * 820 - 820 + "px"},"slow");
+	         })*/
+	        //-----------------left_btn上一张图片---------------
+	        $(".left_btn").click(function(){
+	            if(count == 0){
+	                count = lisNum;
+	                $ul.css("left",-count * 820  + "px");
+	            }
+	            
+	            before();
+	        });
+	        //-----------------rigth_btn下一张图片---------------
+	        $(".right_btn").click(function(){
+	            if(count == lisNum){
+	                count = 0;
+	                $ul.css("left", "0px");
+	            }
+	            next();
+	        });
+	        //-----------------下一张图片---------------
+	        function next(){
+	            $ul.animate({ left : -count++ * 820 - 820 + "px"},"slow")
+	        }
+	        //-----------------上一张图片---------------
+	        function before(){
+	            $ul.animate({ left : -count-- * 820 + 820 + "px"},"slow");
+	        }
+	    });
+	    
+	    
+	</script>
+</body>
+</html>
