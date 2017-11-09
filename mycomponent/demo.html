@@ -1,0 +1,122 @@
+<!doctype html><!--声明文档类型：html-->
+<html lang="en">
+	<head><!--头部-->
+		<meta charset="UTF-8"><!--字符编码:utf-8国际编码-->
+		<meta name="Keywords" content="关键词1,关键词2"><!--关键词-->
+		<meta name="Description" content="描述"><!--描述-->
+		<title>canvas绘制雨滴-玄武老师</title><!--网页标题-->
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			canvas{
+				display:block;
+				/*vertical-align:middle;*/
+				background:#000;
+			}
+		</style>
+	</head>
+	<body><!--身体-->
+		<canvas id="canvas">您的浏览器不支持画布，请您更换浏览器!</canvas>
+		<script type="text/javascript">
+			var can = document.getElementById("canvas");
+			//设置2d绘图环境
+			var ctx = can.getContext("2d");
+			
+			//获取浏览器窗口的宽高
+			var w = can.width = window.innerWidth,
+				h = can.height = window.innerHeight;
+			//自适应浏览器窗口
+			window.onresize = function(){
+				w = can.width = window.innerWidth,
+				h = can.height = window.innerHeight;
+			}
+
+			//雨滴特效
+			function Drop(){};//创建雨滴类（相当于人类）
+			//原型
+			Drop.prototype = {
+				//初始化
+				init: function(){
+					this.x = rand(0,w);//雨滴的初始x坐标
+					this.y = 0;//雨滴的初始y坐标
+					//console.log(this)
+					this.vy = rand(4,5);//雨滴下落的随机速度
+					this.l = rand(0.8*h,0.9*h);//雨滴下落的最大高度
+					this.r = 1;//初始半径
+					this.vr = 1;//半径增大的速度
+					this.a = 1;//初始透明度
+					this.va = 0.96;//透明度变化系数
+				},
+				//绘制
+				draw: function(){
+					if (this.y > this.l){
+						ctx.beginPath();//开始路径
+						//绘制波纹(圆形)
+						ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false);
+						ctx.strokeStyle = "rgba(0,255,255,"+this.a+")";
+						ctx.stroke();
+					}else{
+						//绘制下落的雨滴
+						ctx.fillStyle = "rgb(0,255,255)";
+						ctx.fillRect(this.x,this.y,2,10);
+					}
+					//更新坐标
+					this.update();
+				},
+				//更新坐标
+				update: function(){
+					//当y坐标小于l高度的就一直累加
+					if (this.y < this.l){
+						this.y += this.vy;
+					}else{
+						//判断透明度
+						if (this.a > 0.03){
+							this.r += this.vr;
+							if (this.r > 50){
+								this.a *= this.va;
+							}
+						}else{
+							//重新初始化了
+							this.init();
+						}
+					}
+					
+				}
+			}
+			
+			/*//实例化雨滴对象
+			var drop = new Drop();
+			//console.log(drop)
+			drop.init();*/
+
+			var drops = [];//默认值为undefined
+			//console.log(drops)
+			for (var i=0;i<30 ;i++ ){
+				setTimeout(function(){
+					var drop = new Drop();
+					drop.init();
+					drops.push(drop);
+				},i*200)
+				
+			}
+
+			//console.log(drops)
+			setInterval(function(){
+				//ctx.clearRect(0,0,w,h);
+				//绘制一个透明层
+				ctx.fillStyle = "rgba(0,0,0,0.1)";
+				ctx.fillRect(0,0,w,h);
+				for (var i=0;i<drops.length ;i++ ){
+					drops[i].draw();
+				}
+			},1000/60);//帧数
+			
+
+			function rand(min,max){
+				return Math.random()*(max-min)+min;//min~max
+			}
+		</script>
+	</body>
+</html>

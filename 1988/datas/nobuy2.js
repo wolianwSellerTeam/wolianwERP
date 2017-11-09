@@ -44,390 +44,481 @@ layui.use(['element', 'jquery'], function(){
 		  	}
 			$("#area").append(area);
 		};
-	
-	function limitProvince(id){
-		this.$ProvinceId = id;
+		
+		function clearChecked(provinceId){
+			var id = 0;
+			for(var i=0; len = arguments.length, i<len; i++){
+				id=arguments[i];
+				$("#"+id).find("div>input").attr("checked", false);
+			}
+		}
+		
+		function addChecked(provinceId){
+			var id = 0;
+			for(var i=0; len = arguments.length, i<len; i++){
+				id=arguments[i];
+				$("#"+id).find("div>input").attr("checked", true);
+			}
+		}
+		
+	function limitProvince(){
+		this.$id = null;
+		this.$name = name || "province";
 		this.$headInputProvinceAll = false;
 		this.$checked = false;
 		this.$value = "";
-		this.$ProvinceLabelId = "provinceLab";
-		this.$ProvinceLabelIsChecked = false;
+		this.$provinceLabelId = "provinceLab";
+		this.$provinceLabelIsChecked = false;
 		this.listens = [];
+		this.checkedNum = 0;
+		this.checkedAllNum = $("#province").find("input").length;
+		this._change();
 	}
-	
-  function limitCity(id, pid, obj){
-  	this.$cityId = id;
-  	this.$cityPid = pid;
-		this.$Cchecked = false;
+	limitProvince.prototype.regist = function(obj){
+		this.listens.push(obj);
+	}
+	limitProvince.prototype._change = function(){
+		$("#provinceAll").change(function(){
+			if(this.$headInputProvinceAll){
+				this.$headInputProvinceAll = true;
+				addChecked("province");
+			}else{
+				this.$headInputProvinceAll = false;
+				clearChecked("province");
+			}
+		});
+		console.log(this.checkedAllNum);
+	}
+  function limitCity(id, obj){
+  	this.$id = id || null;
+  	this.$name = name || "city";
+		this.$checked = false;
 		this.$value = "";
-		this.$ClabelId = "cityLab";
-		obj.regist(this);
+		this.$cityLabelId = "cityLab";
+		this.$cityLabelIsChecked = false;
+		this.obj = obj;
+		this.obj.regist(this);
+		this.$pid = this.obj.$id;
+		this.listens = [];
+		this.checkedNum = 0;
+		this.checkedAllNum = $("#city").children("div.line-list").length;
+		this._change();
+  }
+  limitCity.prototype.regist = function(obj){
+			this.listens.push(obj);
+	},
+  limitCity.prototype._change = function(){
+		$("#cityAll").change(function(){
+			if(this.$headInputProvinceAll){
+				addChecked("city");
+			}else{
+				clearChecked("city");
+			}
+		});
+  }
+  function limitArea(id, obj){
+  	this.$id = id || null;
+  	this.$name = name || "area";
+		this.$checked = false;
+		this.$value = "";
+		this.$areaLabelId = "cityLab";
+		this.$areaLabelIsChecked = false;
+		this.obj = obj;
+		this.obj.regist(this);
+		this.$pid = this.obj.$id;
+		this.checkedNum = 0;
+		this.checkedAllNum = $("#area").children("div.line-list").length;
+		this._change();
+  }
+  limitCity.prototype._change = function(){
+		$("#areaAll").change(function(){
+			if(this.$headInputProvinceAll){
+				addChecked("area");
+			}else{
+				clearChecked("area");
+			}
+		});
   }
   
-  	  //省份选择
-  	  $("#province").on("change", "input" ,function(){
-  	  	var $cityInputs=$("#city input[parentId="+this.id+"]");
-  	  	$name=$(this).attr("name");
-  	  	if(this.checked){
-  	  		$("#cityLab").attr("cityLabId", this.id);
-  	  		$(this).siblings("label").attr("ischecked", true);
-  	  		$("#cityAll")[0].checked=true;
-  	  		$cityInputs.each(function(){
-  	  			this.checked=true;
-  	  		});
-  	  		addDivBox(this.id, $name, this.value, $(this).attr("parentId"));  //每个城市选中时 添加对应的标签
-  	  		//下面几行 是判断是否全选  如果发现所有的选项都勾上了 就是全部选中， 全选按钮也自动勾上
-  	  		var isAll=true;
-  	  		$("#province input[name="+$name+"]").each(function(){
-  	  			if(this.checked==false){
-  	  				isAll=false;
-  	  			}
-  	  		});
-  	  		if(isAll){ 
-  	  			$("#provinceAll")[0].checked=true ;
-  	  		};
-  	  		$("#cityLab").html(this.value);
-  	  		$("#city input").parent().addClass("layui-hide");
-  	  		$cityInputs.parent("div").removeClass("layui-hide");
-  	  		
-  	  		$("#city input[parentId="+this.id+"]:checked").each(function(){
-  					$(this).siblings("label").attr("ischecked", true);
-  				});
-  	  	}else{
-  	  		$("#provinceAll")[0].checked=false;
-  	  		addDivBox(this.id,0,0,0,true); //每个城市去掉选中时 关掉对应的标签
-  	  		$cityInputs.parent("div").addClass("layui-hide");
-  	  		if($(this).attr("showed")!="false"){ //判断： 如果当时不是正在显示的 该省下面的城市，就不让它关掉 当前显示的城市名字
-  	  			$("#cityLab").html("");
-  	  			$("#areaLab").html("");
-  	  		};
-  	  		$(this).siblings("label").attr("ischecked", false);
-  	  		$("#cityAll")[0].checked=false;
-  	  		$("#areaAll")[0].checked=false;
-  	  		$cityInputs.each(function(){
-  	  			this.checked=false;
-  	  			addDivBox(this.id,0,0,0,true); //每个城市去掉选中时 关掉对应的标签
-  	  			var $areaInputs=$("#area input[parentId="+this.id+"]");
-  	  			$areaInputs.parent("div").addClass("layui-hide");
-  	  			$areaInputs.each(function(){
-  	  				this.checked=false;
-  	  			})
-  	  		});
-  	  	}
-  	  });
-  	  
-  	  
-  	  //城市选择
-  	  $("#city").on("change", "input", function(){
-  	  	var $areaInputs=$("#area input[parentId="+this.id+"]");
-  	  	var pid=$("#cityLab").attr("citylabid");
-  	  	$("#areaLab").attr("areaLabId", this.id);
-  	  	if(this.checked){
-  	  		$("#"+pid)[0].checked=true;
-  	  		addDivBox(pid, 0, 0, 0,true);  //去掉省会标签
-  	  		addDivBox(this.id, $(this).attr("name"), this.value, pid);  //添加当前城市标签
-  	  		$(this).siblings("label").attr("ischecked", true);
-  	  		$("#areaAll")[0].checked=true;
-  	  		$areaInputs.each(function(){
-  	  			this.checked=true;
-  	  			addDivBox(this.id, 0, 0, 0,true);  //去掉当前省下面的所有城市标签
-  	  		});
-  	  		
-  	  		//下面几行 是判断是否全选  如果发现所有的选项都勾上了 就是全部选中， 全选按钮也自动勾上
-  	  		var isAll=true;
-  	  		$("#city input[parentid="+pid+"]").each(function(){
-  	  			if(this.checked==false){
-  	  				isAll=false;
-  	  				addDivBox(this.id, 0, 0, 0,true);  //去掉当前省下面的所有城市标签
-  	  			}
-  	  		});
-  	  		if(isAll){ 			//city全选状态
-  	  			$("#cityAll")[0].checked=sessionStorage.cityAll_checked=true;
-  	  			$("#city input[parentid="+pid+"]").each(function(){
-  	  				addDivBox(this.id, 0, 0, 0,true);  //去掉当前省下面的所有城市标签
-  	  			});
-  	  			addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val());  //添加当前省份标签
-  	  			$("#provinceAll")[0].checked=true;
-  	  		};
-  	  		$("#areaLab").html(this.value);
-  	  		$("#area input").parent().addClass("layui-hide");
-  	  		$areaInputs.parent("div").removeClass("layui-hide");
-  	  		
-  	  	}else{
-  	  		$("#provinceAll")[0].checked=false;
-  	  		$("#cityAll")[0].checked=sessionStorage.cityAll_checked=false;
-  	  		$("#city input[parentid="+pid+"]:checked").each(function(){
-  	  			addDivBox(this.id, $(this).attr("name"), this.value, pid);  //添加当前城市标签
-  	  		});
-  	  		addDivBox(this.id,0,0,0,true);  //去掉当前city标签
-  	  		$(this).siblings().attr("ischecked", false);
-  	  		addDivBox(pid, 0,0,0,true);  //去掉当前省份标签
-  	  		$("#"+pid)[0].checked=false;
-  	  		
-  	  		$(this).siblings("label").attr("ischecked", false);
-  	  		$("#areaAll")[0].checked=false;
-  	  		$areaInputs.each(function(){
-  	  			this.checked=false;
-  	  		});
-  	  		//下面几行 是判断是否全不选  如果发现所有的选项都取消选中了 就是全部不选， 自动选择它的上一级 即：xx省
-  	  		var isAll=false;
-  	  		$("#city input[parentid="+pid+"]").each(function(){
-  	  			if(this.checked==true){
-  	  				isAll=true;
-  	  			}
-  	  		});
-  	  		if(!isAll){// 全不选的时候  要清掉所有
-  	  			$("#"+pid)[0].checked=false;
-  	  			addDivBox(pid, 0,0,0,true);  //添加当前省份标签
-  	  		};
-  	  	}
-  	  	
-  	  	$("#areaLab").html(this.value);
-  		$("#area input").parent().addClass("layui-hide");
-  		$areaInputs.parent("div").removeClass("layui-hide");
-  	  });
-  	  
-  	  //区域选择
-  	  $("#area").on("change", "input", function(){
-  	  	var pid=$("#areaLab").attr("arealabid");
-  	  	var parentid=$("#"+pid).attr("parentid");
-  	  	if(this.checked){
-  	  		//下面几行 是判断是否全选  如果发现所有的选项都选中了 就是全选， 自动选择它的上一级 
-  	  		var isAll=true;
-  	  		$("#area input[parentid="+pid+"]").each(function(){
-  	  			if(this.checked==false){
-  	  				isAll=false;
-  	  			}
-  	  		});
-  	  		if(isAll){ //全选的时候
-  	  			$("#areaAll")[0].checked=true;
-  	  			$("#"+pid).siblings("label").attr("ischecked", true);
-  	  			addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val(), parentid);  //添加当前城市标签
-  				$("#area input[parentid="+pid+"]").each(function(){
-	  	  			addDivBox(this.id, 0,0,0,true);  //添加当前area标签
-	  	  		});
-  				$("#"+pid)[0].checked=true;
-  				if($("#city input[parentid="+parentid+"]:checked").size()==$("#city input[parentid="+parentid+"]").size()){//所有城市==选中城市  （即：城市全选）全选中了
-	  	  			$("#cityAll")[0].checked=true;
-	  	  			$("#city input[parentid="+parentid+"]").each(function(){
-		  	  			this.checked=true;
-		  	  			addDivBox(this.id, 0,0,0,true);  //去掉city标签
-		  	  		});
-		  	  		$("#"+parentid)[0].checked=true;
-		  	  		addDivBox(parentid, $("#"+parentid).attr("name"), $("#"+parentid).val());  //添加当前省份标签
-	  	  			if($("#province input:checked").size()==34){//省份全选了
-	  	  				$("#provinceAll")[0].checked=true;
-	  	  			}
-	  	  		}
-  	  		}else{
-  	  			addDivBox(parentid,0,0,0,true);
-  	  			addDivBox(pid, 0, 0, 0,true);  //去掉城市标签
-  	  			addDivBox(this.id, $(this).attr("name"), this.value, pid);
-  	  		}
-  	  	}else{
-  	  		$("#"+pid).siblings("label").attr("ischecked", false);
-  	  		$("#provinceAll, #cityAll, #areaAll").each(function(){
-  	  			this.checked=false;
-  	  		})
-  	  		addDivBox(parentid,0,0,0,true);
-  	  		$("#"+parentid)[0].checked=false;
-  	  		$("#"+pid)[0].checked=false;
-  	  		addDivBox(pid,0,0,0,true);
-  	  		$("#city input[parentid="+parentid+"]:checked").each(function(){
-  	  			addDivBox(this.id, $(this).attr("name"), this.value);  //添加当前选中的city标签
-  	  		});
-  	  		$("#area input[parentid="+pid+"]:checked").each(function(){
-  	  			addDivBox(this.id, $(this).attr("name"), this.value, pid);  //添加当前area标签
-  	  			$("#"+pid).attr("childid", this.id);
-  	  		});
-  	  		addDivBox(this.id,0,0,0,true);
-  	  		//下面几行 是判断是否全不选  如果发现所有的选项都取消选中了 就是全部不选， 自动选择它的上一级 
-  	  		var isAll=false;
-  	  		$("#area input[parentid="+pid+"]").each(function(){
-  	  			if(this.checked==true){
-  	  				isAll=true;
-  	  			}
-  	  		});
-  	  		if(!isAll){
-  	  			//$("#"+pid)[0].checked=false;
-  	  			//addDivBox(pid,0,0,0,true);  //添加当前城市标签
-  	  		}
-  	  	}
-  	  });
-  	  
-  	  //每个选中的省 点击标题名字以后。。。
-  		$("#province").on("click", "label", function(){
-  			if($(this).attr("ischecked")=='true'){
-  				var pid=$(this).attr("labid");
-  				$("#cityLab").html($(this).html()).attr("cityLabId", pid); //设置下级city 全选部位label的标题文字和 父级id
-  				var $cityInputs=$("#city input[parentId="+pid+"]");//获取 当前省份下的 所有city》input
-  				$("#city input").parent().addClass("layui-hide");
-  				$cityInputs.parent("div").removeClass("layui-hide");
-  				//$("#cityAll")[0].checked=eval(sessionStorage.cityAll_checked);
-  				$("#cityAll")[0].checked=true;
-  				$("#city input[parentId="+pid+"]").each(function(){
-  					this.checked=true;
-  					$(this).siblings("label").attr("ischecked", true);
-  				});
-  				$("#province input").attr("showed", false);
-  				$(this).siblings("input").attr("showed", true);
-  				var area_id=$("#areaLab").attr("arealabid");
-  				$("#areaLab").html("");
-  				$("#area input[parentId="+area_id+"]").parent().addClass("layui-hide");
-  			}
-  	 		
-  		});
-  		//每个选中的市 点击标题名字以后。。。
-  		$("#city").on("click", "label", function(){
-  			if($(this).attr("ischecked")=='true'){
-  				var cid=$(this).attr("labid");
-  				$("#areaLab").html($(this).html()).attr("areaLabId", cid);
-  				var $cityInputs=$("#area input[parentId="+cid+"]");
-  				$("#area input").parent().addClass("layui-hide");
-  				$cityInputs.parent("div").removeClass("layui-hide");
-  				$("#areaAll")[0].checked=eval(sessionStorage.areaAll_checked);
-  				if($("#areaAll")[0].checked){
-	  				$("#area input[parentId="+cid+"]").each(function(){
-	  					this.checked=true;
-	  				});
-  				}else{
-  					$("#area input[parentId="+cid+"]:checked").each(function(){
-	  					this.checked=true;
-	  				});
-  				}
-  				$("#city input").attr("showed", false);
-  				$(this).siblings("input").attr("showed", true);
-  			}
-  	 		
-  		});
-  	  
-  	   //一级全选(province)
-  	  $("#provinceAll").change(function(){
-  	  	$("ul.tab-title").empty();                     //清空所有标签
-  	  	clear_city_area();														 //清除城市和区域全选和标题
-  	  	if(this.checked){
-  	  		$("#cityAll, #areaAll").each(function(){
-  	  			sessionStorage.setItem(this.id+'_checked', true);
-  	  		});
-  	  		
-  	  		$("#cityLab, areaLab").html("");
-  	  		$("#province input").each(function(){
-  	  			this.checked=true;
-  	  			addDivBox(this.id, $(this).attr("name"), this.value, 0);
-  	  			
-  	  			$(this).siblings("label").attr("ischecked", true);
-  	  		});
-  	  		$("#city input, #area input").each(function(){
-  	  			this.checked=false;
-  	  			$(this).parent("div").addClass("layui-hide");
-  	  		});
-  	  	}else{
-  	  		$("#province input").each(function(){
-  	  			this.checked=false;
-  	  			$(this).siblings("label").attr("ischecked", false);
-  	  		});
-  	  		$("#city input, #area input").each(function(){
-  	  			this.checked=false;
-  	  			$(this).parent("div").addClass("layui-hide");
-  	  			$(this).siblings("label").attr("ischecked", false);
-  	  		});
-  	  		
-  	  	}
-  	  });
-  	  //二级全选 (city)
-  	  $("#cityAll").change(function(){
-  	  	$("#areaAll")[0].checked=false;
-  	  	$("#areaLab").html("");
-  	  	var pid=$("#cityLab").attr("citylabid");
-  	  	if(this.checked){
-  	  		addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val(), 0);  //添加当前省份标签
-  	  		$("#"+pid)[0].checked=true;
-  	  		$("#city input[parentid="+pid+"]").each(function(){
-  	  			this.checked=true;
-  	  			addDivBox(this.id,0,0,0,true);  
-  	  			$(this).siblings("label").attr("ischecked", true);
-  	  			var city_id=this.id;
-  	  			console.log("city_id: "+city_id);
-  	  			$(".liBox i[level=area]").each(function(){
-	  	  			if($(this).attr("pid")==city_id){
-	  	  				console.log("area_id: "+$(this).attr("pid"));
-	  	  				$(this).parent().remove();
-	  	  			}
-	  	  		});
-  	  		});
-  	  		var area_pid=$("#areaLab").attr("arealabid");
-  	  		$("#area input[parentid="+area_pid+"]").each(function(){
-  	  			$(this).parent("div").addClass("layui-hide");
-  	  			addDivBox(this.id,0,0,0,true); 
-  	  		});
-  	  		
-  	  		
-  	  		
-  	  		if($("#province input:checked").size()==34){//34个省全选中了
-  	  			$("#provinceAll")[0].checked=true;
-  	  			$("#"+pid).siblings("label").attr("ischecked", true);
-  	  		}
-  	  		
-  	  	}else{
-  	  		$("#provinceAll")[0].checked=false;
-  	  		$("#city input[parentid="+pid+"]").each(function(){
-  	  			this.checked=false;
-  	  			addDivBox(this.id,0,0,0,true);  //去掉城市标签
-  	  			$(this).siblings("label").attr("ischecked", false);
-  	  		});
-  	  		$("#area input").each(function(){
-  	  			this.checked=false;
-  	  			$(this).parent("div").addClass("layui-hide");
-  	  			$(this).siblings("label").attr("ischecked", false);
-  	  		});
-  	  		//城市全部取消  就把上一级 省级框 也去选中
-  	  		$("#"+pid)[0].checked=false;
-  	  		addDivBox(pid,0,0,0,true);  //添加当前省份标签
-  	  	}
-  	  });
-  	   //三级全选(area)
-  	  $("#areaAll").change(function(){
-  	  	var pid=$("#areaLab").attr("arealabid");
-  	  	var parentid=$("#"+pid).attr("parentid");
-  	  	if(this.checked){
-  	  		$("#area input[parentid="+pid+"]").each(function(){
-  	  			this.checked=true;
-  	  			addDivBox(this.id, 0,0,0,true);  //去掉区域标签
-  	  		});
-  	  		$("#"+pid)[0].checked=true;
-  	  		addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val());  //添加当前城市标签
-  	  		if($("#city input[parentid="+parentid+"]:checked").size()==$("#city input[parentid="+parentid+"]").size()){//所有城市==选中城市  （即：城市全选）全选中了
-  	  			$("#cityAll")[0].checked=true;
-  	  			$("#city input[parentid="+parentid+"]").each(function(){
-	  	  			this.checked=true;
-	  	  			addDivBox(this.id, 0,0,0,true);  //去掉city标签
-	  	  		});
-	  	  		$("#"+parentid)[0].checked=true;
-	  	  		addDivBox(parentid, $("#"+parentid).attr("name"), $("#"+parentid).val(), 0);  //添加当前省份标签
-  	  			if($("#province input:checked").size()==34){//省份全选了
-  	  				$("#provinceAll")[0].checked=true;
-  	  			}
-  	  		}
-  	  	}else{
-  	  		$("#area input[parentid="+pid+"]").each(function(){
-  	  			this.checked=false;
-  	  			addDivBox(this.id, 0, 0, 0,true);  //去掉区域标签
-  	  		});
-  	  		//区域全部取消  就把上一级 市级框 去掉选中 并去掉标签
-  	  		$("#"+pid)[0].checked=false;
-  	  		$("#"+parentid)[0].checked=false;
-  	  		addDivBox(pid, 0,0,0,true);  //去掉当前城市标签
-  	  		addDivBox(parentid, 0,0,0,true);  //去掉当前省份标签
-  	  		$("#provinceAll, #cityAll").each(function(){
-  	  			this.checked=false;
-  	  		});
-  	  		$("#city input[parentid="+parentid+"]:checked").each(function(){
-  	  			this.checked=true;
-  	  			addDivBox(this.id, $(this).attr("name"), this.value, parentid);
-  	  		});
-  	  		
-  	  	}
-  	  });
+ 	var limitprovince = new limitProvince();
+  var limitcity = new limitProvince("id", limitprovince);
+  var limitarea = new limitProvince("id", limitcity);
+ 
+  $("#province").on("change", "input" ,function(){
+  	limitprovince.$id = this.id;
+  	limitprovince.checkedAllNum = $("#province").find("input").length;
+  	if(limitprovince.$checked){
+  		limitprovince.checkedNum++;
+  	}else if(!limitprovince.$checked){
+  		limitprovince.checkedNum--;
+  	}
+  });
+  
+  
+//	  //省份选择
+//	  $("#province").on("change", "input" ,function(){
+//	  	var $cityInputs=$("#city input[parentId="+this.id+"]");
+//	  	$name=$(this).attr("name");
+//	  	if(this.checked){
+//	  		$("#cityLab").attr("cityLabId", this.id);
+//	  		$(this).siblings("label").attr("ischecked", true);
+//	  		$("#cityAll")[0].checked=true;
+//	  		$cityInputs.each(function(){
+//	  			this.checked=true;
+//	  		});
+//	  		addDivBox(this.id, $name, this.value, $(this).attr("parentId"));  //每个城市选中时 添加对应的标签
+//	  		//下面几行 是判断是否全选  如果发现所有的选项都勾上了 就是全部选中， 全选按钮也自动勾上
+//	  		var isAll=true;
+//	  		$("#province input[name="+$name+"]").each(function(){
+//	  			if(this.checked==false){
+//	  				isAll=false;
+//	  			}
+//	  		});
+//	  		if(isAll){ 
+//	  			$("#provinceAll")[0].checked=true;
+//	  		};
+//	  		$("#cityLab").html(this.value);
+//	  		$("#city input").parent().addClass("layui-hide");
+//	  		$cityInputs.parent("div").removeClass("layui-hide");
+//	  		
+//	  		$("#city input[parentId="+this.id+"]:checked").each(function(){
+//					$(this).siblings("label").attr("ischecked", true);
+//				});
+//	  	}else{
+//	  		$("#provinceAll")[0].checked=false;
+//	  		addDivBox(this.id,0,0,0,true); //每个城市去掉选中时 关掉对应的标签
+//	  		$cityInputs.parent("div").addClass("layui-hide");
+//	  		if($(this).attr("showed")!="false"){ //判断： 如果当时不是正在显示的 该省下面的城市，就不让它关掉 当前显示的城市名字
+//	  			$("#cityLab").html("");
+//	  			$("#areaLab").html("");
+//	  		};
+//	  		$(this).siblings("label").attr("ischecked", false);
+//	  		$("#cityAll")[0].checked=false;
+//	  		$("#areaAll")[0].checked=false;
+//	  		$cityInputs.each(function(){
+//	  			this.checked=false;
+//	  			addDivBox(this.id,0,0,0,true); //每个城市去掉选中时 关掉对应的标签
+//	  			var $areaInputs=$("#area input[parentId="+this.id+"]");
+//	  			$areaInputs.parent("div").addClass("layui-hide");
+//	  			$areaInputs.each(function(){
+//	  				this.checked=false;
+//	  			})
+//	  		});
+//	  	}
+//	  });
+//	  
+//	  
+//	  //城市选择
+//	  $("#city").on("change", "input", function(){
+//	  	var $areaInputs=$("#area input[parentId="+this.id+"]");
+//	  	var pid=$("#cityLab").attr("citylabid");
+//	  	$("#areaLab").attr("areaLabId", this.id);
+//	  	if(this.checked){
+//	  		$("#"+pid)[0].checked=true;
+//	  		addDivBox(pid, 0, 0, 0,true);  //去掉省会标签
+//	  		addDivBox(this.id, $(this).attr("name"), this.value, pid);  //添加当前城市标签
+//	  		$(this).siblings("label").attr("ischecked", true);
+//	  		$("#areaAll")[0].checked=true;
+//	  		$areaInputs.each(function(){
+//	  			this.checked=true;
+//	  			addDivBox(this.id, 0, 0, 0,true);  //去掉当前省下面的所有城市标签
+//	  		});
+//	  		
+//	  		//下面几行 是判断是否全选  如果发现所有的选项都勾上了 就是全部选中， 全选按钮也自动勾上
+//	  		var isAll=true;
+//	  		$("#city input[parentid="+pid+"]").each(function(){
+//	  			if(this.checked==false){
+//	  				isAll=false;
+//	  				addDivBox(this.id, 0, 0, 0,true);  //去掉当前省下面的所有城市标签
+//	  			}
+//	  		});
+//	  		if(isAll){ 			//city全选状态
+//	  			$("#cityAll")[0].checked=sessionStorage.cityAll_checked=true;
+//	  			$("#city input[parentid="+pid+"]").each(function(){
+//	  				addDivBox(this.id, 0, 0, 0,true);  //去掉当前省下面的所有城市标签
+//	  			});
+//	  			addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val());  //添加当前省份标签
+//	  			$("#provinceAll")[0].checked=true;
+//	  		};
+//	  		$("#areaLab").html(this.value);
+//	  		$("#area input").parent().addClass("layui-hide");
+//	  		$areaInputs.parent("div").removeClass("layui-hide");
+//	  		
+//	  	}else{
+//	  		$("#provinceAll")[0].checked=false;
+//	  		$("#cityAll")[0].checked=sessionStorage.cityAll_checked=false;
+//	  		$("#city input[parentid="+pid+"]:checked").each(function(){
+//	  			addDivBox(this.id, $(this).attr("name"), this.value, pid);  //添加当前城市标签
+//	  		});
+//	  		addDivBox(this.id,0,0,0,true);  //去掉当前city标签
+//	  		$(this).siblings().attr("ischecked", false);
+//	  		addDivBox(pid, 0,0,0,true);  //去掉当前省份标签
+//	  		$("#"+pid)[0].checked=false;
+//	  		
+//	  		$(this).siblings("label").attr("ischecked", false);
+//	  		$("#areaAll")[0].checked=false;
+//	  		$areaInputs.each(function(){
+//	  			this.checked=false;
+//	  		});
+//	  		//下面几行 是判断是否全不选  如果发现所有的选项都取消选中了 就是全部不选， 自动选择它的上一级 即：xx省
+//	  		var isAll=false;
+//	  		$("#city input[parentid="+pid+"]").each(function(){
+//	  			if(this.checked==true){
+//	  				isAll=true;
+//	  			}
+//	  		});
+//	  		if(!isAll){// 全不选的时候  要清掉所有
+//	  			$("#"+pid)[0].checked=false;
+//	  			addDivBox(pid, 0,0,0,true);  //添加当前省份标签
+//	  		};
+//	  	}
+//	  	
+//	  	$("#areaLab").html(this.value);
+//		$("#area input").parent().addClass("layui-hide");
+//		$areaInputs.parent("div").removeClass("layui-hide");
+//	  });
+//	  
+//	  //区域选择
+//	  $("#area").on("change", "input", function(){
+//	  	var pid=$("#areaLab").attr("arealabid");
+//	  	var parentid=$("#"+pid).attr("parentid");
+//	  	if(this.checked){
+//	  		//下面几行 是判断是否全选  如果发现所有的选项都选中了 就是全选， 自动选择它的上一级 
+//	  		var isAll=true;
+//	  		$("#area input[parentid="+pid+"]").each(function(){
+//	  			if(this.checked==false){
+//	  				isAll=false;
+//	  			}
+//	  		});
+//	  		if(isAll){ //全选的时候
+//	  			$("#areaAll")[0].checked=true;
+//	  			$("#"+pid).siblings("label").attr("ischecked", true);
+//	  			addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val(), parentid);  //添加当前城市标签
+//				$("#area input[parentid="+pid+"]").each(function(){
+//	  	  			addDivBox(this.id, 0,0,0,true);  //添加当前area标签
+//	  	  		});
+//				$("#"+pid)[0].checked=true;
+//				if($("#city input[parentid="+parentid+"]:checked").size()==$("#city input[parentid="+parentid+"]").size()){//所有城市==选中城市  （即：城市全选）全选中了
+//	  	  			$("#cityAll")[0].checked=true;
+//	  	  			$("#city input[parentid="+parentid+"]").each(function(){
+//		  	  			this.checked=true;
+//		  	  			addDivBox(this.id, 0,0,0,true);  //去掉city标签
+//		  	  		});
+//		  	  		$("#"+parentid)[0].checked=true;
+//		  	  		addDivBox(parentid, $("#"+parentid).attr("name"), $("#"+parentid).val());  //添加当前省份标签
+//	  	  			if($("#province input:checked").size()==34){//省份全选了
+//	  	  				$("#provinceAll")[0].checked=true;
+//	  	  			}
+//	  	  		}
+//	  		}else{
+//	  			addDivBox(parentid,0,0,0,true);
+//	  			addDivBox(pid, 0, 0, 0,true);  //去掉城市标签
+//	  			addDivBox(this.id, $(this).attr("name"), this.value, pid);
+//	  		}
+//	  	}else{
+//	  		$("#"+pid).siblings("label").attr("ischecked", false);
+//	  		$("#provinceAll, #cityAll, #areaAll").each(function(){
+//	  			this.checked=false;
+//	  		})
+//	  		addDivBox(parentid,0,0,0,true);
+//	  		$("#"+parentid)[0].checked=false;
+//	  		$("#"+pid)[0].checked=false;
+//	  		addDivBox(pid,0,0,0,true);
+//	  		$("#city input[parentid="+parentid+"]:checked").each(function(){
+//	  			addDivBox(this.id, $(this).attr("name"), this.value);  //添加当前选中的city标签
+//	  		});
+//	  		$("#area input[parentid="+pid+"]:checked").each(function(){
+//	  			addDivBox(this.id, $(this).attr("name"), this.value, pid);  //添加当前area标签
+//	  			$("#"+pid).attr("childid", this.id);
+//	  		});
+//	  		addDivBox(this.id,0,0,0,true);
+//	  		//下面几行 是判断是否全不选  如果发现所有的选项都取消选中了 就是全部不选， 自动选择它的上一级 
+//	  		var isAll=false;
+//	  		$("#area input[parentid="+pid+"]").each(function(){
+//	  			if(this.checked==true){
+//	  				isAll=true;
+//	  			}
+//	  		});
+//	  		if(!isAll){
+//	  			//$("#"+pid)[0].checked=false;
+//	  			//addDivBox(pid,0,0,0,true);  //添加当前城市标签
+//	  		}
+//	  	}
+//	  });
+//	  
+//	  //每个选中的省 点击标题名字以后。。。
+//		$("#province").on("click", "label", function(){
+//			if($(this).attr("ischecked")=='true'){
+//				var pid=$(this).attr("labid");
+//				$("#cityLab").html($(this).html()).attr("cityLabId", pid); //设置下级city 全选部位label的标题文字和 父级id
+//				var $cityInputs=$("#city input[parentId="+pid+"]");//获取 当前省份下的 所有city》input
+//				$("#city input").parent().addClass("layui-hide");
+//				$cityInputs.parent("div").removeClass("layui-hide");
+//				//$("#cityAll")[0].checked=eval(sessionStorage.cityAll_checked);
+//				$("#cityAll")[0].checked=true;
+//				$("#city input[parentId="+pid+"]").each(function(){
+//					this.checked=true;
+//					$(this).siblings("label").attr("ischecked", true);
+//				});
+//				$("#province input").attr("showed", false);
+//				$(this).siblings("input").attr("showed", true);
+//				var area_id=$("#areaLab").attr("arealabid");
+//				$("#areaLab").html("");
+//				$("#area input[parentId="+area_id+"]").parent().addClass("layui-hide");
+//			}
+//	 		
+//		});
+//		//每个选中的市 点击标题名字以后。。。
+//		$("#city").on("click", "label", function(){
+//			if($(this).attr("ischecked")=='true'){
+//				var cid=$(this).attr("labid");
+//				$("#areaLab").html($(this).html()).attr("areaLabId", cid);
+//				var $cityInputs=$("#area input[parentId="+cid+"]");
+//				$("#area input").parent().addClass("layui-hide");
+//				$cityInputs.parent("div").removeClass("layui-hide");
+//				$("#areaAll")[0].checked=eval(sessionStorage.areaAll_checked);
+//				if($("#areaAll")[0].checked){
+//	  				$("#area input[parentId="+cid+"]").each(function(){
+//	  					this.checked=true;
+//	  				});
+//				}else{
+//					$("#area input[parentId="+cid+"]:checked").each(function(){
+//	  					this.checked=true;
+//	  				});
+//				}
+//				$("#city input").attr("showed", false);
+//				$(this).siblings("input").attr("showed", true);
+//			}
+//	 		
+//		});
+//	  
+//	   //一级全选(province)
+//	  $("#provinceAll").change(function(){
+//	  	$("ul.tab-title").empty();                     //清空所有标签
+//	  	clear_city_area();														 //清除城市和区域全选和标题
+//	  	if(this.checked){
+//	  		$("#cityAll, #areaAll").each(function(){
+//	  			sessionStorage.setItem(this.id+'_checked', true);
+//	  		});
+//	  		
+//	  		$("#cityLab, areaLab").html("");
+//	  		$("#province input").each(function(){
+//	  			this.checked=true;
+//	  			addDivBox(this.id, $(this).attr("name"), this.value, 0);
+//	  			
+//	  			$(this).siblings("label").attr("ischecked", true);
+//	  		});
+//	  		$("#city input, #area input").each(function(){
+//	  			this.checked=false;
+//	  			$(this).parent("div").addClass("layui-hide");
+//	  		});
+//	  	}else{
+//	  		$("#province input").each(function(){
+//	  			this.checked=false;
+//	  			$(this).siblings("label").attr("ischecked", false);
+//	  		});
+//	  		$("#city input, #area input").each(function(){
+//	  			this.checked=false;
+//	  			$(this).parent("div").addClass("layui-hide");
+//	  			$(this).siblings("label").attr("ischecked", false);
+//	  		});
+//	  		
+//	  	}
+//	  });
+//	  //二级全选 (city)
+//	  $("#cityAll").change(function(){
+//	  	$("#areaAll")[0].checked=false;
+//	  	$("#areaLab").html("");
+//	  	var pid=$("#cityLab").attr("citylabid");
+//	  	if(this.checked){
+//	  		addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val(), 0);  //添加当前省份标签
+//	  		$("#"+pid)[0].checked=true;
+//	  		$("#city input[parentid="+pid+"]").each(function(){
+//	  			this.checked=true;
+//	  			addDivBox(this.id,0,0,0,true);  
+//	  			$(this).siblings("label").attr("ischecked", true);
+//	  			var city_id=this.id;
+//	  			console.log("city_id: "+city_id);
+//	  			$(".liBox i[level=area]").each(function(){
+//	  	  			if($(this).attr("pid")==city_id){
+//	  	  				console.log("area_id: "+$(this).attr("pid"));
+//	  	  				$(this).parent().remove();
+//	  	  			}
+//	  	  		});
+//	  		});
+//	  		var area_pid=$("#areaLab").attr("arealabid");
+//	  		$("#area input[parentid="+area_pid+"]").each(function(){
+//	  			$(this).parent("div").addClass("layui-hide");
+//	  			addDivBox(this.id,0,0,0,true); 
+//	  		});
+//	  		
+//	  		
+//	  		
+//	  		if($("#province input:checked").size()==34){//34个省全选中了
+//	  			$("#provinceAll")[0].checked=true;
+//	  			$("#"+pid).siblings("label").attr("ischecked", true);
+//	  		}
+//	  		
+//	  	}else{
+//	  		$("#provinceAll")[0].checked=false;
+//	  		$("#city input[parentid="+pid+"]").each(function(){
+//	  			this.checked=false;
+//	  			addDivBox(this.id,0,0,0,true);  //去掉城市标签
+//	  			$(this).siblings("label").attr("ischecked", false);
+//	  		});
+//	  		$("#area input").each(function(){
+//	  			this.checked=false;
+//	  			$(this).parent("div").addClass("layui-hide");
+//	  			$(this).siblings("label").attr("ischecked", false);
+//	  		});
+//	  		//城市全部取消  就把上一级 省级框 也去选中
+//	  		$("#"+pid)[0].checked=false;
+//	  		addDivBox(pid,0,0,0,true);  //添加当前省份标签
+//	  	}
+//	  });
+//	   //三级全选(area)
+//	  $("#areaAll").change(function(){
+//	  	var pid=$("#areaLab").attr("arealabid");
+//	  	var parentid=$("#"+pid).attr("parentid");
+//	  	if(this.checked){
+//	  		$("#area input[parentid="+pid+"]").each(function(){
+//	  			this.checked=true;
+//	  			addDivBox(this.id, 0,0,0,true);  //去掉区域标签
+//	  		});
+//	  		$("#"+pid)[0].checked=true;
+//	  		addDivBox(pid, $("#"+pid).attr("name"), $("#"+pid).val());  //添加当前城市标签
+//	  		if($("#city input[parentid="+parentid+"]:checked").size()==$("#city input[parentid="+parentid+"]").size()){//所有城市==选中城市  （即：城市全选）全选中了
+//	  			$("#cityAll")[0].checked=true;
+//	  			$("#city input[parentid="+parentid+"]").each(function(){
+//	  	  			this.checked=true;
+//	  	  			addDivBox(this.id, 0,0,0,true);  //去掉city标签
+//	  	  		});
+//	  	  		$("#"+parentid)[0].checked=true;
+//	  	  		addDivBox(parentid, $("#"+parentid).attr("name"), $("#"+parentid).val(), 0);  //添加当前省份标签
+//	  			if($("#province input:checked").size()==34){//省份全选了
+//	  				$("#provinceAll")[0].checked=true;
+//	  			}
+//	  		}
+//	  	}else{
+//	  		$("#area input[parentid="+pid+"]").each(function(){
+//	  			this.checked=false;
+//	  			addDivBox(this.id, 0, 0, 0,true);  //去掉区域标签
+//	  		});
+//	  		//区域全部取消  就把上一级 市级框 去掉选中 并去掉标签
+//	  		$("#"+pid)[0].checked=false;
+//	  		$("#"+parentid)[0].checked=false;
+//	  		addDivBox(pid, 0,0,0,true);  //去掉当前城市标签
+//	  		addDivBox(parentid, 0,0,0,true);  //去掉当前省份标签
+//	  		$("#provinceAll, #cityAll").each(function(){
+//	  			this.checked=false;
+//	  		});
+//	  		$("#city input[parentid="+parentid+"]:checked").each(function(){
+//	  			this.checked=true;
+//	  			addDivBox(this.id, $(this).attr("name"), this.value, parentid);
+//	  		});
+//	  		
+//	  	}
+//	  });
   	  
   
   	  
