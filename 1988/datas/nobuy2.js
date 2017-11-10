@@ -49,7 +49,11 @@ layui.use(['element', 'jquery'], function(){
 			var id = 0;
 			for(var i=0; len = arguments.length, i<len; i++){
 				id=arguments[i];
-				$("#"+id).find("div>input").attr("checked", false);
+				$("#"+id).bind("check", function(){
+					$(this).find("input").each(function(){
+						this.checked = false;
+					})
+				}).trigger("check");
 			}
 		}
 		
@@ -57,7 +61,12 @@ layui.use(['element', 'jquery'], function(){
 			var id = 0;
 			for(var i=0; len = arguments.length, i<len; i++){
 				id=arguments[i];
-				$("#"+id).find("div>input").attr("checked", true);
+				$("#"+id).bind("check", function(){
+					$(this).find("input").each(function(){
+						this.checked = true;
+					})
+				}).trigger("check");
+				
 			}
 		}
 		
@@ -78,20 +87,29 @@ layui.use(['element', 'jquery'], function(){
 		this.listens.push(obj);
 	}
 	limitProvince.prototype._change = function(){
+		if(this.$headInputProvinceAll){
+			$("#provinceAll")[0].checked = true;
+			addChecked("province");
+		}else{
+			$("#provinceAll")[0].checked = false;
+			clearChecked("province");
+		};
+		var that = this;
 		$("#provinceAll").change(function(){
-			if(this.$headInputProvinceAll){
-				this.$headInputProvinceAll = true;
+			if(this.checked){
+				that.$headInputProvinceAll = true;
 				addChecked("province");
 			}else{
-				this.$headInputProvinceAll = false;
+				that.$headInputProvinceAll = false;
 				clearChecked("province");
 			}
 		});
-		console.log(this.checkedAllNum);
+		
 	}
   function limitCity(id, obj){
   	this.$id = id || null;
   	this.$name = name || "city";
+  	this.$headInputCityAll = false;
 		this.$checked = false;
 		this.$value = "";
 		this.$cityLabelId = "cityLab";
@@ -101,20 +119,22 @@ layui.use(['element', 'jquery'], function(){
 		this.$pid = this.obj.$id;
 		this.listens = [];
 		this.checkedNum = 0;
-		this.checkedAllNum = $("#city").children("div.line-list").length;
+		this.checkedAllNum = 0;
 		this._change();
   }
   limitCity.prototype.regist = function(obj){
 			this.listens.push(obj);
 	},
   limitCity.prototype._change = function(){
+		var that = this;
 		$("#cityAll").change(function(){
-			if(this.$headInputProvinceAll){
+			if(this.checked){
 				addChecked("city");
 			}else{
 				clearChecked("city");
 			}
 		});
+		
   }
   function limitArea(id, obj){
   	this.$id = id || null;
@@ -140,17 +160,24 @@ layui.use(['element', 'jquery'], function(){
 		});
   }
   
- 	var limitprovince = new limitProvince();
-  var limitcity = new limitProvince("id", limitprovince);
-  var limitarea = new limitProvince("id", limitcity);
+ 	var Province = new limitProvince();
+  var City = new limitProvince("id", limitprovince);
+  var Area = new limitProvince("id", limitcity);
  
   $("#province").on("change", "input" ,function(){
-  	limitprovince.$id = this.id;
-  	limitprovince.checkedAllNum = $("#province").find("input").length;
-  	if(limitprovince.$checked){
-  		limitprovince.checkedNum++;
-  	}else if(!limitprovince.$checked){
-  		limitprovince.checkedNum--;
+  	Province.$id = this.id;
+  	Province.checkedAllNum = $("#province").find("input").length;
+  	Province.checkedNum = $("#province input:checked").length;
+  	if(this.checked){
+  		Province.$checked = true;
+  		if(Province.checkedNum == Province.checkedAllNum){
+  			Province.$headInputProvinceAll = true;
+  			$("#provinceAll")[0].checked = true;
+  		}
+  	}else{
+  		Province.$checked = false;
+  		Province.$headInputProvinceAll = false;
+  		$("#provinceAll")[0].checked = false;
   	}
   });
   
