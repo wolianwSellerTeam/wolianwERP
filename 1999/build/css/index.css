@@ -66,7 +66,8 @@
 }
 .kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a{
 	text-align: left;
-	margin-left: 20px;
+	box-sizing: border-box;
+	padding-left: 20px;
 }
 .kit-sided .layui-side-scroll .kit-side-folded .layui-nav-child a i{
 	margin-right: 15px;
@@ -81,11 +82,10 @@
     padding-left: 20px;
     font-size: 15px;
     font-weight: bold;
-<<<<<<< HEAD
 }
-.layui-nav-tree .layui-nav-item a:hover, .layui-nav-tree .kit-side-folded.layui-nav-itemed{
+.layui-nav-tree .layui-nav-item a:hover{
   background-color: #4E5465;
 }
-=======
+.layui-nav-tree .kit-side-folded.layui-nav-itemed dd a:hover{
+	background-color: rgba(0,0,0,.1);
 }
->>>>>>> refs/heads/master
