@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>userRoleSelector</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			ul, ol{list-style: none;}
+			a{text-decoration: none;}
+			.userRoleSelector{
+				position: relative;
+				width: 500px;
+				height: 300px;
+				background-color: #fff;
+				margin: 20px auto;
+				font-size: 14px;
+			}
+			.mask{
+				position: fixed;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				background-color: rgba(0,0,0,.5);
+			}
+			.userRoleSelector ul{
+				width: 40%;
+				height: 80%;
+				overflow-y: auto;
+				border-bottom: 1px solid #ddd;
+			}
+			ul.leftSelector li, ul.rightSelector li{
+				box-sizing: border-box;
+				padding: 0 10px;
+				color: #333;
+				cursor: pointer;
+				height: 30px;
+				line-height: 30px;
+			}
+			ul.leftSelector li:hover, ul.rightSelector li:hover{
+				background-color: #039ae3;
+			}
+			.userRoleSelector ul.leftSelector{
+				float: left;
+			}
+			.userRoleSelector ul.rightSelector{
+				float: right;
+			}
+			.userRoleSelector ul.middleBtnBox{
+				position: relative;
+				width: auto;
+				height: 80%;
+				margin: 0 40%;
+				border: 1px solid #ddd;
+				border-top: none;
+			}
+			.userRoleSelector ul.middleBtnBox li{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				position: absolute;
+				top: 50%;
+				margin-top: -40px;
+				text-align: center;
+			}
+			.userRoleSelector ul.middleBtnBox li:nth-child(2){
+				margin-top: 10px;
+			}
+			.aBtn{
+				padding: 5px 15px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				color: darkolivegreen;
+				font-size: 12px;
+			}
+			.aBtn:hover{color: #000; background-color: lightcyan;}
+			.selected{background-color: #666964!important;}
+			.bottomBox{
+				height: 20%;
+				position: relative;
+			}
+			.bottomBox a{
+				position: absolute;
+				top: 50%;
+				margin-top: -15px;
+				right: 0px;
+			}
+			.bottomBox a.saveBtn{right: 80px; background-color: #14a2d0;}
+			.bottomBox a.saveBtn:hover{color: #fff; background-color: #2fc1f1;}
+			.bottomBox a.closeBtn:hover{color: #fff; background-color: #f96c6c;}
+			.bottomBox a.closeBtn{right: 10px; background-color: #ddd;}
+		</style>
+	</head>
+	<body>
+		<button id="showSelector">配置用户权限</button>
+		
+		<script type="text/javascript">
+			function UserRoleSelector(options){
+				this.options = options || {};
+				this.status = 1;
+				this.data = this.options.data || [];
+				this.init(this.options);
+				this.bind();
+			}
+			UserRoleSelector.prototype = {
+				init: function(options){
+					this.options = options || {};
+					this.dom = document.createElement("div");
+					this.dom.className = "mask";
+					var lis = "";
+					for(var i=0; i<this.data.length; i++){
+						lis += '<li class="listLi" data-value="'+this.data[i].value+'">'+this.data[i].text+'</li>';
+					}
+					var html = '<div class="userRoleSelector">'+
+											 '<ul class="leftSelector">'+lis+'</ul>'+
+											 '<ul class="rightSelector"></ul>'+
+											 '<ul class="middleBtnBox">'+
+											 		'<li><a href="javascript:void(0)" class="aBtn addBtn">添加</a></li>'+
+												  '<li><a href="javascript:void(0)" class="aBtn delBtn">删除</a></li>'+
+											 '</ul>'+
+											 '<div class="bottomBox">'+
+											 		'<a href="javascript:void(0)" class="aBtn saveBtn">保存</a>'+
+											 		'<a href="javascript:void(0)" class="aBtn closeBtn">关闭</a>'+
+											 '</div>'+
+										 '</div>';
+					this.dom.innerHTML = html;
+					document.body.appendChild(this.dom);
+					this.status = this.options.show ? 0 : 1; //根据new的时候传的show(false/true) 确定this.status的值
+					this.status ? this.show() : this.hide();//根据this.status的值 判断初始化时显示还是隐藏
+					
+					this.left = this.dom.querySelector(".leftSelector");
+					this.right = this.dom.querySelector(".rightSelector");
+					this.items = this.dom.querySelectorAll("li.listLi");
+					this.close = this.dom.querySelector(".aBtn.closeBtn");
+					this.save = this.dom.querySelector(".aBtn.saveBtn");
+					this.add = this.dom.querySelector(".aBtn.addBtn");
+					this.delete = this.dom.querySelector(".aBtn.delBtn");
+				},
+				show: function(){
+					this.dom.style.display = "block";
+					this.status = 1;
+				},
+				hide: function(){
+					this.dom.style.display = "none";
+					this.status = 0;
+				},
+				_selected: function(event){
+					var e = event.target || this;
+					if(e.className.indexOf("selected") == -1){
+						e.className = "selected";
+					}else{
+						e.className = "";
+					}
+				},
+				bind: function(){
+					var that = this;
+					this.save.onclick = function(){
+						if(that.options.onSave){
+							that.options.onSave.call(that);
+						}
+					};
+					
+					this.close.onclick = this.hide.bind(this);
+					this.add.onclick = this._perClick.bind(this, this.add);
+					this.delete.onclick = this._perClick.bind(this, this.delete);
+					
+					for(var m = 0; m < this.items.length; m++){
+						this.items[m].onclick = this._selected;
+					}
+				},
+				_perClick: function(event){
+					var one, two;
+					if(event.className.indexOf("addBtn") != -1){
+						one = this.left;
+						two = this.right;
+					}else{
+						one = this.right;
+						two = this.left;
+					}
+					var selecteds = one.querySelectorAll("li.selected");
+					for(var i=0; i<selecteds.length; i++){
+						two.appendChild(selecteds[i]);
+					}
+				},
+				
+				getValues: function(){
+					var values = "";
+					var list = this.right.querySelectorAll("li");
+					var len = list.length;
+					for(var i = 0; i < len; i++){
+						values += list[i].getAttribute("data-value");
+						if(!(list[i] == list[len-1])){
+							values += ",";
+						}
+					}
+					
+					return values;
+				}
+				
+				
+			}
+			var userRoleSelector = new UserRoleSelector({
+//				show: true,
+				data: [
+								{"value": 1, "text": "语文"},
+								{"value": 2, "text": "数学"},
+								{"value": 3, "text": "英语"},
+								{"value": 4, "text": "历史"},
+								{"value": 5, "text": "地理"},
+								{"value": 6, "text": "政治"},
+								{"value": 7, "text": "生物"},
+								{"value": 8, "text": "化学"},
+								{"value": 9, "text": "物理"}
+				],
+				onSave: function(){
+					alert("保存成功！");
+					alert(this.getValues());
+					this.hide();
+				}
+			});
+			
+			document.querySelector("#showSelector").onclick = function(){
+				if(userRoleSelector.status){
+					userRoleSelector.hide();
+				}else{
+					userRoleSelector.show();
+				}
+			}
+			
+		</script>
+	</body>
+</html>
