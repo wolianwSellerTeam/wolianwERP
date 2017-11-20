@@ -27,8 +27,9 @@ function myajax(_type, _url, _async){
   
   xmlHttp.onreadystatechange = function(){
   	if( xmlHttp.readyState == 4){
+  		document.write("数据正在加载中...");
   		if(xmlHttp.status == 200){
-  			 //document.write(xmlHttp.responseText);
+  			 
       	document.getElementById("myh").innerHTML = xmlHttp.responseText;
   		}
     }
