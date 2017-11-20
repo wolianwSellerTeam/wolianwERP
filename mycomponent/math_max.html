@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>找出数组最大数, css两端对齐</title>
+		<style>
+			.content_wrap{
+				width: 600px;
+				margin: 20px auto;
+				background-color: lightcyan;
+				height: 50px;
+				text-align: justify;
+    		text-align-last: justify;
+			}
+			.content_wrap a{
+				text-decoration: none;
+				height: 30px;
+				line-height: 30px;
+				border-radius: 5px;
+				border: 1px solid lawngreen;
+				color: #666;
+				display: inline-block;
+			}
+			.justify{
+				width: 200px;
+				margin: 20px auto;
+				text-align: justify;
+				padding: 10px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content_wrap">
+			<a href="javascript:;">首页</a>
+			<a href="javascript:;">免费课程</a>
+			<a href="javascript:;">职业路径</a>
+			<a href="javascript:;">实战</a>
+			<a href="javascript:;">猿问</a>
+			<a href="javascript:;">手记</a>
+		</div>
+		<div class="content_wrap">
+			首页
+		</div>
+		
+		<div class="justify"> 
+			<p>作者是一个文本：问题hi是：是滴是滴见风使舵：作者是一个文本：问题hi是：是滴是滴见风使舵：作者是一个文本：问题hi是：
+				是滴是滴见风使舵：作者是一个文本：问题hi是：是舵：作者是一个文本：问题hi是：是滴是滴见风使舵：作者是一个文本：问题hi
+				是：是滴舵：作者是一个文本：问题hi是：是滴是滴见风使舵：作者是一个文本：问题hi是：是滴滴是滴见风使舵：作者是一个文本：
+				问题hi是：是滴是滴见风使舵：
+			</p> 
+		</div> 
+		
+		
+		<script type="text/javascript">
+			var arr = [1,2,5,9,5,35,98,175,96];
+			console.log(Math.max.apply(Math, arr));
+			
+			Array.prototype.max = function(){
+				return Math.max.apply(Math, this);
+			};
+			
+			Array.prototype.min = function(){
+				return Math.min.apply(Math, this);
+			};
+			
+			alert("最大值： "+arr.max()+"最小值："+arr.min());
+			
+			
+			
+		</script>
+	</body>
+</html>
