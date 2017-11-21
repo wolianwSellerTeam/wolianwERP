@@ -3,7 +3,7 @@
  *_url: 链接地址
  * —async: 同步(false)/异步(true)
  */
-function myajax(_type, _url, _async){
+function myajax(_type, _url, _async, callback){
 	var xmlHttp = null;
 	try{
   	// Firefox, Opera 8.0+, Safari
@@ -25,13 +25,19 @@ function myajax(_type, _url, _async){
   xmlHttp.open(_type, _url, _async);
   xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
   
-  xmlHttp.onreadystatechange = function(){
+  xmlHttp.onreadystatechange = function() {
   	if( xmlHttp.readyState == 4){
-  		document.write("数据正在加载中...");
   		if(xmlHttp.status == 200){
-  			 
-      	document.getElementById("myh").innerHTML = xmlHttp.responseText;
+  			if(callback){
+  				callback(xmlHttp.responseText);
+  			}else{
+  				return xmlHttp.responseText;
+  			}
   		}
+    }else{
+    	if(callback){
+    		callback("error");
+    	}
     }
   }
   

@@ -10,8 +10,13 @@
 		
 		<script src="js/myajax.js"></script>
 		<script type="text/javascript">
-			myajax("post", "newajax.txt", true);
-			
+			var _h1 = document.getElementById("myh");
+			_h1.onclick = function(){
+				var that = this;
+				myajax("get", "newajax.txt", true, function(data){
+					that.innerHTML = data;
+				});
+			}
 			
 		</script>
 	</body>
