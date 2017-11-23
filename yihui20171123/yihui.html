@@ -499,13 +499,14 @@
 			</div>
 		</div>
 		
-		<a href="#top" id="top">顶部</a>
+		<!--<a href="#top" id="topA">顶部</a>-->
 		
 		<script src="./assets/js/jquery-1.10.2.min.js"></script>
 		<script src="./assets/js/vue.js"></script>
     <script src="./assets/js/scrollReveal.js"></script>
     <script src="./assets/js/home-index.js"></script>
     <script src="./assets/js/carousel.js"></script>
+    <script src="./assets/js/backTop.js"></script>
     
     
     <script type="text/javascript">
@@ -514,7 +515,7 @@
 				window.scrollReveal = new scrollReveal({reset: true});
 			})();
 		};
-		
+		//轮播图
 		new Carousel({
 			"id" : "banner",
 			"height" : 380,
@@ -531,23 +532,16 @@
 			"animate" : 500,
 			"interval": 3000
 		});
-		
-		$("a[href='#top']").click(function() { 
-		  $("html, body").animate({ scrollTop: 0 }, "slow"); 
-		  return false; 
-		}); 
-		
-		$(document).scroll(function(){
-			console.log($(this).scrollTop());
-			var winH = $(window).height();
-			console.log("屏幕高度：" + winH);
-			if(!($(this).scrollTop() - winH)){
-				$("a[href='#top']").animate({bottom: -50+"px"}, 500);
-			}
-			if($(this).scrollTop() - winH){
-				$("a[href='#top']").animate({bottom: 50+"px"}, 500);
-			}
-		})
+	//回到顶部
+//	 new BackTop({
+//	 	id: "lihui",
+//	 	width: "50px",
+//	 	height: "50px",
+//	 	right: "40px",
+//	 	bottom: "50px",
+//	 	image: "./assets/image/topA.png"
+//	 });
+new BackTop();
 		
 	</script>
 	</body>
