@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>导航滑动效果</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			body{color: #333; background-color: #fff; font: 12px/1.5 "微软雅黑", tahoma, arial, "Hiragino Sans GB", "宋体", sans-serif;}
+			ul, ol, dl{list-style: none;}
+			a{text-decoration: none; color: #333;}
+			.nav{
+				width: 80%;
+				height: 50px;
+				margin: 20px auto;
+			}
+			.navUl{
+				background-color: lightblue;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				position: relative;
+				z-index: 0;
+			}
+			.navUl li{
+				flex: 1;
+				border-right: 1px solid #fff;
+				position: relative;
+				z-index: 0;
+			}
+			.navUl li:last-child{ border-right: none; }
+			.navUl li a{
+				display: block;
+				height: 100%;
+				height: 100%;
+				line-height: 50px;
+				text-align: center;
+			}
+			.navLine{
+				display: block;
+				position: absolute;
+				left: 0;
+				width: 100%;
+				bottom: 0;
+				height: 0;
+				z-index: -1;
+				background-color: rgba(0,0,0,0.3);
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+			
+			<ul class="navUl" id="navUl">
+				<li class="current activeLi"><a href="http://www.baidu.com" target="_blank">首页</a><span class="navLine" id="navLine"></span></li>
+				<li class="current"><a href="javascript:;">新闻动态</a><span class="navLine" id="navLine"></span></li>
+				<li class="current"><a href="javascript:;">产品中心</a><span class="navLine" id="navLine"></span></li>
+				<li class="current"><a href="javascript:;">E题库</a><span class="navLine" id="navLine"></span></li>
+				<li class="current"><a href="javascript:;">专家库</a><span class="navLine" id="navLine"></span></li>
+				<li class="current"><a href="javascript:;">服务中心</a><span class="navLine" id="navLine"></span></li>
+				<li class="current"><a href="javascript:;">招商联盟</a><span class="navLine" id="navLine"></span></li>
+				<li class="current"><a href="javascript:;">关于我们</a><span class="navLine" id="navLine"></span></li>
+				
+			</ul>
+		</div>
+		
+		 <script src="js/jquery-1.8.3.min.js"></script>
+		 
+		 <script type="text/javascript">
+		 		$(function(){
+		 			//第一种效果
+		 			//var $navLine = $("#navLine");
+//		 			$("#navUl li").hover(function(){
+//		 				$(this).css("border-top", "4px solid green");
+//		 			}, function(){
+//		 				$(this).css("border-top", "4px solid transparent");
+//		 			});
+					//第二种效果
+					 var liHeight = $("#navUl li").height();
+		 			$("#navUl li").hover(function(){
+		 				$(this).find("span").stop(true).animate({"height": liHeight+"px"}, 300);
+		 			}, function(){
+		 				$(this).find("span").stop(true).animate({"height": 0}, 300);
+		 			});
+		 			
+		 			
+		 		})
+		 </script>
+		 
+	</body>
+</html>

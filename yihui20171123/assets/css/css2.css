@@ -327,20 +327,35 @@
 	height: 300px;
 	background-color: #2EAFBB;
 	color: #fff;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	margin: 0 auto;
+	display: -webkit-flex;  /* 新版本语法: Chrome 21+ */
+  display: flex;          /* 新版本语法: Opera 12.1, Firefox 22+ */
+  display: -webkit-box;   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;      /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;   /* 混合版本语法: IE 10 */  
+  align-items: center; 
+  -webkit-box-align: center;
+  -ms-flex-align : center; 
 }
 .footer .footerBox{
 	width: 1120px;
 	margin: 0 auto;
-	height: 90%;
-  display: flex;
+	height: auto;
+	overflow: hidden;
+  display: flex; 
+  display:-webkit-box; 
+  display:-webkit-flex; 
+  display:-ms-flexbox;
 }
 .footer .footerBox > div{
 	text-align: left;
 	font-size: 13px;
 	line-height: 25px;
+}
+.footerBox > div > h4{
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 .footer_one{
 	width: 28%;
@@ -355,9 +370,11 @@
 	min-height: 80px;
 	border-bottom: 1px solid #fff;
 }
-.footer_two table span{
+.footer_two table h5{
 	font-weight: bold;
 	font-size: 14px;
+  margin-top: -5px;
+  margin-bottom: 10px;
 }
 .footer_two table:last-child{
 	border-bottom: none;

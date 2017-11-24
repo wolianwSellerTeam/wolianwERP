@@ -26,16 +26,24 @@
 				flex: 1;
 				border-right: 1px solid #fff;
 				position: relative;
-				border-top: 4px solid transparent;
 			}
 			.navUl li:last-child{ border-right: none; }
 			.navUl li a{
 				display: block;
 				height: 100%;
-				height: 100%;
+				width: 100%;
 				line-height: 50px;
 				text-align: center;
 				color: #fff;
+			}
+			.navLine{
+				display: block;
+				position: absolute;
+				left: 0;
+				width: 0;
+				bottom: 0;
+				height: 2px;
+				background-color: rgba(0,0,0,0.3);
 			}
 			
 			
@@ -47,14 +55,38 @@
 		<div class="nav">
 			
 			<ul class="navUl" id="navUl">
-				<li class="current activeLi"><a href="http://www.baidu.com" target="_blank">首页</a></li>
-				<li class="current"><a href="javascript:;">新闻动态</a></li>
-				<li class="current"><a href="javascript:;">产品中心</a></li>
-				<li class="current"><a href="javascript:;">E题库</a></li>
-				<li class="current"><a href="javascript:;">专家库</a></li>
-				<li class="current"><a href="javascript:;">服务中心</a></li>
-				<li class="current"><a href="javascript:;">招商联盟</a></li>
-				<li class="current"><a href="javascript:;">关于我们</a></li>
+				<li class="current activeLi">
+					<a href="http://www.baidu.com" target="_blank">首页</a>
+					<span class="navLine">
+				</li>
+				<li class="current">
+					<a href="javascript:;">新闻动态</a>
+					<span class="navLine">
+				</li>
+				<li class="current">
+					<a href="javascript:;">产品中心</a>
+					<span class="navLine">
+				</li>
+				<li class="current">
+					<a href="javascript:;">E题库</a>
+					<span class="navLine">
+				</li>
+				<li class="current">
+					<a href="javascript:;">专家库</a>
+					<span class="navLine">
+				</li>
+				<li class="current">
+					<a href="javascript:;">服务中心</a>
+					<span class="navLine">
+				</li>
+				<li class="current">
+					<a href="javascript:;">招商联盟</a>
+					<span class="navLine">
+				</li>
+				<li class="current">
+					<a href="javascript:;">关于我们</a>
+					<span class="navLine">
+				</li>
 			</ul>
 		</div>
 		
