@@ -26,11 +26,18 @@
 				flex: 1;
 				border-right: 1px solid #fff;
 				position: relative;
+				height: 100%;
+			}
+			.navUl li.activeLi a{
+				color: #ff5000;
+			}
+			.navUl li.activeLi span{
+				width: 100%;
 			}
 			.navUl li:last-child{ border-right: none; }
 			.navUl li a{
 				display: block;
-				height: 100%;
+				height: 48px;
 				width: 100%;
 				line-height: 50px;
 				text-align: center;
@@ -38,12 +45,10 @@
 			}
 			.navLine{
 				display: block;
-				position: absolute;
-				left: 0;
 				width: 0;
-				bottom: 0;
+				margin: 0 auto;
 				height: 2px;
-				background-color: rgba(0,0,0,0.3);
+				background-color: red;
 			}
 			
 			
@@ -94,11 +99,12 @@
 		 
 		 <script type="text/javascript">
 		 		$(function(){
-		 			//第一种效果
-		 			$("#navUl li").hover(function(){
-		 				$(this).css("border-top", "4px solid #e81313");
+		 			//第二种效果
+		 			//var noActiveLi = $("#navUl li").not($(".activeLi"));
+		 			$("#navUl li:not(.activeLi)").hover(function(){
+		 				$(this).find("span").stop(true).animate({"width": "100%"}, 500);
 		 			}, function(){
-		 				$(this).css("border-top", "4px solid transparent");
+		 				$(this).find("span").stop(true).animate({"width": 0}, 0);
 		 			});
 
 		 			
