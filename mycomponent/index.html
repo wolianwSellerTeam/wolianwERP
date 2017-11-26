@@ -11,33 +11,35 @@
 			a{text-decoration: none;}
 			li{list-style: none;}
 			.left_btn, .right_btn{
-				background-color: rgba(255,255,255,.5);
+				background-color: rgba(0,0,0,.0.1);
 				display: inline-block;
-				height: 30px;
-				width: 30px;
+				height: 50px;
+				width: 50px;
 				font-size: 12px;
 				text-align: center;
-				line-height: 30px;
+				line-height: 50px;
 				color: #fff;
 				position: absolute;
 				top: 50%;
-				margin-top: -15px;
+				margin-top: -25px;
 			}
-			.left_btn{left: 0px;}
-			.right_btn{right: 0px;}
+			.left_btn img, .right_btn img{ width: 100%; height: 100%;}
+			.left_btn{ left: 10px; }
+			.right_btn{ right: 10px; }
+			.left_btn:hover, .right_btn:hover{ background-color: rgba(0,0,0,.3) }
 			.selected{background-color: #ff5000!important;}
 		</style>
 	</head>
 	<body>
 		<div id="lunbo"></div>
-		<div id="carousel">
-			
-		</div>
+		<div id="carousel"></div>
 		
 		<script type="text/javascript">
-			$("#lunbo").carousel({
-				"width" : 860,
-				"height" : 300,
+			$("#carousel").carousel({
+//				"width" : 860,
+//				"height" : 300,
+//				"leftImgUrl": "images/left.png",
+//				"rightImgUrl": "images/right.png",
 				"images" : [
 					"images/qq_img01.png",
 					"images/qq_img02.png",
@@ -46,16 +48,9 @@
 					"images/qq_img05.png",
 					"images/qq_img06.png",
 					"images/qq_img07.png"
-				],
-					"a_href" : ["#", "#", "#", "#", "#", "#", "#"]
-			});
-			$("#carousel").carousel({
-				"width": 500,
-				"height": 200,
-				"images":[
-					"images/qq_img01.png",		"images/qq_img02.png",		"images/qq_img03.png",		"images/qq_img04.png",		"images/qq_img05.png"
 				]
-			}).
+				
+			});
 		</script>
 	</body>
 </html>

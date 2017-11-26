@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片抖动</title>
+		<style type="text/css">
+			.wrap{
+				text-align: center;
+				border: 1px solid red;
+				margin: 20px auto;
+				padding: 20px 0;
+				position: relative;
+			}
+			.wrap img{
+				position: relative;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oimg = document.getElementsByTagName("img");
+				var arr = [];
+				for(var i=10; i>0; i-=2){
+					arr.push(i, -i);
+				}
+				arr.push(0);
+				
+				for(m=0; m<oimg.length; m++){
+					oimg[m].onclick = function(){
+						dou(this, "left");
+					}
+				}
+				function dou(obj, attr){
+					var timer = null;
+					var num = 0;
+					var attr = parseInt(getStyle(obj, attr));
+					clearInterval(timer);
+					timer = setInterval(function(){
+						obj.style.left = attr + arr[num] + "px";
+						num++;
+						if(num === arr.length ) { 
+							clearInterval(timer);
+						}
+					}, 50);
+				}
+
+				function getStyle(obj, attr) {
+					return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, false)[attr];
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<img src="images/test1.png"/>
+			<img src="images/test2.png"/>
+			<img src="images/test3.png"/>
+			<img src="images/test4.png"/>
+			<img src="images/test5.png"/>
+		</div>
+	</body>
+</html>

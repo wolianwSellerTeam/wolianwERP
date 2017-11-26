@@ -1,6 +1,10 @@
 (function(){
 	//强行暴露一个变量
-	window.Carousel = Carousel;
+	window.myCarousel = myCarousel;
+	
+		function myCarousel(json){
+			return new Carousel(json);
+		}
 	
 		function Carousel(json){
 			this.$dom = $("#" + json.id);  //根据id获取盒子jqueryDOM， 后面加了$符号的 都是jQuery对象 
