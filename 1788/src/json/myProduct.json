@@ -1,0 +1,52 @@
+
+
+[{
+    "href":"#",
+    "img":"./img/list_goods_01.png",
+    "productName":"佳佳女装",
+    "address":"湖北武汉",
+    "price":"288.00",
+    "packageMail": 1,
+    "moveHome": 0,
+    "focus": 0,
+    "transport":"true",
+    "productDec":"白色t恤女短袖笑脸纯棉夏韩版宽松圆领纯色体恤女百搭显瘦打底衫"
+
+},{
+    "href":"#",
+    "img":"./img/list_goods_02.png",
+    "productName":"佳佳女装",
+    "address":"湖北武汉",
+    "price":"288.00",
+    "packageMail": 1,
+    "moveHome": 0,
+    "focus": 0,
+    "transport":"true",
+    "productDec":"良品铺子·11周年庆·好零食·感恩店庆感恩有你，不止半价！"
+
+},{
+    "href":"#",
+    "img":"./img/list_goods_02.png",
+    "productName":"佳佳女装",
+    "address":"湖北武汉",
+    "price":"288.00",
+    "packageMail": 1,
+    "moveHome": 0,
+    "focus": 0,
+    "transport":"true",
+    "productDec":"良品铺子·8月放价，回馈美食家，看这里》(此商品不参加上述活动)"
+
+},{
+    "href":"#",
+    "img":"./img/list_goods_02.png",
+    "productName":"佳佳女装",
+    "address":"湖北武汉",
+    "price":"288.00",
+    "packageMail": 1,
+    "moveHome": 0,
+    "focus": 0,
+    "transport":"true",
+    "productDec":"白色t恤女短袖笑脸纯棉夏韩版宽松圆领纯色体恤女百搭显瘦打底衫"
+
+}
+]

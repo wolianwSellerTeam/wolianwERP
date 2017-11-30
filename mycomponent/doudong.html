@@ -6,13 +6,13 @@
 		<style type="text/css">
 			.wrap{
 				text-align: center;
-				border: 1px solid red;
 				margin: 20px auto;
 				padding: 20px 0;
 				position: relative;
 			}
 			.wrap img{
 				position: relative;
+				margin-right: 20px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -25,22 +25,28 @@
 				arr.push(0);
 				
 				for(m=0; m<oimg.length; m++){
-					oimg[m].onclick = function(){
-						dou(this, "left");
+					oimg[m].onmouseenter = function(){
+						dou(this, "top");
 					}
 				}
 				function dou(obj, attr){
-					var timer = null;
-					var num = 0;
-					var attr = parseInt(getStyle(obj, attr));
-					clearInterval(timer);
-					timer = setInterval(function(){
-						obj.style.left = attr + arr[num] + "px";
-						num++;
-						if(num === arr.length ) { 
-							clearInterval(timer);
-						}
-					}, 50);
+					
+					if( obj.timer == undefined || obj.timer == false){  //第一次抖动的时候 obj.timer 没定义，就是undefined  或者运动完了  obj.dou已经归于false，重新开始调用
+						obj.timer = null;
+						obj.num = 0;
+						var attrValue = parseInt(getStyle(obj, attr));
+						clearInterval(obj.timer);
+						obj.timer = setInterval(function(){
+							obj.style[attr] = attrValue + arr[obj.num] + "px";
+							obj.num++;
+							if( obj.num === arr.length ) { 
+								clearInterval(obj.timer);
+								obj.timer = false; //运动完了 给设为false
+							}
+						}, 70);
+					} //还没运动完 继续调用 函数  obj.timer 就还是数字
+					
+					
 				}
 
 				function getStyle(obj, attr) {
@@ -48,9 +54,15 @@
 				}
 			}
 			
+			
+			
+			
+			
 		</script>
 	</head>
 	<body>
+		
+		
 		<div class="wrap">
 			<img src="images/test1.png"/>
 			<img src="images/test2.png"/>
@@ -58,5 +70,12 @@
 			<img src="images/test4.png"/>
 			<img src="images/test5.png"/>
 		</div>
+		
+		
+		
+		
+		
 	</body>
+	
+	
 </html>
