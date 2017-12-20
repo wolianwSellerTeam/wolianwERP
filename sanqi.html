@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>批七</title>
+	</head>
+	<body>
+		
+		<p>输出所有的1-60的尾数不含7并不被七整除的数！</p>
+		
+		
+		<script type="text/javascript">
+			for(var i = 100; i<=999; i++){
+				var ge = i%10;
+				var shi = parseInt(i/10)%10;
+				var bai = parseInt(i/100);
+				if(ge*ge*ge +shi*shi*shi+bai*bai*bai === i){
+					console.log(i);
+				}
+			}	
+		</script>
+	</body>
+</html>

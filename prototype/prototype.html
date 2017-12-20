@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设计模式</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//工厂模式
+//			function factory(id, name, age){
+//				var obj = new Object();
+//				obj.id =	name || 20093048;
+//				obj.name = name;
+//				obj.age = age;
+//				obj.run = function(){
+//					return this.name + this.age+"运行工厂模式。。。";
+//				}
+//				
+//				return obj;
+//			}
+//			var a = factory(2017, "lihui", 27);
+//			alert(a.run());
+
+				//构造函数
+				function Person(name, age, sex){
+					this.name = name || '';
+					this.age = age || 27;
+					this.sex = sex || "nan";
+				}
+				Person.prototype = {
+					init: function(){
+						var that = this;
+						return this.name + "今年"+this.age+"岁，性别："+this.sex;
+					},
+					add: function(){
+						this.age++;
+						console.log(this.age);
+					}
+				}
+				var person = new Person("lihui", 27 , "男");
+				console.log(person.init());
+				
+				function People(level){
+					this.level = level;
+				}
+				
+				People.prototype = new Person();
+				var people = new People("lihui");
+				alert(people.init());
+				
+				
+		</script>
+	</body>
+</html>

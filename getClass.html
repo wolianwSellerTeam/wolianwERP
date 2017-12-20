@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>封装自己的getClass</title>
+	</head>
+	<body>
+		
+		<div class="demo1">
+			<div class="demo2 lihui"></div>
+		</div>
+		
+		<div class="demo test one two"></div>
+		
+		<script type="text/javascript">
+			function getClass(className) {
+				if(document.getElementsByClassName){//支持ie9+ 或者其他主流浏览器 可以直接使用该方法
+					alert("xxx");
+					return document.getElementsByClassName(className);
+				}
+				//低版本浏览器
+				var arr = [];
+				var elems = document.getElementsByTagName("*");
+				for(var i = 0; len = elems.length, i<len; i++){
+					var txtArr = elems[i].className.split(" ");
+					for(var j=0; lem = txtArr.length, j<lem; j++){
+						if(txtArr[j] == className){
+							arr.push(elems[i]);
+						}
+					}
+				}
+				return arr;
+			}
+			
+			console.log(getClass("demo"));
+			
+		</script>
+		
+	</body>
+</html>

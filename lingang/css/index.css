@@ -1,0 +1,130 @@
+header{
+	height: 692px;
+	width: 100%;
+	background: rgba(0,0,0,.1);
+	overflow: hidden;
+}
+.hd-wrap{
+	width: 1200px;
+	height: 50px;
+	line-height: 50px;
+	margin: 130px auto;
+}
+.hd-wrap h1{
+	display: inline-block;
+	vertical-align: top;
+	height: 100%;
+	color: #fff;
+	line-height: 50px;
+	padding-right: 20px;
+	border-right: 1px solid #fff;
+}
+.hd-wrap > a{
+	display: inline-block;
+	height: 100%;
+	margin-left: 10px;
+}
+.hd-navUl{
+	height: 26px;
+	line-height: 26px;
+	float: right;
+	margin-top: 12px;
+	font-size: 12px;
+}
+.hd-navList{
+	float: left;
+	min-width: 95px;
+	border-right: 1px solid #fff;
+	text-align: center;
+}
+.hd-navList.active{
+	background-color: #3B3D3C;
+}
+.hd-navList:hover{
+	background-color: #3B3D3C;
+}
+ .hd-navList:hover > ul{
+ 	display: block;
+ }
+.hd-navUl > li:last-child{
+	border-right: none;
+}
+.hd-navList a{
+	text-decoration: none;
+	display: block;
+	padding: 0 10px;
+	color: #fff;
+	letter-spacing: 3px;
+}
+
+.hd-navList > ul{
+	background-color: #3B3D3C;
+	display: none;
+	padding-bottom: 2px;
+}
+.hd-navList > ul a.letter0{
+	letter-spacing: 0;
+	padding: 0;
+}
+.hd-navList > ul a:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+.hd-title{
+	margin-top: 200px;
+}
+.txt1{
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  color: #fff;
+  height: 100px;
+  line-height: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.txt2{
+  font-size: 50px;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
+.txt2 > i{
+	font-style: initial;
+	position: relative;
+}
+.txt2 > i:after{
+	content: "";
+	display: inline-block;
+	width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  position: relative;
+  background-color: #fff;
+  right: -7px;
+  top: -15px;
+}
+.txt3{
+	color: #7A7A79;
+	font-size: 35px;
+  margin: 0 auto;
+  text-align: center;
+  height: 70px;
+  line-height: 70px;
+  letter-spacing: 3px;
+}
+
+
+footer{
+	height: 692px;
+	width: 100%;
+	background: rgba(0,0,0,.1);
+	overflow: hidden;
+}
+.logoWrap{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	height: 50px;
+}
