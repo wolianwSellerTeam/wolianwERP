@@ -1,13 +1,15 @@
+body{
+	font-family: Microsoft YaHei, 'Raleway', sans-serif;
+}
 header{
 	height: 692px;
 	width: 100%;
-	background: rgba(0,0,0,.1);
+	background: #274B64;
 	overflow: hidden;
 }
 .hd-wrap{
 	width: 1200px;
-	height: 50px;
-	line-height: 50px;
+	overflow: hidden;
 	margin: 130px auto;
 }
 .hd-wrap h1{
@@ -34,7 +36,7 @@ header{
 .hd-navList{
 	float: left;
 	min-width: 95px;
-	border-right: 1px solid #fff;
+	/*border-right: 1px solid #fff;*/
 	text-align: center;
 }
 .hd-navList.active{
@@ -115,16 +117,91 @@ header{
   letter-spacing: 3px;
 }
 
+.content {
+	width: 1000px;
+	margin: 130px auto;
+	border: 1px solid red;
+	overflow: hidden;
+	
+}
+.content > h1{
+	font-size: 40px;
+	color: #71A94D;
+	font-weight: bold;
+  margin: 10px 0;
+}
+.textWrap{
+	height: auto;
+	overflow: hidden;
+	clear: both;
+	font-size: 14px;
+	color: #747373;
+	line-height: 30px;
+	letter-spacing: 3px;
+}
+.textWrapLeft{
+	float: left;
+}
+.textWrapRight{
+	float: right;
+}
+.textIndent{
+	text-indent: 2em;
+}
+.showImg{
+	margin-top: 60px;
+}
+
 
 footer{
-	height: 692px;
+	height: 400px;
 	width: 100%;
-	background: rgba(0,0,0,.1);
+	background-color: #171A21;
+	/*background: rgba(0,0,0,.1);*/
 	overflow: hidden;
 }
-.logoWrap{
-	width: 100%;
+.ft-wrap{
+	width: 1200px;
 	margin: 0 auto;
+	overflow: hidden;
+}
+.ft-wrap h1{
+	display: inline-block;
+	vertical-align: top;
+	height: 30px;
+	color: #fff;
+	line-height: 30px;
+	padding-right: 20px;
+	margin-top: 10px;
+	border-right: 1px solid #fff;
+}
+.ft-wrap .logoWrap > a{
+	display: inline-block;
+	height: 100%;
+	margin-left: 10px;
+}
+.ft-wrap .logoWrap{
+	width: 100%;
+	margin: 60px auto 30px;
 	text-align: center;
 	height: 50px;
+}
+.subscribe{
+	text-align: center;
+	margin-top: 25px;
+}
+.subscribeA{
+	display: inline-block;
+	width: 130px;
+	height: 40px;
+	border-radius: 4px;
+	line-height: 40px;
+	border: 1px solid #fff;
+	background-color: transparent;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+.subscribeA:hover{
+	
 }
