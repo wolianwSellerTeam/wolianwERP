@@ -1,10 +1,14 @@
 body{
 	font-family: Microsoft YaHei, 'Raleway', sans-serif;
 }
+.section.header{
+	background:#171A21 url(../img/head-bg.png) no-repeat center;
+	-moz-background-size:100% 100%;
+	background-size:100% 100%;  
+}
 header{
 	height: 692px;
 	width: 100%;
-	background: #274B64;
 	overflow: hidden;
 }
 .hd-wrap{
@@ -19,7 +23,7 @@ header{
 	color: #fff;
 	line-height: 50px;
 	padding-right: 20px;
-	border-right: 1px solid #fff;
+	background: url(../img/colsLine.png) no-repeat center right;
 }
 .hd-wrap > a{
 	display: inline-block;
@@ -36,7 +40,7 @@ header{
 .hd-navList{
 	float: left;
 	min-width: 95px;
-	/*border-right: 1px solid #fff;*/
+	background: url(../img/colsLine.png) no-repeat center right;
 	text-align: center;
 }
 .hd-navList.active{
@@ -69,7 +73,7 @@ header{
 	padding: 0;
 }
 .hd-navList > ul a:hover{
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.6);
 }
 .hd-title{
 	margin-top: 200px;
@@ -156,12 +160,11 @@ header{
 footer{
 	height: 400px;
 	width: 100%;
-	background-color: #171A21;
 	/*background: rgba(0,0,0,.1);*/
 	overflow: hidden;
 }
 .ft-wrap{
-	width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -173,7 +176,7 @@ footer{
 	line-height: 30px;
 	padding-right: 20px;
 	margin-top: 10px;
-	border-right: 1px solid #fff;
+	background: url(../img/colsLine.png) no-repeat center right;
 }
 .ft-wrap .logoWrap > a{
 	display: inline-block;
@@ -204,4 +207,9 @@ footer{
 }
 .subscribeA:hover{
 	
+}
+.section.footer{
+	background:#171A21 url(../img/foot-bg.png) no-repeat center;
+	-moz-background-size:100% 100%;
+	background-size:100% 100%;  
 }
