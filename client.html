@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>clientWidth和 clientHeight的兼容性封装</title>
+		<style type="text/css">
+			.demo{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				margin: 100px;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="demo"></div>
+		
+		<script type="text/javascript">
+			function client(){
+				//ie9+ 和主流浏览器
+				if(window.innerWidth != null){
+					return {
+						width: window.innerWidth,
+						height: window.innerHeight
+					}
+				}
+				//标准浏览器
+				else if(window.compatMode === "CSS1Compat"){ 
+					return {
+						width: window.clientWidth,
+						height: window.clientHeight
+					}
+				}
+				//怪异浏览器 
+				return {
+					width: window.body.clientWidth,
+					height: window.body.clientHeight
+				}
+			}
+			
+			alert(client().width);
+			alert(client().height);
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,207 @@
+body{
+	font-family: Microsoft YaHei, 'Raleway', sans-serif;
+}
+header{
+	height: 692px;
+	width: 100%;
+	background: #274B64;
+	overflow: hidden;
+}
+.hd-wrap{
+	width: 1200px;
+	overflow: hidden;
+	margin: 130px auto;
+}
+.hd-wrap h1{
+	display: inline-block;
+	vertical-align: top;
+	height: 100%;
+	color: #fff;
+	line-height: 50px;
+	padding-right: 20px;
+	border-right: 1px solid #fff;
+}
+.hd-wrap > a{
+	display: inline-block;
+	height: 100%;
+	margin-left: 10px;
+}
+.hd-navUl{
+	height: 26px;
+	line-height: 26px;
+	float: right;
+	margin-top: 12px;
+	font-size: 12px;
+}
+.hd-navList{
+	float: left;
+	min-width: 95px;
+	/*border-right: 1px solid #fff;*/
+	text-align: center;
+}
+.hd-navList.active{
+	background-color: #3B3D3C;
+}
+.hd-navList:hover{
+	background-color: #3B3D3C;
+}
+ .hd-navList:hover > ul{
+ 	display: block;
+ }
+.hd-navUl > li:last-child{
+	border-right: none;
+}
+.hd-navList a{
+	text-decoration: none;
+	display: block;
+	padding: 0 10px;
+	color: #fff;
+	letter-spacing: 3px;
+}
+
+.hd-navList > ul{
+	background-color: #3B3D3C;
+	display: none;
+	padding-bottom: 2px;
+}
+.hd-navList > ul a.letter0{
+	letter-spacing: 0;
+	padding: 0;
+}
+.hd-navList > ul a:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+.hd-title{
+	margin-top: 200px;
+}
+.txt1{
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  color: #fff;
+  height: 100px;
+  line-height: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.txt2{
+  font-size: 50px;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
+.txt2 > i{
+	font-style: initial;
+	position: relative;
+}
+.txt2 > i:after{
+	content: "";
+	display: inline-block;
+	width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  position: relative;
+  background-color: #fff;
+  right: -7px;
+  top: -15px;
+}
+.txt3{
+	color: #7A7A79;
+	font-size: 35px;
+  margin: 0 auto;
+  text-align: center;
+  height: 70px;
+  line-height: 70px;
+  letter-spacing: 3px;
+}
+
+.content {
+	width: 1000px;
+	margin: 130px auto;
+	border: 1px solid red;
+	overflow: hidden;
+	
+}
+.content > h1{
+	font-size: 40px;
+	color: #71A94D;
+	font-weight: bold;
+  margin: 10px 0;
+}
+.textWrap{
+	height: auto;
+	overflow: hidden;
+	clear: both;
+	font-size: 14px;
+	color: #747373;
+	line-height: 30px;
+	letter-spacing: 3px;
+}
+.textWrapLeft{
+	float: left;
+}
+.textWrapRight{
+	float: right;
+}
+.textIndent{
+	text-indent: 2em;
+}
+.showImg{
+	margin-top: 60px;
+}
+
+
+footer{
+	height: 400px;
+	width: 100%;
+	background-color: #171A21;
+	/*background: rgba(0,0,0,.1);*/
+	overflow: hidden;
+}
+.ft-wrap{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.ft-wrap h1{
+	display: inline-block;
+	vertical-align: top;
+	height: 30px;
+	color: #fff;
+	line-height: 30px;
+	padding-right: 20px;
+	margin-top: 10px;
+	border-right: 1px solid #fff;
+}
+.ft-wrap .logoWrap > a{
+	display: inline-block;
+	height: 100%;
+	margin-left: 10px;
+}
+.ft-wrap .logoWrap{
+	width: 100%;
+	margin: 60px auto 30px;
+	text-align: center;
+	height: 50px;
+}
+.subscribe{
+	text-align: center;
+	margin-top: 25px;
+}
+.subscribeA{
+	display: inline-block;
+	width: 130px;
+	height: 40px;
+	border-radius: 4px;
+	line-height: 40px;
+	border: 1px solid #fff;
+	background-color: transparent;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+.subscribeA:hover{
+	
+}
