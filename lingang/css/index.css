@@ -3,18 +3,28 @@ body{
 }
 /*header*/
 .section.header{
-	background:#171A21 url(../img/head-bg.png) no-repeat center;
+	background: url(../img/head-bg.png) no-repeat center;
 	-moz-background-size:100% 100%;
 	background-size:100% 100%;  
+	display: table;
+	width: 100%;
 }
 header{
 	width: 100%;
 	overflow: hidden;
+	background: url(../img/head-bg.png) no-repeat center;
+	-moz-background-size:100% 100%;
+	background-size:100% 100%;  
+}
+.section.header > div{
+	display: table-cell;
+	vertical-align: middle;
 }
 .hd-wrap{
 	width: 1200px;
 	overflow: hidden;
-	margin: 80px auto 50px;
+	min-height: 450px;
+	margin: 0 auto;
 }
 .hd-wrap h1{
 	display: inline-block;
@@ -158,21 +168,20 @@ header{
 
 /*make*/
 .section.make{
-	background: url(../img/makeBgImg.jpg)  no-repeat center;
+	background:url(../img/makeBgImg.jpg)  no-repeat center;
 	-moz-background-size:100% 100%;
 	background-size:100% 100%;  
 }
 .makeWrap{
-	background: rgba(0, 96, 100, 0.9) url(../img/makeimgBgTop.png) no-repeat center;
-	-moz-background-size:100% 100%;
-	background-size:100% 100%; 
+	position: relative;
 	height: 100%;
 	overflow: hidden;
-	/*background-color: rgba(0, 96, 100, 0.9);*/
+	background-color: rgba(0, 96, 100, 0.9);
 }
+
 .imgWarp{
 	text-align: center;
-	margin-top: 150px;
+	margin-top: 120px;
 }
 blockquote {
 	font-size: 1.71em;
@@ -249,7 +258,7 @@ blockquote.blockquote2 > span ~ span:before {
 .lineLeft, .lineRight{
 	position: relative;
 	display: table-cell;
-	width: 300px;
+	width: 330px;
 }
 .lineLeft:before, .lineLeft:after, .lineRight:before, .lineRight:after {
     position: absolute;
@@ -467,12 +476,150 @@ blockquote.blockquote2 > span ~ span:before {
 	background-color: #00959B;
 }
 
+/*contactUs*/
+.section.contactUs{
+	background: url(../img/makeimgBg.png) no-repeat center;
+	-moz-background-size:100% 100%;
+	background-size:100% 100%;  
+	display: table;
+	width: 100%;
+	position: relative;
+	z-index: -2;
+}
+.contactUs:after{
+	content: "";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	background-color:rgba(11,70,66, 0.9)
+}
+.section.contactUs > div{
+	display: table-cell;
+	vertical-align: middle;
+}
+.cu-wrap{
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.cu-wrap .ibox-title{
+	color: #fff;
+}
+.cuBox{
+	width: 800px;
+	overflow: hidden;
+	margin: 10px auto;
+	padding-bottom:50px ;
+}
+.cuLeftBox{
+	width: 60%;
+	float: left;
+}
+.cuRightBox{
+	width: 40%;
+	float: left;
+}
+.cuBottomBox{
+	height: 50px;
+}
+.cuInput{
+	height: 30px;
+	padding: 5px 10px;
+	margin: 10px 30px 10px 0;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #fff;
+	width: 200px;
+	color: #fff;
+	font-size: 15px;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+　color: #fff;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+　color:#fff;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+　color:#fff;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+　color:#fff;
+}
+input::input-placeholder, textarea::input-placeholder {
+　color: #fff;
+}
+
+.emailContent{
+	height: 180px;
+	width: 460px;
+	padding: 10px;
+	margin: 10px 30px 10px 0;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+	font-size: 15px;
+	resize: none;
+}
+#emailTheme{
+	width: 460px;
+}
+#yourEmail, #emailTheme, #emailContent{
+	margin-right: 0;
+}
+.cuRightBox li{
+	height: 100px;
+	padding-left: 10px;
+	margin-left: 10px;
+	position: relative;
+}
+.labBox{
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+	background-color: #879B99;
+	position: relative;
+	position: absolute;
+	text-align: center;
+  border-radius: 50%
+}
+.labBox i.fa{
+	vertical-align: top;
+	font-size: 20px;
+	color: #fff;
+  line-height: 60px;
+}
+.cuRightBox li > p{
+	color: #fff;
+	line-height: 30px;
+	padding-left: 85px;
+}
+.cu-wrap .ibox-content{
+	height: auto;
+}
+.cuBottomBox{
+	margin: 50px auto 0;
+	width: 800px;
+	clear: both;
+	text-align: right;
+}
+.cuBottomBox a.btnA{
+	margin-left: 180px;
+	margin-top: 30px;
+}
+
+
 
 /*footer*/
 .section.footer{
-	background:#171A21 url(../img/foot-bg.png) no-repeat center;
+	background: url(../img/foot-bg.png) no-repeat center;
 	-moz-background-size:100% 100%;
-	background-size:100% 100%;  
+	background-size:100% 100%;
 }
 footer{
 	width: 100%;
