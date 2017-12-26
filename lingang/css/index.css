@@ -10,16 +10,58 @@ body{
 	width: 100%;
 }
 header{
-	width: 100%;
-	overflow: hidden;
-	background: url(../img/head-bg.png) no-repeat center;
+	width: 1200px;
+	margin: 0 auto;
 	-moz-background-size:100% 100%;
-	background-size:100% 100%;  
+	background-size:100% 100%;
+	height: 470px;
+	display: table;
+}
+header#jtjshead{
+	background: url(../img/jtjsBg.png) no-repeat center;
+}
+header#gywmhead{
+	background: url(../img/jtjsBg.png) no-repeat center;
+}
+header#zlhbhead{
+	background: url(../img/zlhbBg.png) no-repeat center;
+}
+header#lxwmhead{
+	background: url(../img/zlhbBg.png) no-repeat center;
+}
+header#ywfwhead{
+	background: url(../img/ywfwBg.png) no-repeat center;
+}
+header#hxywhead{
+	background: url(../img/jtjsBg.png) no-repeat center;
+}
+header#gffdhead{
+	background: url(../img/zlhbBg.png) no-repeat center;
+}
+header#xmalhead{
+	background: url(../img/jtjsBg.png) no-repeat center;
+}
+header#jzjnhead{
+	background: url(../img/zlhbBg.png) no-repeat center;
+}
+header#xwhdhead{
+	background: url(../img/zlhbBg.png) no-repeat center;
+}
+header#yzfahead{
+	background: url(../img/jtjsBg.png) no-repeat center;
+}
+.greCol{
+	color: #71A94D;
 }
 .section.header > div{
 	display: table-cell;
 	vertical-align: middle;
 }
+header > div{
+	display: table-cell;
+	vertical-align: middle;
+}
+header .hd-wrap{ width: 1000px; }
 .hd-wrap{
 	width: 1200px;
 	overflow: hidden;
@@ -85,11 +127,14 @@ header{
 .hd-navList > ul a:hover{
 	background-color: rgba(0,0,0,0.6);
 }
+header .hd-wrap .hd-title{
+	margin-top: 50px;
+}
 .hd-title{
 	margin-top: 100px;
 }
 .txt1{
-  font-size: 80px;
+  font-size: 60px;
   font-weight: bold;
   letter-spacing: 10px;
   color: #fff;
@@ -134,15 +179,22 @@ header{
 .content {
 	width: 1000px;
 	margin: 130px auto;
-	border: 1px solid red;
 	overflow: hidden;
 	
 }
-.content > h1{
-	font-size: 40px;
+.h1Title{
+	font-size: 35px;
 	color: #71A94D;
 	font-weight: bold;
   margin: 10px 0;
+}
+.h2Title{
+	font-size: 25px;
+	color: #71A94D;
+	font-weight: bold;
+  margin: 10px 0;
+  padding: 0 25px;
+  background: url(../img/lingxing.png) no-repeat 0px center;
 }
 .textWrap{
 	height: auto;
@@ -159,12 +211,66 @@ header{
 .textWrapRight{
 	float: right;
 }
+.zhanlvebg .textWrapLeft{
+	width: 500px;
+}
+.zhanlvebg .textWrapLeft > P{
+	padding: 0 25px;
+}
+p.hasbg{
+	background: url(../img/yuandian2.png) no-repeat 0px center;
+}
 .textIndent{
 	text-indent: 2em;
 }
 .showImg{
 	margin-top: 60px;
 }
+.showImgAbout{
+	margin-top: 20px;
+}
+.showImgAboutLeft{
+	float: left;
+	width: 660px;
+}
+.showImgAboutRight{
+	float: right;
+	width: 273px;
+}
+.mt90{ margin-top: 90px;}
+
+.zlhbWrap{
+	width: 450px;
+	min-height: 230px;
+	margin-top: 20px;
+}
+.ititle{
+	border-bottom: 2px solid #71A94D;
+	height: 30px;
+	line-height: 30px;
+}
+.ititle label{
+	min-width: 90px;
+	height: 30px;
+	display: inline-block;
+  text-indent: 1em;
+  background-color: #71A94D;
+  color: #fff;
+  position: relative;
+} 
+.ititle label:after{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	border-top:15px solid transparent;
+  border-bottom: 15px solid #71A94D;
+  border-left: 8px solid #71A94D;
+  right: -16px;
+  border-right: 8px solid transparent;
+}
+
+
+
 
 /*make*/
 .section.make{
@@ -484,6 +590,14 @@ blockquote.blockquote2 > span ~ span:before {
 }
 
 /*contactUs*/
+section#llwmSection{
+	width: 1200px;
+	margin: 10px auto;
+}
+section#llwmSection .section.contactUs{
+	padding: 80px 0 50px;
+	z-index: 0;
+}
 .section.contactUs{
 	background: url(../img/makeimgBg.png) no-repeat center;
 	-moz-background-size:100% 100%;
@@ -543,22 +657,6 @@ blockquote.blockquote2 > span ~ span:before {
 	width: 200px;
 	color: #fff;
 	font-size: 15px;
-}
-
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-　color: #fff;
-}
-input:-moz-placeholder, textarea:-moz-placeholder {
-　color:#fff;
-}
-input::-moz-placeholder, textarea::-moz-placeholder {
-　color:#fff;
-}
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-　color:#fff;
-}
-input::input-placeholder, textarea::input-placeholder {
-　color: #fff;
 }
 
 .emailContent{
@@ -635,12 +733,24 @@ input::input-placeholder, textarea::input-placeholder {
 	vertical-align: middle;
 }
 footer{
-	width: 100%;
-	overflow: hidden;
+	width: 1200px;
+	margin: 0 auto;
+	background: url(../img/foot-bg.png) no-repeat center;
+	-moz-background-size:100% 100%;
+	background-size:100% 100%;
+	display: table;
+	height: 450px;
+}
+footer > div{
+	display: table-cell;
+	vertical-align: middle;
+}
+footer > .ft-wrap{
+	width: 1000px;
 }
 .ft-wrap{
-	width: 100%;
-	margin: 165px auto 0;
+	width: 1200px;
+	margin: 0 auto;
 	overflow: hidden;
 }
 .ft-wrap h1{
@@ -658,12 +768,19 @@ footer{
 	height: 100%;
 	margin-left: 10px;
 }
+footer > .ft-wrap > .logoWrap{
+	margin: 20px auto 0;
+}
+footer > .ft-wrap > .ft-title, footer > .ft-wrap > .subscribe{
+	margin-top: 40px;
+}
 .ft-wrap .logoWrap{
 	width: 100%;
 	margin: 0 auto 30px;
 	text-align: center;
 	height: 50px;
 }
+
 .ft-title{
 	margin-top: 80px;
 }
