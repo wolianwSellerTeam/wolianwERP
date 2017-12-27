@@ -18,37 +18,37 @@ header{
 	display: table;
 }
 header#jtjshead{
-	background: url(../img/jtjsBg.png) no-repeat center;
+	background: url(../img/jtjsBg.png) no-repeat center; /*集团介绍 true*/
 }
 header#gywmhead{
-	background: url(../img/jtjsBg.png) no-repeat center;
+	background: url(../img/jtjsBg.png) no-repeat center;/*关于我们 fasle*/
 }
 header#zlhbhead{
-	background: url(../img/zlhbBg.png) no-repeat center;
+	background: url(../img/zlhbBg.png) no-repeat center;/*战略合作伙伴 true*/
 }
 header#lxwmhead{
-	background: url(../img/zlhbBg.png) no-repeat center;
+	background: url(../img/zlhbBg.png) no-repeat center;/*联系我们 fasle*/
 }
 header#ywfwhead{
-	background: url(../img/ywfwBg.png) no-repeat center;
+	background: url(../img/ywfwBg.png) no-repeat center;/*业务范围 true*/
 }
 header#hxywhead{
-	background: url(../img/jtjsBg.png) no-repeat center;
+	background: url(../img/head-bg.png) no-repeat center;/*核心业务 true*/
 }
 header#gffdhead{
-	background: url(../img/zlhbBg.png) no-repeat center;
+	background: url(../img/zlhbBg.png) no-repeat center;/*光伏发电 true*/
 }
 header#xmalhead{
-	background: url(../img/jtjsBg.png) no-repeat center;
+	background: url(../img/jtjsBg.png) no-repeat center;/*项目案例 false*/
 }
 header#jzjnhead{
-	background: url(../img/zlhbBg.png) no-repeat center;
+	background: url(../img/zlhbBg.png) no-repeat center;/*建筑节能 false*/
 }
 header#xwhdhead{
-	background: url(../img/zlhbBg.png) no-repeat center;
+	background: url(../img/zlhbBg.png) no-repeat center;/*新闻活动 false*/
 }
 header#yzfahead{
-	background: url(../img/jtjsBg.png) no-repeat center;
+	background: url(../img/yzsfaBg.png) no-repeat center;  /*一站式解决方案 true*/
 }
 .greCol{
 	color: #71A94D;
@@ -88,6 +88,8 @@ header .hd-wrap{ width: 1000px; }
 	float: right;
 	margin-top: 12px;
 	font-size: 12px;
+	position: relative;
+	z-index: 999;
 }
 .hd-navList{
 	float: left;
@@ -185,16 +187,27 @@ header .hd-wrap .hd-title{
 .h1Title{
 	font-size: 35px;
 	color: #71A94D;
-	font-weight: bold;
+	/*font-weight: bold;*/
   margin: 10px 0;
+  position: relative;
 }
 .h2Title{
 	font-size: 25px;
 	color: #71A94D;
-	font-weight: bold;
+	/*font-weight: bold;*/
   margin: 10px 0;
   padding: 0 25px;
   background: url(../img/lingxing.png) no-repeat 0px center;
+}
+.h3Title{
+	font-size: 15px;
+	color: #727272;
+	font-weight: bold;
+  margin: 10px 0;
+}
+.h3Title > i.fa{
+	font-size: 12px;
+	margin-right: 5px;
 }
 .textWrap{
 	height: auto;
@@ -217,6 +230,12 @@ header .hd-wrap .hd-title{
 .zhanlvebg .textWrapLeft > P{
 	padding: 0 25px;
 }
+.ywfwwp .textWrapRight > P{
+	padding: 0 25px;
+}
+.ywfwwp .textWrapRight > P.hasbg + p{
+	padding-left: 0;
+}
 p.hasbg{
 	background: url(../img/yuandian2.png) no-repeat 0px center;
 }
@@ -225,6 +244,7 @@ p.hasbg{
 }
 .showImg{
 	margin-top: 60px;
+	text-align: center;
 }
 .showImgAbout{
 	margin-top: 20px;
@@ -238,6 +258,7 @@ p.hasbg{
 	width: 273px;
 }
 .mt90{ margin-top: 90px;}
+.mt20{ margin-top: 20px;}
 
 .zlhbWrap{
 	width: 450px;
@@ -257,6 +278,7 @@ p.hasbg{
   background-color: #71A94D;
   color: #fff;
   position: relative;
+  padding-right: 5px;
 } 
 .ititle label:after{
 	content: "";
@@ -268,8 +290,56 @@ p.hasbg{
   right: -16px;
   border-right: 8px solid transparent;
 }
-
-
+.h1Title > .lineRight{
+	position: absolute;
+  left: 160px;
+  top: 55px;
+}
+.imgTabBox{
+	margin: 15px 0 0;
+	letter-spacing: 0;
+}
+.leftTd{
+	min-width: 60px;
+	text-align: justify;
+	text-align-last: justify;
+}
+#xmalWrap{
+	margin-top: 100px;
+}
+#xmalWrap .textWrapLeft, #xmalWrap .textWrapRight{
+	width: 470px;
+}
+#xmalWrap .showImg{
+	margin-top: 5px;
+	margin-bottom: 25px;
+}
+#xmalWrap .showImg > img{
+	width: 230px;
+}
+#gffdWrap{
+	margin-top: 70px;
+}
+#gffdWrap .textWrapLeft, #gffdWrap .textWrapRight{
+	width: 100%;
+}
+#gffdWrap .showImg{
+	margin-top: 0;
+}
+#jzjnWrap .h2Title, #hxywWrap .h2Title{
+	margin-top: 70px;
+	background: url(../img/rightPoint2.png) no-repeat 0 center;
+	background-size: 20px 20px;
+}
+#hxywWrap .showImg{
+	text-align: left;
+}
+#hxywWrap .textWrapLeft{
+	width: 400px;
+}
+#hxywWrap .textWrapRight{
+	width: 570px;
+}
 
 
 /*make*/
