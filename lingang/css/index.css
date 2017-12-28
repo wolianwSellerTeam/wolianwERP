@@ -44,7 +44,7 @@ header#xmalhead{
 header#jzjnhead{
 	background: url(../img/jzjnBg.png) no-repeat center;/*建筑节能 true*/
 }
-header#xwhdhead{
+header#xwhdhead, header.newsEventsList{
 	background: url(../img/xwhdBg.png) no-repeat center;/*新闻活动 true*/
 }
 header#yzfahead{
@@ -205,6 +205,12 @@ header .hd-wrap .hd-title{
 	font-weight: bold;
   margin: 10px 0;
 }
+.h4Title{
+	font-size: 15px;
+	color: #71A94D;
+	font-weight: bold;
+  margin: 5px 0;
+}
 .h3Title > i.fa{
 	font-size: 12px;
 	margin-right: 5px;
@@ -233,6 +239,10 @@ header .hd-wrap .hd-title{
 .ywfwwp .textWrapRight > P{
 	padding: 0 25px;
 }
+.ywfwwp .textWrapRight > P.nopadding{
+	padding-left: 0;
+}
+
 .ywfwwp .textWrapRight > P.hasbg + p{
 	padding-left: 0;
 }
@@ -340,8 +350,24 @@ p.hasbg{
 #hxywWrap .textWrapRight{
 	width: 570px;
 }
-
-
+#hxywWrap .hxywLeftWrap, #hxywWrap .hxywRightWrap, #hxywWrap .hxywMiddleWrap{
+	float: left;
+	width: 333px;
+}
+.topWrap{
+	min-height: 200px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.topWrap > p{
+	font-size: 13px;
+}
+#hxywWrap .showImg{
+	margin-top: 30px;
+}
+#hxywWrap .showImg > img{
+	width: 323px
+}
 /*make*/
 .section.make{
 	background:url(../img/makeBgImg.jpg)  no-repeat center;
@@ -404,7 +430,7 @@ blockquote.blockquote2 > span ~ span:before {
 }
 .moreInformation{
 	text-align: center;
-	margin-top: 40px;
+	margin-top: 30px;
 }
 .btnA.makeA{
 	background-color: #6F8731;
@@ -557,6 +583,11 @@ blockquote.blockquote2 > span ~ span:before {
 	display: table;
 	width: 100%;
 }
+#xwhdSection .section.newsActive{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 50px 0 100px;
+}
 .section.newsActive > div{
 	display: table-cell;
 	vertical-align: middle;
@@ -625,7 +656,7 @@ blockquote.blockquote2 > span ~ span:before {
 }
 
 .newsBox1WrapImg{
-	margin-top: 100px;
+	margin-top: 80px;
 }
 .newsBoxWrapTitle{
 	font-size: 18px;
@@ -651,7 +682,7 @@ blockquote.blockquote2 > span ~ span:before {
 	color: #000;
 }
 .newsBox2WrapY{
-	margin-top: 100px;
+	margin-top: 80px;
 	font-size: 55px;
 }
 .newsBox3{
@@ -792,11 +823,20 @@ section#llwmSection .section.contactUs{
 
 /*footer*/
 .section.footer{
-	background: url(../img/foot-bg.png) no-repeat center;
+	background: url(../img/footBg.png) no-repeat center;
 	-moz-background-size:100% 100%;
 	background-size:100% 100%;
 	display: table;
 	width: 100%;
+	position: relative;
+}
+.section.footer:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
 }
 .section.footer > div{
 	display: table-cell;
@@ -805,11 +845,20 @@ section#llwmSection .section.contactUs{
 footer{
 	width: 1200px;
 	margin: 0 auto;
-	background: url(../img/foot-bg.png) no-repeat center;
+	background: url(../img/footBg.png) no-repeat center;
 	-moz-background-size:100% 100%;
 	background-size:100% 100%;
 	display: table;
 	height: 450px;
+	position: relative;
+}
+footer:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
 }
 footer > div{
 	display: table-cell;
@@ -817,11 +866,15 @@ footer > div{
 }
 footer > .ft-wrap{
 	width: 1000px;
+	position: relative;
+	z-index: 999;
 }
 .ft-wrap{
 	width: 1200px;
 	margin: 0 auto;
 	overflow: hidden;
+	position: relative;
+	z-index: 999;
 }
 .ft-wrap h1{
 	display: inline-block;
