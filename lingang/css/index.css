@@ -21,13 +21,13 @@ header#jtjshead{
 	background: url(../img/jtjsBg.png) no-repeat center; /*集团介绍 true*/
 }
 header#gywmhead{
-	background: url(../img/jtjsBg.png) no-repeat center;/*关于我们 fasle*/
+	background: url(../img/gywmBg.png) no-repeat center;/*关于我们 true*/
 }
 header#zlhbhead{
 	background: url(../img/zlhbBg.png) no-repeat center;/*战略合作伙伴 true*/
 }
 header#lxwmhead{
-	background: url(../img/zlhbBg.png) no-repeat center;/*联系我们 fasle*/
+	background: url(../img/lxwmBg.png) no-repeat center;/*联系我们 true*/
 }
 header#ywfwhead{
 	background: url(../img/ywfwBg.png) no-repeat center;/*业务范围 true*/
@@ -36,16 +36,16 @@ header#hxywhead{
 	background: url(../img/head-bg.png) no-repeat center;/*核心业务 true*/
 }
 header#gffdhead{
-	background: url(../img/zlhbBg.png) no-repeat center;/*光伏发电 true*/
+	background: url(../img/gffdBg.png) no-repeat center;/*光伏发电 true*/
 }
 header#xmalhead{
-	background: url(../img/jtjsBg.png) no-repeat center;/*项目案例 false*/
+	background: url(../img/xmalBg.png) no-repeat center;/*项目案例 true*/
 }
 header#jzjnhead{
-	background: url(../img/zlhbBg.png) no-repeat center;/*建筑节能 false*/
+	background: url(../img/jzjnBg.png) no-repeat center;/*建筑节能 true*/
 }
 header#xwhdhead{
-	background: url(../img/zlhbBg.png) no-repeat center;/*新闻活动 false*/
+	background: url(../img/xwhdBg.png) no-repeat center;/*新闻活动 true*/
 }
 header#yzfahead{
 	background: url(../img/yzsfaBg.png) no-repeat center;  /*一站式解决方案 true*/
