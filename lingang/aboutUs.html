@@ -47,8 +47,8 @@
 					<li class="hd-navList"><a href="oneStopSolution.html">一站式方案</a></li>
 				</ul>
 				<div class="hd-title">
-					<p class="txt1">打造智慧型绿色节能产业园</p>
-					<p class="txt2">
+					<p class="txt1" data-scroll-reveal="enter left over 0.5s and move 300px after 0.3s">打造智慧型绿色节能产业园</p>
+					<p class="txt2" data-scroll-reveal="enter right over 0.5s and move 300px after 0.3s">
 						<i>智</i>
 						<i>慧</i>
 						<i>园</i>
@@ -96,15 +96,15 @@
 					</a>
 				</div>
 				<div class="ft-title">
-					<p class="txt2">
+					<p class="txt2" data-scroll-reveal="enter left over 0.5s and move 300px after 0.3s">
 						<i>智</i>
 						<i>慧</i>
 						<i>园</i>
-						<i>区</i>
+						<i>区</i>                                                                                                                                                                                                                                                                                                                                                                                                                           
 						<i>管</i>
 						家
 					</p>
-					<p class="txt3">加速国际创新与绿色能源智慧平台</p>
+					<p class="txt3" data-scroll-reveal="enter right over 0.5s and move 300px after 0.3s">加速国际创新与绿色能源智慧平台</p>
 				</div>
 				<div class="subscribe">
 					<a href="javascript:;" class="btnA">订阅我们</a>
@@ -117,10 +117,13 @@
 		
 		
 		<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+		<script src="./js/scrollReveal.js"></script>
 		<script type="text/javascript">
-			$(function(){
-				
-			})
+			if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+			(function(){
+					window.scrollReveal = new scrollReveal({reset: true});
+				})();
+			};
 		</script>
 	</body>
 </html>
