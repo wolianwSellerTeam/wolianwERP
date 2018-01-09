@@ -1,0 +1,31 @@
+table {
+            border-collapse: collapse;
+        }
+
+        table th {
+            background-color: antiquewhite;
+        }
+
+        table td, th {
+            border: solid 1px #b4aba1;
+        }
+
+        .table label {
+            margin-left: 30px;
+            float: left;
+            width: 150px;
+        }
+
+        .table label input {
+            margin-top: 4px
+        }
+
+        .table td {
+            min-width: 100px;
+        }
+
+        .list_table {
+            clear: both;
+            margin-left: 30px;
+            margin-top: 10px;
+        }

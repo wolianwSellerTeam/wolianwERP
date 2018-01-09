@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>vue-sku</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div id="app">
+<table class="table">
+    <tr v-for="(index,item) in properties">
+        <td><strong>{{item.Name}}：</strong></td>
+        <td>
+
+            <label v-for="value in item.values"><input type="checkbox" :value="value" v-model="item.selectedValues"/>{{value.Name}}</label>
+
+            <table class="list_table" v-if="item.Name!='发货地'&&item.selectedValues.length>0">
+                <tbody>
+                <tr>
+                    <th>{{item.Name}}</th>
+                    <th>自定义名称</th>
+                    <th v-if="item.Name=='颜色'">图片（无图片可以不填）</th>
+                </tr>
+
+                <tr v-for="selectedValue in item.selectedValues">
+                    <td>{{selectedValue.Name}}</td>
+                    <td>
+                        <input type="text" v-model="selectedValue.DefinitionName" maxlength="20"/>
+                    </td>
+                    <td v-if="item.Name=='颜色'">
+                        <div style="float: left">
+                            <input type="file"  style="width: 63px;"/>
+                        </div>
+                        <div style="float: right">
+                            <a href="" rel="link" target="_blank">
+                                <img :src="selectedValue.ImageUrl" width="30" height="35"/>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td align="right"></td>
+        <td>
+            <p class="c_a4">下表的零售价是最终展示给买家的产品价格。</p>
+            <table id="skuPrice_table" class="product_list_table break-word mt_0">
+                <tbody>
+                <tr>
+                    <td colspan="4">
+                        批量设置零售价：US $<input type="text" id="batchPrice" maxlength="9"/><input type="button"
+                                                                                             onclick="batchSetPrice()"
+                                                                                             value="确定"/> 批量设置库存：
+                        <input type="text" id="batchStockQuantity" maxlength="9"/><input type="button"
+                                                                                         onclick="batchSetStockQuantity()"
+                                                                                         value="确定"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th v-for="item in properties" v-if="item.selectedValues.length>0">{{item.Name}}</th>
+                    <th><span class="c_red">*</span>零售价</th>
+                    <th><span class="c_red">*</span>库存</th>
+                    <th>商品编码</th>
+                </tr>
+                <tr v-for="sku in skus">
+                    <td v-for="item in properties" v-if="item.selectedValues.length>0">{{getValueName(sku,item)}}</td>
+                    <td>
+                        US $
+                        <input type="text" v-model="sku.SkuPrice" class="w50" maxlength="9"/>
+                        <span name="productUnitTips"></span>
+                    </td>
+                    <td>
+                        <input type="text" v-model="sku.StockQuantity" class="w50" maxlength="9"/>
+                    </td>
+                    <td>
+                        <input type="text" v-model="sku.SkuCode" class="w180" maxlength="20"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+{{skusResult}}
+{{propertyResult}}
+</div>
+  <script src='http://cdn.bootcss.com/vue/1.0.28/vue.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

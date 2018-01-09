@@ -101,7 +101,7 @@
 									</div>
 									<div class="cuBottomBox">
 										<a href="mailto:" class="btnA">发送邮件</a>
-										<a href="javascript:;" class="btnA">查看地图</a>
+										<a href="javascript:;" class="btnA" onclick="baiduMap()">查看地图</a>
 									</div>
 								</div>
 								
@@ -144,12 +144,21 @@
 		
 		<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
 		<script src="./js/scrollReveal.js"></script>
+		<script src="layer/layer.js"></script>
 		<script type="text/javascript">
 			if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
 			(function(){
 					window.scrollReveal = new scrollReveal({reset: true});
 				})();
 			};
+			function baiduMap(){
+				layer.open({
+				    type: 2,
+				    title: '我公司地址：上海市浦东新区飞渡路1150号4楼',
+				    area: ['605px', '610px'],
+				    content: 'http://j.map.baidu.com/0OyaO',
+			  	});
+			}
 		</script>
 	</body>
 </html>
