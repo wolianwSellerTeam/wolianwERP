@@ -1,0 +1,68 @@
+function cartesianProduct(arr) {
+    if (arr === null || arr === undefined || arr.length === 0) {
+        return [];
+    }
+    return arr.reduce(function (map, obj) {
+        return map.map(function (x) {
+            return obj.map(function (y) {
+                return x.concat(y);
+            });
+        }).reduce(function (map, obj) {
+            return map.concat(obj);
+        }, []);
+    }, [[]]);
+}
+console.log(cartesianProduct([
+    [ {"颜色": "白色"}, {"颜色": "黑色"} ],
+    [ {"容量": "16G"}, {"容量": "64G"}, {"容量": "128G"} ],
+    [ {"产地": "中国"}, {"产地": "泰国"} ]
+]));
+
+
+
+ /*商品编辑     start
+      * @param productId 商品id
+      * @param callback  回调函数(数据渲染模板)
+      */
+      woLianw.productEditor = function (parameter, callback) {
+          var _this = this;
+          $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+          $.ajax({
+              type: 'get',
+              data: parameter,
+              url:  _this.url + '/sell/product/edit',
+              success:function (response) {
+             	
+                  if (response.code == 0) {
+                      /*失败，显示msg给用户看*/
+                  	console.log(response.msg);
+                  }else if(response.code == 1) {
+                      /*登录成功，操作data项数据，将菜单渲染至页面*/
+                 	callback(response.data);
+                 	 
+                  }else if(response.code == 10) {
+                      /*未登录，将用户导至登录页*/
+                      _this.goLoginPage();
+                  }
+              },
+              error: function(response){
+ 	           	console.log(response.statusText);
+ 	         }
+          })
+      }
+      
+      /*商品编辑     end*/
+
+
+
+
+/*通过laytpl模板引擎将数据渲染到页面*/
+    woLianw.renderDataHtml = function (data, templateID, wrapID) {
+      var template = document.getElementById(templateID).innerHTML;
+      var wrap = document.getElementById(wrapID);
+      laytpl(template).render(data, function (html){
+          wrap.innerHTML = html;
+      });
+    }
+
+

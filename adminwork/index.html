@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue测试</title>
+    
+</head>
+<body>
+    
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <div id="app2">
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+    </div>
+    
+
+
+    <script src="js/jquery1.83.min.js"></script>
+    <script src="js/vue1.0.8.min.js"></script>
+    <script>
+        Vue.component('my-component',{
+            template: '<div>This is my first component!</div>'
+        })
+
+       var app1 = new Vue({
+            el: '#app'
+        });
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                message: "vue测试"
+            }
+
+        });
+
+    </script>
+</body>
+</html>
