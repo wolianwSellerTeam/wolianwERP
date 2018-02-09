@@ -60,6 +60,7 @@
 .back-order-list table tbody tr.product-detail-info:hover{
     background-color: #e4e9f2;
 }
+
 .back-order-list table tbody tr.product-detail-info .buyer-order-info p{
     height: 40px;
     line-height: 40px;
@@ -111,8 +112,24 @@
     color: #323232;
     font-weight: bold;
 }
+
 .back-order-list table tbody tr.product-detail-info .product-operate input[type=checkbox]{
     width: 22px;
     height: 22px;
 }
-.back-order-list table tbody tr.product-detail-info
+
+
+
+.back-order-list .product-number,
+.back-order-list .product-price,
+.back-order-list .product-total-price,
+.back-order-list .product-total-money,
+.back-order-list .product-shipping,
+.back-order-list .product-shippng,
+.back-order-list .product-operate{
+    width: 100px;
+}
+
+.back-order-list .buyer-order-info {
+    width: 300px;
+}

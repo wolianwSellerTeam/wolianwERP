@@ -11,380 +11,579 @@
     <link rel="stylesheet" href="./plugins/layui/css/layui.css">
     <link rel="stylesheet" href="./plugins/font-awesome/font_399839_u0h8dbd9lu4pwrk9/iconfont.css">
     <link rel="stylesheet" href="./build/css/main.css">
-    <link rel="stylesheet" href="./build/css/seller-header.css">
-    <link rel="stylesheet" href="./build/css/order-tobe-accept.css">
     <link rel="stylesheet" href="./build/css/popup.css">
-
+    <link rel="stylesheet" href="./build/css/order.css">
 </head>
 <body>
 <div class="seller-header">
-            <span class="layui-breadcrumb">
-              <a href="javascript:;">你当前所在的位置</a>
-              <a href="javascript:;">订单管理</a>
-              <a><cite>待接受订单</cite></a>
-            </span>
+    <span class="layui-breadcrumb">
+      <a href="javascript:;">你当前所在的位置</a>
+      <a href="javascript:;">订单管理</a>
+      <a><cite>待接受订单</cite></a>
+    </span>
 </div>
-<div class="main ">
-    <div class="back-order-operate layui-row layui-form">
-        <div class="buyer-input  layui-col-lg2 layui-col-md6 layui-col-sm6 layui-col-xs12">
-            <label for="buyer">订单编号</label>
-            <input type="text" class=" layui-input-inline" id="buyer">
-        </div>
-        <div class="seller-input layui-col-lg2 layui-col-md6 layui-col-sm6 layui-col-xs12">
-            <label for="seller">商品名称</label>
-            <input type="text" class="layui-input-inline" id="seller">
-        </div>
-        <div class="release-date layui-col-lg4 layui-col-md6 layui-col-sm7 layui-col-xs12">
-            <span>发布日期</span>
-            <input type="text" id="releaseStartDate" class="dateInput">
-            <span>-</span>
-            <input type="text" id="releaseEndDate" class="dateInput">
-        </div>
-        <div class="button-list layui-col-lg4 layui-col-md6 layui-col-sm5 layui-col-xs12">
-            <button class="layui-btn search-btn">
+<div class="main order-tobe-accepted">
+  <form class="layui-form">
+    <div class="back-order-operate layui-row layui-form pi-FormFilter">
+      <div class="pi-FilterSubmit">
+        <div class="button-list" style="text-align: right;">
+            <button class="layui-btn search-btn" lay-submit lay-filter="*" style="width: 70px; height: 26px; padding: 0; font-size: 12px; background-color: #438bfd; line-height: 26px;">
                 <i class="layui-icon iconfont">&#xe620;</i>查询
             </button>
-            <button class="layui-btn delete-btn">
-                <i class="layui-icon iconfont">&#xe626;</i>删除
-            </button>
-            <button class="layui-btn export-btn">
-                <i class="layui-icon iconfont">&#xe638;</i>导出
+            <button type="reset" class="layui-btn delete-btn">
+                <i class="layui-icon iconfont">&#xe626;</i>清空
             </button>
         </div>
+      </div>
+      <div class="pi-FilterItem">
+        <div class="layui-form-item">
+          <div class="layui-inline">
+            <label class="layui-form-label">订单编号</label>
+            <div class="layui-input-inline" style="width: 200px;">
+              <input type="text" name="orderItemNo" autocomplete="off" class="layui-input" placeholder="请输入订单编号">
+            </div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">商品名称</label>
+            <div class="layui-input-inline" style="width: 200px;">
+              <input type="text" name="productName" autocomplete="off" class="layui-input" placeholder="请输入商品名称">
+            </div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">订单日期</label>
+            <div class="layui-input-inline" style="width: 100px;">
+              <input type="text" name="payTimeStart" id="releaseStartDate" autocomplete="off" class="layui-input" placeholder="开始日期">
+            </div>
+            <div class="layui-form-mid">-</div>
+            <div class="layui-input-inline" style="width: 100px;">
+              <input type="text" name="payTimeEnd" id="releaseEndDate" autocomplete="off" class="layui-input" placeholder="结束日期">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="back-order-list">
-        <table>
-            <thead>
-            <tr>
-                <th class="buyer-order-date">买家订单日期</th>
-                <th class="buyer-order-number">买家订单编号</th>
-                <th class="customer-name">客户名称</th>
-                <th class="receive-address">收货地址</th>
-                <th class="receive-remarks">买家备注</th>
-                <th class="product-number">数量</th>
-                <th class="product-money">金额</th>
-                <th class="product-shipping">运费</th>
-                <th class="product-total-money">结算金额</th>
-                <th class="product-operate">操作</th>
-            </tr>
-            </thead>
-            <tbody id="productToBeAccepted">
-            <tr style="height: 20px;"></tr>
-            <tr class="buyer-list-item">
-                <td class="buyer-order-date"> <span>2017-03-20</span> <span>12:00</span> </td>
-                <td class="buyer-order-number">D1707310637612364568</td>
-                <td class="customer-name"><p>广东深圳运营中心</p></td>
-                <td class="receive-address">广东省深圳市政府对面</td>
-                <td class="receive-remarks"><p>请尽快发货</p></td>
-                <td class="product-number">100</td>
-                <td class="product-money">10000</td>
-                <td class="product-shipping">120</td>
-                <td class="product-total-money">20000</td>
-                <td class="product-operate"> <button class="call-buyer-btn">联系买家</button> <input type="checkbox"> </td>
-            </tr>
-            <tr class="buyer-list-item">
-                <td class="buyer-order-date"> <span>2017-03-20</span> <span>12:00</span> </td>
-                <td class="buyer-order-number">D1707310637612364568</td>
-                <td class="customer-name"><p>广东深圳运营中心</p></td>
-                <td class="receive-address">广东省深圳市政府对面</td>
-                <td class="receive-remarks"><p>请尽快发货</p></td>
-                <td class="product-number">100</td>
-                <td class="product-money">10000</td>
-                <td class="product-shipping">120</td>
-                <td class="product-total-money">20000</td>
-                <td class="product-operate"> <button class="call-buyer-btn">联系买家</button> <input type="checkbox"> </td>
-            </tr>
-            <tr class="order-all-info">
-                <td><span>订单日期</span><span>2017-02-13</span><span>12:00</span></td>
-                <td><span>订单编号:</span><span>S170130183869</span></td>
-                <td><span>货号:</span><span>SZ001.10</span></td>
-                <td><span>单位:</span><span>件</span></td>
-                <td colspan="3"><span>规格型号:</span><span>颜色:红|尺寸:S</span></td>
-                <td colspan="3" class="tal"><span>单价:</span><span>1500</span></td>
-            </tr>
-            <tr class="product-info">
-                <td>
-                    <img src="./build/images/p1.png" alt="">
-                </td>
-                <td class="product-all-info" colspan="8">
-                    <p class="product-dec">新款格纹头层牛皮女包韩版双铆钉双肩包女真皮背包一件代发学院风</p>
-                    <p class="product-able-sale"><span>可售数量:</span><span>1000</span></p>
-                    <p class="product-shipping-type"><span>配送方式:</span>买家承担运费，运费到付，运费模板(顺丰10|满10件包邮)</span></p>
-                </td>
-                <td class="product-operate">
-                    <div class="chose-all">全选 <input type="checkbox"></div>
-                    <div> <button class="accept-order">接单</button></div>
-                    <div> <button class="refuse-order">拒单</button></div>
-                </td>
-            </tr>
-            <tr class="product-settlement">
-                <td colspan="4"></td>
-                <td>合计:</td>
-                <td class="product-number">200</td>
-                <td class="product-money">2000</td>
-                <td class="product-shipping">250.00</td>
-                <td class="product-total-money">250000.00</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
+  </form>
+  <div class="pi-OrderList">
+    <table class="pi-TableHead">
+      <thead>
+        <tr>
+          <th class="cloumn-1 pi-FirstColumn">订单日期</th>
+          <th class="cloumn-2">订单编号</th>
+          <th class="cloumn-3">客户名称</th>
+          <th class="cloumn-4">收货地址</th>
+          <th class="cloumn-5">买家备注</th>
+          <th class="cloumn-6">数量</th>
+          <th class="cloumn-7">金额</th>
+          <th class="cloumn-8">运费</th>
+          <th class="cloumn-9">结算金额</th>
+          <th class="cloumn-10">操作</th>
+        </tr>
+      </thead>
+    </table>
+    <div id="productToBeAccepted"></div>
+    <div id="pageBox" style="text-align: right;"></div>
+  </div>
 </div>
 
-
-
+<div id="inputExpressBox" style="display: none; padding: 40px 50px 0 0;"></div>
+<div id="refuseOrderBox" style="display: none; padding: 40px 50px 0 0;"></div>
 
 <script src="./plugins/layui/layui.js"></script>
-<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-<script type="text/html" id="generalData">
-    {{# layui.each(d,function(index,item){ }}
-    <div class="order-area layui-col-xs4 layui-col-sm4 layui-col-md4">
-        <div class="order-bgf">
-            <span class="order-type">{{ item.orderType }}</span>
-            <span class="order-number">{{ item.orderNumber }}</span>
-            <span class="order-unit">{{ item.orderUnit }}</span>
-        </div>
-    </div>
-    {{# }) }}
-</script>
-<script type="text/html" id="orderList">
-    {{# layui.each(d,function(index, item){ }}
-    <tr>
-        <td class="products-bill-date">{{ item.billDate }}</td>
-        <td class="produts-bill-number">{{ item.billNumber }}</td>
-        <td class="products-name">{{ item.name }}</td>
-        <td class="products-buyer-name">{{ item.buyerName }}</td>
-        <td class="products-seller-name">{{ item.sellerName }}</td>
-        <td class="products-specifications">{{ item.specifications }}</td>
-        <td class="products-unit">{{ item.unit }}</td>
-        <td class="products-number">{{ item.number }}</td>
-        <td class="products-sale-money">{{ item.saleMoney }}</td>
-        <td class="products-receive-date">{{ item.receiveDate }}</td>
-    </tr>
-    {{# }) }}
-</script>
+<script src="./build/js/wolianwComponent/config.js"></script>
 
-<script type="text/html" id="productDetailInfo">
-    <div class="popup-content">
-
-        <table>
-            <thead>
-            <tr>
-                <th>订单详情</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>买家订单日期</td>
-                <td>20170-07-08 <span>12:00</span></td>
-                <td>买家订单编号</td>
-                <td><span>D1349675266974526</span></td>
-            </tr>
-            <tr>
-                <td>订单日期</td>
-                <td>20170-07-08 <span>12:00</span></td>
-                <td>订单编号</td>
-                <td><span>S441689856655746</span></td>
-            </tr>
-            <tr>
-                <td>交易状态</td>
-                <td>已完成</td>
-                <td>订单状态</td>
-                <td>已关闭</td>
-            </tr>
-            <tr>
-                <td>预计发货日期</td>
-                <td>20170-07-08</td>
-                <td>买家备注</td>
-                <td><p class="buyer-remark">速度发货，快递使用顺丰</p></td>
-            </tr>
-            </tbody>
-        </table>
-
-    </div>
-    <div class="popup-tab">
-        <div class="layui-tab layui-tab-brief">
-            <ul class="layui-tab-title">
-                <li class="layui-this">商品信息</li>
-                <li>客户信息</li>
-                <li>订单操作信息</li>
-                <li>评价信息</li>
-            </ul>
-            <div class="layui-tab-content" style="height: 230px;">
-                <div class="layui-tab-item product-message layui-show">
-                    <div class="product-image">
-                        <img src="./build/images/p1.png" alt="">
-                    </div>
-                    <div class="product-data">
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td>货号: <span>D64297856</span></td>
-                                <td>商品名称: 牛乳饼干</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">规格型号:  <span>包装规格(一个饼干)</span></td>
-                            </tr>
-                            <tr>
-                                <td>数量:  <span>1</span></td>
-                                <td>单位: <span>个</span></td>
-                            </tr>
-                            <tr>
-                                <td>运费:  <span class="product-data-shipping">120.00</span></td>
-                                <td>单价:  <span class="product-data-unitprice">80.00</span></td>
-                            </tr>
-                            <tr>
-                                <td>金额: <span class="product-data-money">650</span></td>
-                                <td>结算金额:  <span class="product-data-total-money">96540</span></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="layui-tab-item customer-info">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>买家姓名</td>
-                            <td>我连网公司</td>
-                            <td>省</td>
-                            <td>广东</td>
-                        </tr>
-                        <tr>
-                            <td>市</td>
-                            <td>深圳</td>
-                            <td>区/县</td>
-                            <td>南山区</td>
-                        </tr>
-                        <tr>
-                            <td>收货人</td>
-                            <td>XXX</td>
-                            <td>电话</td>
-                            <td>12345678910</td>
-                        </tr>
-                        <tr>
-                            <td>收货地址</td>
-                            <td><p class="receive-address">广东省深圳市南山区高新园泰邦科技大厦14楼</p></td>
-                            <td>快递公司</td>
-                            <td>顺丰快递</td>
-                        </tr>
-                        <tr>
-                            <td>快递单号</td>
-                            <td>D45643486734211</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="layui-tab-item order-operate-info">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>接单人</td>
-                            <td>XXX</td>
-                            <td>接单日期</td>
-                            <td>2017-03-05</td>
-                        </tr>
-                        <tr>
-                            <td>发货人</td>
-                            <td>XXX</td>
-                            <td>发货日期</td>
-                            <td>2017-06-07</td>
-                        </tr>
-                        <tr>
-                            <td>收货人</td>
-                            <td>XXX</td>
-                            <td>收货日期</td>
-                            <td>2017-09-05</td>
-                        </tr>
-                        <tr>
-                            <td>拒单人</td>
-                            <td>XXX</td>
-                            <td>拒单日期</td>
-                            <td>2017-03-06</td>
-                        </tr>
-                        <tr>
-                            <td>拒单原因</td>
-                            <td colspan="3">拒单人很任性不想做这一单生意就拒单了</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="layui-tab-item evaluate-info">
-                    <div class="evaluate-info-left">
-                        <div><span>评分</span><input type="text"></div>
-                        <div><span>评价人</span><input type="text"></div>
-                        <div><span>评价时间</span><input type="text"></div>
-                    </div>
-                    <div class="evaluate-info-right">
-                        <span>评价内容</span>
-                        <textarea name="" id="" cols="26" rows="8"></textarea>
-                    </div>
-                    <input type="button" value="评价回复" class="reply-evaluate">
-                </div>
+<!-- 数据表格 -->
+<script type="text/html" id="productToBeAcceptedTemplate">
+  {{# layui.each(d, function(index, item){  }}
+  {{# console.log(item)  }}
+  <form class="layui-form">
+    <table class="pi-TableLine">
+      {{# layui.each(item.orderItemList, function(i, ele){  }}
+      <tr>
+        <td class="cloumn-1 pi-FirstColumn">{{transDateType(ele.createTime)}}</td>
+        <td class="cloumn-2"><div class="pi-LinkColor orderDetailHtml" data-id="{{ele.orderItemNo}}">{{ele.orderItemNo}}</div></td>
+        <td class="cloumn-3"><p>{{ele.contact || ''}}</p></td>
+        <td class="cloumn-4">{{ele.detailAddress || ''}}</td>
+        <td class="cloumn-5"><p>{{ele.remark || ''}}</p></td>
+        <td class="cloumn-6 number">{{ele.number}}</td>
+        <td class="cloumn-7 vendorPrice">{{=layui.woLianw.thousandBit(ele.vendorPrice)}}</td>
+        <td class="cloumn-8 freight">{{=layui.woLianw.thousandBit(ele.freight)}}</td>
+        <td class="cloumn-9 vendorTotalPrice">{{=layui.woLianw.thousandBit(ele.vendorTotalPrice)}}</td>
+        <td class="cloumn-10">
+          <div class="both-align">
+            <div class="align-left">
+              <button type="button" class="layui-btn pi-TableButton pi-TableButtonWhite contactBuyer" data-id="{{ele.buyerId}}">联系买家</button>
             </div>
-        </div>
-    </div>
-    <div class="popup-footer">
-        <input type="button" class="popup-return-btn" value="返回列表">
-    </div>
+            <div class="align-right">
+              <input type="checkbox" name="{{ele.id}}" value="{{ele.id}}" title="" lay-skin="primary" lay-filter="checksingle">
+            </div>
+          </div>
+        </td>
+      </tr>
+      {{# })  }}
+    </table>
+    <table class="pi-TableBody">
+      <tr>
+        <td class="cloumn-123 pi-FirstColumn" colspan="3">
+          <div class="pi-ImageWarp">
+            <div class="pi-ImageBox"><img src="{{=layui.woLianw.getImgUrl(item.productImageUrl)}}" alt=""></div>
+            <div class="pi-TextBox">
+              <p class="productName pi-LinkColor"><a href="/productDetail.html?productId={{item.id}}" target="_blank">{{item.productName}}</a></p>
+              <table>
+                <tr>
+                  <td class="freightWarp">
+                    <ul class="freight">
+                      <li>配送方式：<span>{{item.freightTypeName || ''}}</span></li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+        <td class="cloumn-4">
+          <ul class="otherInfo">
+            <li>货号：<span>{{item.skuNo || ''}}</span></li>
+            <li>单价：<span>{{=layui.woLianw.thousandBit(item.vendorPrice) || ''}}</span></li>
+            <li>单位：<span>{{item.unit || ''}}</span></li>
+          </ul>
+        </td>
+        <td class="cloumn-5">
+          <ul class="otherInfo">
+            <li>可售数量：<span>{{item.saleAmount || ''}}</span></li>
+            <li>规格型号：<span>{{item.skuDesc || ''}}</span></li>
+            <li style="color: #fff;">.</li>
+          </ul>
+        </td>
+        <td class="cloumn-6"><div class="heji">合计:</div><span class="totalNumber">{{item.totalNumber}}</span></td>
+        <td class="cloumn-7"><span class="totalPrice">{{=layui.woLianw.thousandBit(item.totalPrice)}}</span></td>
+        <td class="cloumn-8"><span class="totalFreight">{{=layui.woLianw.thousandBit(item.totalFreight)}}</span></td>
+        <td class="cloumn-9"><span class="totalVendorTotalPrice">{{=layui.woLianw.thousandBit(item.totalVendorTotalPrice)}}</span></td>
+        <td class="cloumn-10 cloumn-action chose-all">
+          <input type="checkbox" title="全选" lay-skin="primary" lay-filter="checkall">
+          <ul class="buttonGroup">
+            <li>
+              <button class="layui-btn pi-TableButton pi-TableButtonGreen" lay-submit lay-filter="accept">接单</button>
+            </li>
+            <li>
+              <button class="layui-btn pi-TableButton pi-TableButtonRed" lay-submit lay-filter="refuse">拒单</button>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </form>
+  {{# })  }}
 </script>
 
+<!-- 填写预计发货日期 -->
+<script type="text/html" id="inputExpressTemplate">
+  <form class="layui-form">
+    <input type="hidden" name="orderItemIds" value="{{d.ids}}">
+    <div class="layui-form-item">
+      <label class="layui-form-label">发货日期：</label>
+      <div class="layui-input-block">
+        <input type="text" id="sendGoodsDate" class="dateInput" name="sendGoodsDate" lay-verify="required" style="width: 200px; -ms-background-position-x: 180px; background-position-x: 180px;">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn pi-TableButton pi-TableButtonBlue" lay-submit lay-filter="deliverGoods">接单</button>
+        <button type="reset" lay-submit lay-filter="deliverGoodsCancle" class="layui-btn pi-TableButton pi-TableButtonGray">取消</button>
+      </div>
+    </div>
+  </form>
+</script>
+
+<!-- 填写拒单原因 -->
+<script type="text/html" id="refuseOrderTemplate">
+  <form class="layui-form">
+    <input type="hidden" name="orderItemIds" value="{{d.ids}}">
+    <div class="layui-form-item layui-form-text">
+      <label class="layui-form-label">拒单原因</label>
+      <div class="layui-input-block">
+        <textarea placeholder="请输入内容" class="layui-textarea" name="rejectReason"></textarea>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn pi-TableButton pi-TableButtonBlue" lay-submit lay-filter="refuseOrder">保存</button>
+        <button type="reset" lay-submit lay-filter="refuseOrderCancle" class="layui-btn pi-TableButton pi-TableButtonGray">取消</button>
+      </div>
+    </div>
+  </form>
+</script>
 
 <script>
-    layui.use(['element','form','laydate','laytpl','jquery','layer'],function () {
-        var element=layui.element
-        var form=layui.form
-        var laydate=layui.laydate
-        var laytpl=layui.laytpl
-        var $=layui.$
-        var layer=layui.layer
+    function transDateType (date) {
+      if (date === null) {
+        return '';
+      }
+        var date=new Date(date)
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        var h = date.getHours();
+        var minute = date.getMinutes();
+        minute = minute < 10 ? ('0' + minute) : minute;
+        return y + '-' + m + '-' + d+' '+h+':'+minute;
+    }
 
+    layui.use(['element','form','laydate','laytpl','jquery','layer','laypage', 'woLianw'],function () {
+        var element=layui.element;
+        var form=layui.form;
+        var laydate=layui.laydate;
+        var laytpl=layui.laytpl;
+        var $=layui.$;
+        var layer=layui.layer;
+        var laypage = layui.laypage;
+        var woLianw = layui.woLianw;
+
+
+
+        /* 页面数据 */
+        var filterData = {
+            page: 1,
+            limit: 15,
+        };
+
+        /* 更新当前页 */
+        if (location.hash) {
+            var hashreg = new RegExp(/#!page=/);
+            if (hashreg.test(location.hash)) {
+                filterData.page = location.hash.replace(hashreg, '');
+            }
+        }
+
+
+
+        /* 日期控件 */
         laydate.render({
             elem:"#releaseStartDate"
-        })
+        });
         laydate.render({
             elem:"#releaseEndDate"
-        })
+        });
 
-        $(".back-order-list").on("click",".refuse-order",function(){
-            layer.prompt({title: '填写拒单原因', formType: 2}, function(pass, index){
-                layer.close(index);
-                layer.msg('演示完毕！您的口令：'+ pass +'<br>您最后写下了：'+text);
+
+
+        /* 模板渲染 - 表格 */
+        function renderTableTemplate(data, templateId, targetId) {
+            renderPage(data.total);
+            var template = document.getElementById(templateId).innerHTML;
+            var target = document.getElementById(targetId);
+            laytpl(template).render(data.list,function (html) {
+                target.innerHTML = html;
+                form.render('checkbox');
+            })
+        }
+
+        /* 模板渲染 - 分页 */
+        function renderPage(total) {
+            laypage.render({
+                elem: 'pageBox',
+                layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+                limits: [15, 25, 35],
+                count: total,
+                limit: filterData.limit,
+                curr: filterData.page,
+                hash: 'page', //自定义hash值
+                jump: function(obj, first){
+                    filterData.page = obj.curr;
+                    filterData.limit = obj.limit;
+                    //首次不执行
+                    if (!first) {
+                        woLianw.ajaxOrderAccept(filterData, renderTableTemplate, 'productToBeAcceptedTemplate', 'productToBeAccepted');
+                    }
+                },
+            });
+        }
+
+        /* 模板渲染 - 详情 */
+
+
+        /* 监听表单提交 - 查询 */
+        form.on('submit(*)', function(data){
+            console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+            console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            
+            for (var key in data.field) { filterData[key] = data.field[key]; }
+
+            woLianw.ajaxOrderAccept(filterData, renderTableTemplate, 'productToBeAcceptedTemplate', 'productToBeAccepted');
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        /* 监听表单提交 - 接单 */
+        form.on('submit(accept)', function(data){
+            // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+            // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            
+            var inputExpressData = {
+              expressCompany: '',
+              expressNo: '',
+              ids: [],
+            };
+
+            for (var key in data.field) {
+              inputExpressData.ids.push(data.field[key]);
+            }
+
+            if (inputExpressData.ids.length < 1) {
+              layer.open({
+                type: 0, 
+                title: false,
+                anim: 6,
+                icon: 5,
+                closeBtn: 0,
+                btn: false,
+                time: 1000,
+                content: '请勾选要接单的订单',
+              });
+              return false;
+            }
+
+            var template = document.getElementById('inputExpressTemplate').innerHTML;
+            var target = document.getElementById('inputExpressBox');
+            laytpl(template).render(inputExpressData, function (html) {
+                target.innerHTML = html;
+            })
+
+            /* 日期控件 */
+            laydate.render({
+                elem:"#sendGoodsDate",
+                min: 0,
+            });
+
+            layerID = layer.open({
+                type: 1,
+                area: ['360px', '200px'],
+                title:"填写预计发货日期",
+                content: $('#inputExpressBox'),
+                btnAlign: 'c',
+            });
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        /* 监听表单提交 - 接单 */
+        form.on('submit(deliverGoods)', function(data){
+            // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+            // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            
+            /*  待接受订单 - 接单 */
+            woLianw.ajaxSellOrderVenAcceptOrders(
+              data.field,
+              function() {
+                layer.open({
+                  type: 0, 
+                  title: false,
+                  icon: 1,
+                  closeBtn: 0,
+                  btn: false,
+                  time: 1000,
+                  content: '接单成功',
+                });
+
+                /* 发送请求 */
+                woLianw.ajaxOrderAccept(filterData, renderTableTemplate, 'productToBeAcceptedTemplate', 'productToBeAccepted');
+              },
+              function(err) {
+                layer.open({
+                  type: 0, 
+                  title: false,
+                  anim: 6,
+                  icon: 5,
+                  closeBtn: 0,
+                  btn: false,
+                  time: 1000,
+                  content: err.msg,
+                });
+              }
+            );
+            
+            layer.close(layerID);
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        /* 监听表单提交 - 取消接单 */
+        form.on('submit(deliverGoodsCancle)', function(data){
+            layer.close(layerID);
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        /* 监听表单提交 - 拒单 */
+        form.on('submit(refuse)', function(data){
+            // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+            // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            
+            var refuseOrderData = {
+              rejectReason: '',
+              ids: [],
+            };
+
+            for (var key in data.field) {
+              refuseOrderData.ids.push(data.field[key]);
+            }
+
+            if (refuseOrderData.ids.length < 1) {
+              layer.open({
+                type: 0, 
+                title: false,
+                anim: 6,
+                icon: 5,
+                closeBtn: 0,
+                btn: false,
+                time: 1000,
+                content: '请勾选要接单的订单',
+              });
+              return false;
+            }
+
+            var template = document.getElementById('refuseOrderTemplate').innerHTML;
+            var target = document.getElementById('refuseOrderBox');
+            laytpl(template).render(refuseOrderData, function (html) {
+                target.innerHTML = html;
+            });
+
+            layerID = layer.open({
+                type: 1,
+                area: ['500px', '260px'],
+                title:"填写拒单原因",
+                content: $('#refuseOrderBox'),
+                btnAlign: 'c',
+            });
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        /* 监听表单提交 - 拒单 */
+        form.on('submit(refuseOrder)', function(data){
+            // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+            // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            
+            /*  待接受订单 - 接单 */
+            woLianw.ajaxSellOrderVenRefuseOrders(data.field, function() {
+              layer.open({
+                type: 0, 
+                title: false,
+                icon: 1,
+                closeBtn: 0,
+                btn: false,
+                time: 1000,
+                content: '拒单成功',
+              });
+              /* 发送请求 */
+              woLianw.ajaxOrderAccept(filterData, renderTableTemplate, 'productToBeAcceptedTemplate', 'productToBeAccepted');
+            });
+            
+            layer.close(layerID);
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        /* 监听表单提交 - 取消拒单 */
+        form.on('submit(refuseOrderCancle)', function(data){
+            layer.close(layerID);
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+        
+        /* 监听复选框 - 全选 */
+        form.on('checkbox(checkall)', function(data){
+            // console.log(data.elem.form); //得到checkbox原始DOM对象
+            // console.log(data.elem.checked); //是否被选中，true或者false
+            // console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+            // console.log(data.othis); //得到美化后的DOM对象
+
+            $(data.elem.form).find('[name]').each(function(index, item){
+              item.checked = data.elem.checked;
+            });
+
+            $(data.elem.form).find('.layui-form-checkbox').each(function(index, item){
+                if (data.elem.checked) {
+                    $(item).addClass('layui-form-checked');
+                } else {
+                    $(item).removeClass('layui-form-checked');
+                }
+            });
+            
+            totalCount(data.elem.form);
+        });
+        
+        /* 监听复选框 - 单选 */
+        form.on('checkbox(checksingle)', function(data){
+            // console.log(data.elem); //得到checkbox原始DOM对象
+            // console.log(data.elem.checked); //是否被选中，true或者false
+            // console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+            // console.log(data.othis); //得到美化后的DOM对象
+            var allChecked = true;
+
+            $(data.elem.form).find('[lay-filter="checksingle"]').each(function(index, item){
+                if (item.checked === false) { allChecked = false; }
+            });
+
+            if (allChecked) {
+                $(data.elem.form).find('[lay-filter="checkall"]')[0].checked = true;
+                $(data.elem.form).find('.chose-all .layui-form-checkbox').addClass('layui-form-checked');
+            } else {
+                $(data.elem.form).find('[lay-filter="checkall"]')[0].checked = false;
+                $(data.elem.form).find('.chose-all .layui-form-checkbox').removeClass('layui-form-checked');
+            }
+
+            totalCount(data.elem.form);
+        });
+
+        function totalCount(obj) {
+          var totalNumber = 0;
+          var totalPrice = 0;
+          var totalFreight = 0;
+          var totalVendorTotalPrice = 0;
+
+          $(obj).find('.pi-TableLine tr').each(function(index, item){
+            if ($(item).find('[lay-filter="checksingle"]')[0].checked === true) {
+              totalNumber += parseFloat($(item).find('td.number').text());
+              totalPrice += parseFloat($(item).find('td.vendorPrice').text());
+              totalFreight += parseFloat($(item).find('td.freight').text());
+              totalVendorTotalPrice += parseFloat($(item).find('td.vendorTotalPrice').text());
+            }
+          });
+
+          $(obj).find('.totalNumber').text(totalNumber);
+          $(obj).find('.totalPrice').text(woLianw.thousandBit(totalPrice.toFixed(2)));
+          $(obj).find('.totalFreight').text(woLianw.thousandBit(totalFreight.toFixed(2)));
+          $(obj).find('.totalVendorTotalPrice').text(woLianw.thousandBit(totalVendorTotalPrice.toFixed(2)));
+        }
+
+        /* 事件 - 订单详情 */
+        $(document).on("click", ".orderDetailHtml", function (event) {
+            layer.open({
+                type: 2,
+                content: [layui.woLianw.iframe + 'orderDetail.html?id=' + $(this).data('id'), 'no'],
+                area: ['715px', '710px'], //宽高
+                title:"订单详情"
             });
         })
 
-        /*var getGeneralOrder=function () {
-            $.getJSON('./datas/order/general-order.json',function (generalOrderData) {
-                var getTpl=generalData.innerHTML
-                var generalOrderHtml=document.getElementById("generalOrder")
-                laytpl(getTpl).render(generalOrderData,function (html) {
-                    generalOrderHtml.innerHTML=html
-                })
-            })
-        }
-        getGeneralOrder()*/
-        $(".back-order-list").on("click",".buyer-list-item",function (event) {
-            var getTpl=productDetailInfo.innerHTML
-            laytpl(getTpl).render([],function (html) {
-                layer.open({
-                    type: 1,
-                    skin: 'layui-layer-rim', //加上边框
-                    area: ['715px', '710px'], //宽高
-                    content: html,
-                    title:"订单详情"
-                });
-            })
+        /* 事件 - 联系买家 */
+        $(document).on("click", ".contactBuyer", function (event) {
+          var wi = window.open('about:blank', '_blank');
+          var params = {
+            id: $(this).data('id'),
+          };
+          woLianw.ajaxChatSupplyChatWithCust(params, function(data) {
+            wi.location.href = data;
+          });
+        });
 
-        })
-        $(".back-order-list").on("click",".call-buyer-btn",function(event){
-            event.stopPropagation()
-
-
-        })
-
-
-
+        /* 发送请求 */
+        woLianw.ajaxOrderAccept(filterData, renderTableTemplate, 'productToBeAcceptedTemplate', 'productToBeAccepted');
 
     })
 </script>

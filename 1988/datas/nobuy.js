@@ -20,32 +20,12 @@ layui.use(['element', 'jquery'], function(){
 	        addArea(result);
 	  	}
 	  });
-	  
-	  function addProvince_city(result){
-			var a=result;
-			var provinces="";
-			var citys="";
-			for(var i=0; lem=a.length, i<lem; i++) {
-		  	  if(a[i].Parent_Did==0 || a[i].Parent_Did=="0"){
-		  	  	provinces+='<div class="line-list"><input type="checkbox" name="province" id="'+a[i].Did+'" value="'+a[i].Name+'"/><label ischecked labId="'+a[i].Did+'">'+a[i].Name+'</label></div>';
-		  	  }else if(a[i].Parent_Did!=0 && a[i].Parent_Did!="0"){
-		  	  	citys+='<div class="line-list layui-hide"><input type="checkbox" name="city" parentId="'+a[i].Parent_Did+'" id="'+a[i].Did+'" value="'+a[i].Name+'"/><label ischecked labId="'+a[i].Did+'">'+a[i].Name+'</label></div>';
-		  	  }
-		  	}
-			$("#province").append(provinces);
-			$("#city").append(citys);
-		};
 	
-		function addArea(result){
-			var b=result;
-			var area="";
-			for(var n=0; len=b.length, n<len; n++){
-		  	  area+='<div class="line-list layui-hide"><input type="checkbox" name="area" parentId="'+b[n].Parent_Did+'" id="'+b[n].Did+'" value="'+b[n].Name+'"/><label ischecked labId="'+b[n].Did+'">'+b[n].Name+'</label></div>';
-		  	}
-			$("#area").append(area);
-		};
-	
-	
+  	  
+  	  
+  	  
+  	  
+  	  
   	  //省份选择
   	  $("#province").on("change", "input" ,function(){
   	  	var $cityInputs=$("#city input[parentId="+this.id+"]");
@@ -411,7 +391,29 @@ layui.use(['element', 'jquery'], function(){
   	  	}
   	  });
   	  
-  
+  	function addProvince_city(result){
+		var a=result;
+		var provinces="";
+		var citys="";
+		for(var i=0; i<a.length; i++) {
+	  	  if(a[i].Parent_Did==0 || a[i].Parent_Did=="0"){
+	  	  	provinces+='<div class="line-list"><input type="checkbox" name="province" id="'+a[i].Did+'" value="'+a[i].Name+'"/><label ischecked labId="'+a[i].Did+'">'+a[i].Name+'</label></div>';
+	  	  }else if(a[i].Parent_Did!=0 && a[i].Parent_Did!="0"){
+	  	  	citys+='<div class="line-list layui-hide"><input type="checkbox" name="city" parentId="'+a[i].Parent_Did+'" id="'+a[i].Did+'" value="'+a[i].Name+'"/><label ischecked labId="'+a[i].Did+'">'+a[i].Name+'</label></div>';
+	  	  }
+	  	}
+		$("#province").append(provinces);
+		$("#city").append(citys);
+	};
+	
+	function addArea(result){
+		var b=result;
+		var area="";
+		for(var n=0;n<b.length;n++){
+	  	  area+='<div class="line-list layui-hide"><input type="checkbox" name="area" parentId="'+b[n].Parent_Did+'" id="'+b[n].Did+'" value="'+b[n].Name+'"/><label ischecked labId="'+b[n].Did+'">'+b[n].Name+'</label></div>';
+	  	}
+		$("#area").append(area);
+	};
   	  
   	  //清除城市和区域全选和标题
   	  function clear_city_area(){
