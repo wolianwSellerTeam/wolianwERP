@@ -56,6 +56,7 @@
 			this.$imageUlLis = this.$imageUl.find("li");
 			this.$imageUlLis.css({
 				"float" : "left",
+				"text-align" : "center",
 				"width" : this.$width + "px"
 			});
 			
@@ -102,11 +103,7 @@
 			var that = this; //保存this  以为事件调用函数里面的this 指向当前被绑定事件的dom对象
 			that.$dom.hover(function(){
 				clearInterval(that.$interval);
-//				that.$leftBtn.stop(true).animate({"left": 0}, 200);
-//				that.$rightBtn.stop(true).animate({"right": 0}, 200);
 			}, function(){
-//				that.$leftBtn.stop(true).animate({"left": "-30px"}, 200);
-//				that.$rightBtn.stop(true).animate({"right": "-30px"}, 200);
 				that._setTimer();
 			});
 			//把两个按钮（左that.$leftBtn，右that.$rightBtn） 放入数组 然后遍历这2个按钮 分别绑定悬停事件
